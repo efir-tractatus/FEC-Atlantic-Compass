@@ -1,5 +1,5 @@
-
-import React from "react";
+/* eslint-disable prettier/prettier */
+import React from 'react';
 
 class App extends React.Component {
   render() {
@@ -7,7 +7,7 @@ class App extends React.Component {
     return (
       <>
         <h1>
-          Hello {name}
+        Hello {name}
         </h1>
       </>
     );
