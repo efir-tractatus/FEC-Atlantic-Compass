@@ -1,13 +1,13 @@
 import React from "react";
 
-class RelatedItemsAndComparison extends React.Component {
-  render() {
-    return (
-        <h1>
-          Related Items and Comparison Component
-        </h1>
-    );
-  }
-}
+var RelatedItemsAndComparison = () => {
+  return (
+    <h1>
+      Related Items And Comparison Component
+    </h1>
+  );
+};
+
+RelatedItemsAndComparison.propTypes = {};
 
 export default RelatedItemsAndComparison;

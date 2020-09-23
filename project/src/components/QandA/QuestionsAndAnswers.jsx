@@ -1,13 +1,13 @@
 import React from "react";
 
-class QuestionsAndAnswers extends React.Component {
-  render() {
-    return (
-        <h1>
-          Questions And Answers Component
-        </h1>
-    );
-  }
-}
+var QuestionsAndAnswers = () => {
+  return (
+    <h1>
+      Questions And Answers Component
+    </h1>
+  );
+};
+
+QuestionsAndAnswers.propTypes = {};
 
 export default QuestionsAndAnswers;
