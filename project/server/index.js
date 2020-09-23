@@ -1,4 +1,4 @@
-import axios from 'axios';
+const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -11,7 +11,7 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 app.get('/catwalk', (req, res) => {
   return axios.get(`http://18.224.37.110/products/list`)
     .catch((err) => {
-      console.log(`There was an error: ${err}`)
+      console.log(`There was an error: ${err}`);
     })
 });
 
