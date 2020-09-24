@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/catwalk', (req, res) => {
-  return axios.get(`http://18.224.37.110/products/list`)
+  return axios.get(`http://18.224.37.110/products`)
     .catch((err) => {
       console.log(`There was an error: ${err}`);
     })
