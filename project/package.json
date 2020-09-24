@@ -8,38 +8,41 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "build-dev": "webpack -d --mode development",
-    "build-prod": "webpack -p --mode production",
-    "test": "jest"
+    "build-dev": "webpack -d --mode development -w",
+    "build-prod": "webpack -p --mode production -w",
+    "test": "jest",
+    "start": "nodemon ./server/index.js"
   },
   "dependencies": {
     "axios": "^0.20.0",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "moment": "^2.28.0",
+    "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "redux": "^4.0.5"
   },
   "devDependencies": {
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
-    "@babel/preset-react": "^7.10.4",
-    "babel-loader": "^8.1.0",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-jest": "^26.3.0",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.3.0",
     "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "jest": "^26.4.2",
-    "babel-jest": "^26.3.0",
-    "css-loader": "^4.3.0",
-    "sass-loader": "^10.0.2",
-    "node-sass": "^4.14.1",
-    "style-loader": "^1.2.1",
     "lodash-webpack-plugin": "^0.11.5",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
     "prettier": "^2.1.2",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-prettier": "^3.1.4"
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }
