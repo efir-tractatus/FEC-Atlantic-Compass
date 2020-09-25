@@ -1,9 +1,11 @@
 import React from "react";
 
-var QuestionsAndAnswers = () => {
+var QuestionsAndAnswers = (props) => {
   return (
     <h1>
-      Questions And Answers Component
+      <div>Questions And Answers Component</div>
+      <div>{props.productQuestions[0].question_body}</div>
+      <div>{props.primaryProduct.slogan}</div>
     </h1>
   );
 };
