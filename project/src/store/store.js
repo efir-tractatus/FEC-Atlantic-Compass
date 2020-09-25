@@ -21,7 +21,7 @@ function initializeStore(callback) {
         relatedProducts: data.relatedProducts,
         //tbd savedOutfits
         questionSearchbarInput: '',
-        productQuestions: data.primaryProductionQuestions.results,
+        productQuestions: data.primaryProductQuestions.results,
         questionsAmount: 2,
         sortingMethod: 'relevance',
         reviews: data.primaryProductReviews.results,
