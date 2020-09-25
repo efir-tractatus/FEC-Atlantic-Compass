@@ -14,9 +14,49 @@ app.get('/', (req, res) => {
 });
 
 app.get('/catwalk', (req, res) => {
-  return axios.get(`http://18.224.37.110/products`)
+  const params = [
+    axios.get(`http://18.224.37.110/products/1`),
+    axios.get(`http://18.224.37.110/products/1/styles`),
+    axios.get(`http://18.224.37.110/products/1/related`),
+    axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=10`),
+    axios.get(`http://18.224.37.110/reviews?product_id=1`),
+    axios.get(`http://18.224.37.110/reviews/meta?product_id=1`)
+  ];
+
+  let results = {};
+  return axios.all(params)
+    .then(axios.spread((primaryProduct, primaryProductStyles, primaryRelatedProducts, primaryProductionQuestions, primaryProductReviews, primaryProductReviewsNumbers) => {
+      results = {
+        'primaryProduct': primaryProduct.data,
+        'primaryProductStyles': primaryProductStyles.data,
+        'primaryRelatedProducts': primaryRelatedProducts.data,
+        'primaryProductionQuestions': primaryProductionQuestions.data,
+        'primaryProductReviews': primaryProductReviews.data,
+        'primaryProductReviewsNumbers': primaryProductReviewsNumbers.data
+      };
+
+      let secondRoundCalls = [];
+      for (let i = 0; i < primaryRelatedProducts.data.length; i++) {
+        secondRoundCalls.push(axios.get(`http://18.224.37.110/products/${primaryRelatedProducts.data[i]}`))
+        secondRoundCalls.push(axios.get(`http://18.224.37.110/reviews/meta?product_id=${primaryRelatedProducts.data[i]}`))
+      }
+      return axios.all(secondRoundCalls)
+    }))
+
+    .then(axios.spread((...args) => {
+      const relatedProductsArray = [];
+      let j = 0
+      for (let i = 0; i < args.length; i += 2) {
+        relatedProductsArray.push(args[i].data)
+        relatedProductsArray[j].ratings = args[i + 1].data.ratings
+        j++
+      }
+      results.relatedProducts = relatedProductsArray
+      res.send(results)
+    }))
+
     .catch((err) => {
-      console.log(`There was an error: ${err}`);
+      console.log(err)
     })
 });
 
