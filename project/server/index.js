@@ -25,19 +25,19 @@ app.get('/catwalk', (req, res) => {
 
   let results = {};
   return axios.all(params)
-    .then(axios.spread((primaryProduct, primaryProductStyles, primaryRelatedProducts, primaryProductionQuestions, primaryProductReviews, primaryProductReviewsNumbers) => {
+    .then(axios.spread((primaryProduct, primaryProductStyles, primaryRelatedProducts, primaryProductQuestions, primaryProductReviews, primaryProductReviewsNumbers) => {
       results = {
         'primaryProduct': primaryProduct.data,
         'primaryProductStyles': primaryProductStyles.data,
         'primaryRelatedProducts': primaryRelatedProducts.data,
-        'primaryProductionQuestions': primaryProductionQuestions.data,
+        'primaryProductQuestions': primaryProductQuestions.data,
         'primaryProductReviews': primaryProductReviews.data,
         'primaryProductReviewsNumbers': primaryProductReviewsNumbers.data
       };
 
       let secondRoundCalls = [];
       for (let i = 0; i < primaryRelatedProducts.data.length; i++) {
-        secondRoundCalls.push(axios.get(`http://18.224.37.110/products/${primaryRelatedProducts.data[i]}`))     //NEEDS TO ADD TO STYLES CALL
+        secondRoundCalls.push(axios.get(`http://18.224.37.110/products/${primaryRelatedProducts.data[i]}`))
         secondRoundCalls.push(axios.get(`http://18.224.37.110/reviews/meta?product_id=${primaryRelatedProducts.data[i]}`))
         secondRoundCalls.push(axios.get(`http://18.224.37.110/products/${primaryRelatedProducts.data[i]}/styles`))
       }
@@ -48,7 +48,7 @@ app.get('/catwalk', (req, res) => {
       const relatedProductsArray = [];
       let j = 0
       for (let i = 0; i < args.length; i += 3) {
-        relatedProductsArray.push(args[i].data)                                                                 //NEEDS TO ADD TO STYLES CALL
+        relatedProductsArray.push(args[i].data)
         relatedProductsArray[j].ratings = args[i + 1].data.ratings
         relatedProductsArray[j].photo = args[i + 2].data.results[0].photos[1]
         j++
