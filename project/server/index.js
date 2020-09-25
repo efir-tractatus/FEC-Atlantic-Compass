@@ -37,7 +37,7 @@ app.get('/catwalk', (req, res) => {
 
       let secondRoundCalls = [];
       for (let i = 0; i < primaryRelatedProducts.data.length; i++) {
-        secondRoundCalls.push(axios.get(`http://18.224.37.110/products/${primaryRelatedProducts.data[i]}`))
+        secondRoundCalls.push(axios.get(`http://18.224.37.110/products/${primaryRelatedProducts.data[i]}`))     //NEEDS TO ADD TO STYLES CALL
         secondRoundCalls.push(axios.get(`http://18.224.37.110/reviews/meta?product_id=${primaryRelatedProducts.data[i]}`))
       }
       return axios.all(secondRoundCalls)
@@ -47,7 +47,7 @@ app.get('/catwalk', (req, res) => {
       const relatedProductsArray = [];
       let j = 0
       for (let i = 0; i < args.length; i += 2) {
-        relatedProductsArray.push(args[i].data)
+        relatedProductsArray.push(args[i].data)                                                                 //NEEDS TO ADD TO STYLES CALL
         relatedProductsArray[j].ratings = args[i + 1].data.ratings
         j++
       }
