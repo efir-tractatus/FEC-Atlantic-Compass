@@ -8,28 +8,37 @@ var QuestionList = (props) => {
     for (let i = 0; i < numOfQuestions; i++) {
       questionsToDisplay.push(props.questionList[i])
     }
-    return (
-      <div className="question-list">
-        {questionsToDisplay.map((currQuestion) => {
-          return <QuestionListEntry question={currQuestion} key={currQuestion.question_id}/>
-        })
-        }
-        <div className="button-flex-container">
-          <button className="QandA-button-more-questions">MORE ANSWERED QUESTIONS</button>
+    if (numOfQuestions < props.questionList.length) {
+      return (
+        <div className="question-list">
+          {questionsToDisplay.map((currQuestion) => {
+            return <QuestionListEntry question={currQuestion} key={currQuestion.question_id}/>
+          })
+          }
+          <div className="button-flex-container">
+            <button className="QandA-button-more-questions">MORE ANSWERED QUESTIONS</button>
+            <button className="QandA-button-add-question">ADD A QUESTION +</button>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          {questionsToDisplay.map((currQuestion) => {
+            return <QuestionListEntry question={currQuestion} key={currQuestion.question_id}/>
+          })
+          }
           <button className="QandA-button-add-question">ADD A QUESTION +</button>
         </div>
-      </div>
-    );
+      );
+    }
   } else {
     return (
       <div>
-        {questionsToDisplay.map((currQuestion) => {
-          return <QuestionListEntry question={currQuestion} key={currQuestion.question_id}/>
-        })
-        }
-        <button className="QandA-button-add-question">ADD A QUESTION +</button>
-      </div>
-    );
+          <p>NO QUESTIONS YET...</p>
+          <button className="QandA-button-add-question">ADD A QUESTION +</button>
+        </div>
+    )
   }
 };
 
