@@ -11,13 +11,13 @@ var QuestionList = (props) => {
     if (numOfQuestions < props.questionList.length) {
       return (
         <div className="question-list">
-          {questionsToDisplay.map((currQuestion) => {
-            return <QuestionListEntry question={currQuestion} key={currQuestion.question_id}/>
-          })
-          }
+            {questionsToDisplay.map((currQuestion) => {
+              return <QuestionListEntry question={currQuestion} key={currQuestion.question_id}/>
+            })
+            }
           <div className="button-flex-container">
-            <button className="QandA-button-more-questions">MORE ANSWERED QUESTIONS</button>
-            <button className="QandA-button-add-question">ADD A QUESTION +</button>
+            <button className="QandA-button-more-questions"><p>MORE ANSWERED QUESTIONS</p></button>
+            <button className="QandA-button-add-question"><p>ADD A QUESTION </p><p className="button-plus">+</p></button>
           </div>
         </div>
       );
@@ -35,9 +35,9 @@ var QuestionList = (props) => {
   } else {
     return (
       <div>
-          <p>NO QUESTIONS YET...</p>
-          <button className="QandA-button-add-question">ADD A QUESTION +</button>
-        </div>
+        <p className="question-list-default">NO QUESTIONS YET...</p>
+        <button className="QandA-button-add-question">ADD A QUESTION +</button>
+      </div>
     )
   }
 };

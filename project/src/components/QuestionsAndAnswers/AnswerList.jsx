@@ -11,32 +11,30 @@ var AnswerList = (props) => {
 
     if (numOfAnswers < props.answers.length) {
       return (
-        <div>
-          <div>
-            {answersToDisplay.map((currAnswer) => {
-              return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
-            })
-            }
+        <div className="answer-list">
+          {answersToDisplay.map((currAnswer) => {
+            return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
+          })
+          }
+          <div className="answer-load-more Q-grid-container">
+          <a className="Q-col-2">Load More Answers</a>
           </div>
-          <a>Load More Answers</a>
         </div>
       );
     } else {
       return (
-        <div>
-          <div>
-            {answersToDisplay.map((currAnswer) => {
-              return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
-            })
-            }
-          </div>
+        <div className="answer-list">
+          {answersToDisplay.map((currAnswer) => {
+            return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
+          })
+          }
         </div>
       );
     }
   } else {
     return (
-      <div>
-        <div>No answers yet...</div>
+      <div className="answer-list-default Q-grid-container">
+        <p className="Q-col-2">No answers yet...</p>
       </div>
     );
   }
