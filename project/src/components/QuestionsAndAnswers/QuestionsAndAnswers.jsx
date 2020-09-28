@@ -1,11 +1,14 @@
 import React from "react";
+import QandASearchbar from "./QandASearchbar.jsx";
+import QuestionList from "./QuestionList.jsx";
 
 var QuestionsAndAnswers = (props) => {
   return (
-    <h1>
-      <div>Questions And Answers Component</div>
-      <div>{props.productQuestions[0].question_body}</div>
-    </h1>
+    <div className="QandA-widget">
+      <h4 className="QandA-primary-header">QUESTIONS & ANSWERS</h4>
+      <QandASearchbar />
+      <QuestionList questionList={props.productQuestions}/>
+    </div>
   );
 };
 
