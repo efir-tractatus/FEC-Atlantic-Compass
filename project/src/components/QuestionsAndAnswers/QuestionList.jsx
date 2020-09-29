@@ -36,7 +36,7 @@ var QuestionList = (props) => {
             setNumtoDisplay(numToDisplay + 2)}}><p>MORE ANSWERED QUESTIONS</p></button>
             <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}><p>ADD A QUESTION </p><p className="button-plus">+</p></button>
           </div>
-          {buildAddAnswerModal(isOpen, setIsOpen, props)}
+          {buildAddQuestionModal(isOpen, setIsOpen, props)}
         </div>
       );
     } else {
@@ -44,7 +44,7 @@ var QuestionList = (props) => {
         <div>
           {buildQuestionList(questionsToDisplay, props)}
           <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}>ADD A QUESTION +</button>
-          {buildAddAnswerModal(isOpen, setIsOpen, props)}
+          {buildAddQuestionModal(isOpen, setIsOpen, props)}
         </div>
       );
     }
@@ -53,7 +53,7 @@ var QuestionList = (props) => {
       <div>
         <p className="question-list-default">NO QUESTIONS YET...</p>
         <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}>ADD A QUESTION +</button>
-        {buildAddAnswerModal(isOpen, setIsOpen, props)}
+        {buildAddQuestionModal(isOpen, setIsOpen, props)}
       </div>
     )
   }
@@ -79,7 +79,7 @@ var buildQuestionList = (listOfQuestions, propList) => {
   })
 }
 
-var buildAddAnswerModal = (isOpen, setIsOpen, propList) => {
+var buildAddQuestionModal = (isOpen, setIsOpen, propList) => {
   return (
     <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
       <AddQuestionModal productName={propList.product.name} productId={propList.product.id}/>
