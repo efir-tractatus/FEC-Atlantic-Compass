@@ -7,7 +7,7 @@ var QuestionsAndAnswers = (props) => {
     <div className="QandA-widget">
       <h4 className="QandA-primary-header">QUESTIONS & ANSWERS</h4>
       <QandASearchbar />
-      <QuestionList questionList={props.productQuestions}/>
+      <QuestionList questionList={props.productQuestions} product={props.primaryProduct}/>
     </div>
   );
 };
