@@ -8,13 +8,14 @@ import changePrimaryProduct from '../actions/changePrimaryProduct.js';
 const mapDispatchToProps = (dispatch) => {
     return {
         populateQuestions: (productQuestions) => {
-            dispatch(changeProductQuestions(productQuestions))
+          dispatch(changeProductQuestions(productQuestions))
         },
     }
 }
 
 const mapStateToProps = (store) => ({
-    productQuestions: store.productQuestions,
+  productQuestions: store.productQuestions,
+  primaryProduct: store.primaryProduct
 })
 
 var QuestionsAndAnswersWidgetContainer = connect(
