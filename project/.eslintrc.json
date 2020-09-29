@@ -2,7 +2,8 @@
   "rules": {},
   "env": {
     "es6": true,
-    "browser": true
+    "browser": true,
+    "quotes": [2, "single", "avoid-escape"]
   },
   "parserOptions": {
     "ecmaVersion": 2018,
