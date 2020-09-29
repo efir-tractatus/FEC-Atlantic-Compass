@@ -25,10 +25,7 @@ var AnswerList = (props) => {
     if (numToDisplay < props.answers.length) {
       return (
         <div className="answer-list">
-          {answersToDisplay.map((currAnswer) => {
-            return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
-          })
-          }
+          {buildAnswerList(answersToDisplay)}
           <div className="answer-load-more Q-grid-container">
           <a className="Q-col-2" onClick={() => {
             setNumtoDisplay(numToDisplay + 2)}}>Load More Answers</a>
@@ -38,10 +35,7 @@ var AnswerList = (props) => {
     } else {
       return (
         <div className="answer-list">
-          {answersToDisplay.map((currAnswer) => {
-            return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
-          })
-          }
+          {buildAnswerList(answersToDisplay)}
         </div>
       );
     }
@@ -66,4 +60,10 @@ var sortAnswersByMostHelpful = (answer1, answer2) => {
   } else {
     return 0;
   }
+}
+
+var buildAnswerList = (listOfAnswers) => {
+  return listOfAnswers.map((currAnswer) => {
+    return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
+  })
 }
