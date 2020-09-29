@@ -25,12 +25,12 @@ app.get('/catwalk', (req, res) => {
 
   let results = {};
   return axios.all(params)
-    .then(axios.spread((primaryProduct, primaryProductStyles, primaryRelatedProducts, primaryProductionQuestions, primaryProductReviews, primaryProductReviewsNumbers) => {
+    .then(axios.spread((primaryProduct, primaryProductStyles, primaryRelatedProducts, primaryProductQuestions, primaryProductReviews, primaryProductReviewsNumbers) => {
       results = {
         'primaryProduct': primaryProduct.data,
         'primaryProductStyles': primaryProductStyles.data,
         'primaryRelatedProducts': primaryRelatedProducts.data,
-        'primaryProductionQuestions': primaryProductionQuestions.data,
+        'primaryProductQuestions': primaryProductQuestions.data,
         'primaryProductReviews': primaryProductReviews.data,
         'primaryProductReviewsNumbers': primaryProductReviewsNumbers.data
       };
