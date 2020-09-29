@@ -2,7 +2,7 @@ var defaultState = {
     example: null,
   }
   // const intialCall = axios.get(/catwalk).then((response) => {
-  //   defaultState.data = response.body
+  //   defaultState.data = response
   // })
 
   const store = createStore(
