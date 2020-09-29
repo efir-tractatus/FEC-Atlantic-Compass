@@ -30,31 +30,21 @@ var QuestionList = (props) => {
     if (numToDisplay < props.questionList.length) {
       return (
         <div className="question-list">
-            {questionsToDisplay.map((currQuestion) => {
-              return <QuestionListEntry question={currQuestion} key={currQuestion.question_id} productName={props.product.name}/>
-            })
-            }
+            {buildQuestionList(questionsToDisplay, props)}
           <div className="button-flex-container">
             <button className="QandA-button-more-questions" onClick={() => {
             setNumtoDisplay(numToDisplay + 2)}}><p>MORE ANSWERED QUESTIONS</p></button>
             <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}><p>ADD A QUESTION </p><p className="button-plus">+</p></button>
           </div>
-          <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-            <AddQuestionModal productName={props.product.name} productId={props.product.id}/>
-          </ModalTemplate>
+          {buildAddAnswerModal(isOpen, setIsOpen, props)}
         </div>
       );
     } else {
       return (
         <div>
-          {questionsToDisplay.map((currQuestion) => {
-            return <QuestionListEntry question={currQuestion} key={currQuestion.question_id}/>
-          })
-          }
+          {buildQuestionList(questionsToDisplay, props)}
           <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}>ADD A QUESTION +</button>
-          <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-          <AddQuestionModal />
-        </ModalTemplate>
+          {buildAddAnswerModal(isOpen, setIsOpen, props)}
         </div>
       );
     }
@@ -63,9 +53,7 @@ var QuestionList = (props) => {
       <div>
         <p className="question-list-default">NO QUESTIONS YET...</p>
         <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}>ADD A QUESTION +</button>
-        <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-          <AddQuestionModal />
-        </ModalTemplate>
+        {buildAddAnswerModal(isOpen, setIsOpen, props)}
       </div>
     )
   }
@@ -83,4 +71,19 @@ var sortQuestionsByMostHelpful = (question1, question2) => {
   } else {
     return 0;
   }
+}
+
+var buildQuestionList = (listOfQuestions, propList) => {
+  return listOfQuestions.map((currQuestion) => {
+    return <QuestionListEntry question={currQuestion} key={currQuestion.question_id} productName={propList.product.name}/>
+  })
+}
+
+var buildAddAnswerModal = (isOpen, setIsOpen, propList) => {
+  return (
+    <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
+      <AddQuestionModal productName={propList.product.name} productId={propList.product.id}/>
+    </ModalTemplate>
+  )
+
 }
