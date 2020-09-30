@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SelectSize from './SelectSize.jsx';
 
 const AddToCart = (props) => {
@@ -15,16 +15,33 @@ const AddToCart = (props) => {
         props.currentStyle.skus[i].quantity;
     }
   }
+  
   skus = Object.entries(skusObject);
 
   var renderSkus = skus.map((sku) => {
     return <SelectSize sku={sku} key={sku[0]} />;
   });
 
+  const [quantity, setSize] = useState(skus[0][1]);
+
+  var renderQuantity = [];
+
+  for (var i = 0; i <= quantity; i++) {
+    renderQuantity.push(<option key={i}>{i}</option>);
+  }
+
   return (
     <div>
       <h2>AddToCart Section</h2>
-      <select className="size-selector">{renderSkus}</select>
+      <select
+        className="size-selector"
+        onChange={(e) => {
+          setSize(e.target.value);
+        }}
+      >
+        {renderSkus}
+      </select>
+      <select className="quantity-selector">{renderQuantity}</select>
     </div>
   );
 };
