@@ -26,7 +26,7 @@ var QuestionListEntry = (props) => {
       </div>
       <AnswerList answers={Object.values(question.answers)}/>
       <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-          <AddAnswerModal productName={productName}  questionBody={question.question_body} questionId={question.question_id}/>
+          <AddAnswerModal productName={productName}  questionBody={question.question_body} questionId={question.question_id} onClose={() => setIsOpen(false)}/>
       </ModalTemplate>
     </div>
   );
