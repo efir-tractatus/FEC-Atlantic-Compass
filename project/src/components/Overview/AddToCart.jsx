@@ -15,7 +15,7 @@ const AddToCart = (props) => {
         props.currentStyle.skus[i].quantity;
     }
   }
-  
+
   skus = Object.entries(skusObject);
 
   var renderSkus = skus.map((sku) => {
@@ -42,6 +42,8 @@ const AddToCart = (props) => {
         {renderSkus}
       </select>
       <select className="quantity-selector">{renderQuantity}</select>
+      <button className='add-to-bag'>ADD TO BAG</button>
+      <div>Star/Heart Placeholder</div>
     </div>
   );
 };
