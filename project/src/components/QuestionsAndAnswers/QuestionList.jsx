@@ -95,7 +95,7 @@ var buildQuestionList = (listOfQuestions, propList) => {
 var buildAddQuestionModal = (isOpen, setIsOpen, propList) => {
   return (
     <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-      <AddQuestionModal productName={propList.product.name} productId={propList.product.id}/>
+      <AddQuestionModal productName={propList.product.name} productId={propList.product.id} onClose={() => setIsOpen(false)}/>
     </ModalTemplate>
   )
 
