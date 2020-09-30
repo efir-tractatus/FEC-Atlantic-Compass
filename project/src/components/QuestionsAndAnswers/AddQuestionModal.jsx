@@ -1,7 +1,8 @@
 import React from "react";
+import axios from "axios";
 
 var AddQuestionModal = (props) => {
-  var {productName, productId} = props;
+  var {productName, productId, onClose} = props;
   return (
     <div className="QandA-modal-body">
       <p className="modal-header">Ask you quesiton</p>
@@ -23,7 +24,10 @@ var AddQuestionModal = (props) => {
         <br></br>
         <p className="modal-email-warning">For authentication reasons, you will not be emailed</p>
         <br></br>
-        <input className="QandA-submit" type="submit" value="SUBMIT">
+        <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
+          e.preventDefault();
+          handleSubmit(e, productId);
+          onClose(); }}>
         </input>
       </form>
     </div>
@@ -33,3 +37,23 @@ var AddQuestionModal = (props) => {
 AddQuestionModal.propTypes = {};
 
 export default AddQuestionModal;
+
+var handleSubmit = (e, id) => {
+  var body = document.getElementById('your-question').value;
+  var nickname = document.getElementById('question-nickname').value;
+  var email = document.getElementById('question-email').value;
+  var productId = id;
+
+  axios.post(`http://18.224.37.110/qa/questions`, {
+    'body': body,
+    'name': nickname,
+    'email': email,
+    'product_id': productId
+  })
+  .then((response) => {
+    console.log('success', response);
+  })
+  .catch((err) => {
+    console.log('error posting question', err);
+  })
+}
