@@ -7,7 +7,7 @@ var AddAnswerModal = (props) => {
     <div className="QandA-modal-body">
       <p className="modal-header">Submit your Answer</p>
       <p className="modal-sub-header"> {productName}: {questionBody}</p>
-      <form>
+      <form id="submit-answer-form">
         <label htmlFor="your-answer">YOUR ANSWER*:</label>
         <br></br>
         <textarea type="text" id="your-answer" name="your-answer" maxLength="1000" required></textarea>
@@ -29,9 +29,12 @@ var AddAnswerModal = (props) => {
         <input className="QandA-photo-upload" id="uploaded-answer-photos" type="file" name="file-upload" accept="image/*" multiple></input>
         <br></br>
         <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
-          e.preventDefault();
-          handleSubmit(e, questionId);
-          onClose(); }}>
+          if (document.getElementById('submit-answer-form').checkValidity()) {
+            e.preventDefault();
+            handleSubmit(e, questionId);
+            onClose();
+          }
+         }}>
         </input>
       </form>
     </div>
