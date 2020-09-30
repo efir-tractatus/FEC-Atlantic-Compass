@@ -1,10 +1,18 @@
-import React from "react";
+import React from 'react';
+import ImageGalleryContainer from '../../containers/Overview/ImageGalleryContainer.js';
+import StyleSelectorContainer from '../../containers/Overview/StyleSelectorContainer.js';
+import ProductInformationContainer from '../../containers/Overview/ProductInformationContainer.js';
+import AddToCartContainer from '../../containers/Overview/AddToCartContainer.js';
 
 var Overview = () => {
   return (
-    <h1>
-      Overview Component
-    </h1>
+    <div>
+      <h1>Overview Component</h1>
+      <ImageGalleryContainer />
+      <ProductInformationContainer />
+      <StyleSelectorContainer />
+      <AddToCartContainer />
+    </div>
   );
 };
 
