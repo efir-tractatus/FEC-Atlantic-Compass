@@ -1,13 +1,28 @@
-import React from "react";
-import QandASearchbar from "./QandASearchbar.jsx";
+import React, { useState, useEffect } from "react";
 import QuestionList from "./QuestionList.jsx";
 
 var QuestionsAndAnswers = (props) => {
+  const [searchInput, setSearchInput] = useState('');
+
+  const [searchInputPassed, setSearchInputPassed] = useState('');
+
+  useEffect(() => {
+    if (searchInput.length >= 3) {
+      setSearchInputPassed(searchInput.toLowerCase());
+    }
+    if (searchInputPassed.length >= 3 && searchInput.length < 3) {
+      setSearchInputPassed(searchInput.toLowerCase());
+    }
+  }, [searchInput])
+
   return (
     <div className="QandA-widget">
       <h4 className="QandA-primary-header">QUESTIONS & ANSWERS</h4>
-      <QandASearchbar />
-      <QuestionList questionList={props.productQuestions} product={props.primaryProduct}/>
+      <div className="QandA-searchbar-container">
+        <input className="QandA-searchbar" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={searchInput} onChange={(e) => setSearchInput(e.target.value)}>
+        </input>
+      </div>
+      <QuestionList questionList={props.productQuestions} product={props.primaryProduct} searchInput={searchInputPassed} />
     </div>
   );
 };
