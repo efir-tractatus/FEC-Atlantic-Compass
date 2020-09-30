@@ -4,3 +4,16 @@ h1 {
   color: $primary-color;
   background-color: $bg;
 }
+
+.style-grid {
+  display: grid;
+  grid-template-rows: 90px 90px;
+  grid-template-columns: 90px 90px 90px;
+}
+
+.style-grid-image {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 90px;
+  height: 90px;
+}
