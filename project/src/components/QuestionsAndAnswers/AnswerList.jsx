@@ -28,7 +28,7 @@ var AnswerList = (props) => {
           {buildAnswerList(answersToDisplay)}
           <div className="answer-load-more Q-grid-container">
           <a className="Q-col-2" onClick={() => {
-            setNumtoDisplay(numToDisplay + 2)}}>Load More Answers</a>
+            setNumtoDisplay(numToDisplay + 2)}}>LOAD MORE ANSWERS...</a>
           </div>
         </div>
       );
