@@ -7,7 +7,7 @@ var AddQuestionModal = (props) => {
     <div className="QandA-modal-body">
       <p className="modal-header">Ask you quesiton</p>
       <p className="modal-sub-header">About the {productName}</p>
-      <form>
+      <form id="submit-question-form">
         <label className="QandA-modal-label" htmlFor="your-question">YOUR QUESTION*:</label>
         <br></br>
         <textarea type="text" id="your-question" name="your-question" maxLength="1000" placeholder="Why did you like the product or not?" required></textarea>
@@ -25,9 +25,12 @@ var AddQuestionModal = (props) => {
         <p className="modal-email-warning">For authentication reasons, you will not be emailed</p>
         <br></br>
         <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
-          e.preventDefault();
-          handleSubmit(e, productId);
-          onClose(); }}>
+          if (document.getElementById('submit-question-form').checkValidity()) {
+            e.preventDefault();
+            handleSubmit(e, productId);
+            onClose();
+          }
+        }}>
         </input>
       </form>
     </div>
