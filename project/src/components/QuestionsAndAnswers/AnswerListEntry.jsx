@@ -10,7 +10,7 @@ var AnswerListEntry = (props) => {
   var photoList = (
   <div className="answer-photo-gallery Q-col-2">
     {answer.photos.map((photo) =>{
-      return <img className="answer-images" src={photo} alt="User Submitted Product Photo"></img>
+      return <img className="answer-images" src={photo} alt="User Submitted Product Photo" key={photo}></img>
     })}
   </div>
   )
