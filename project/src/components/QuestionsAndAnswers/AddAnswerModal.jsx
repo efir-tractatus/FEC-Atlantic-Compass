@@ -1,7 +1,8 @@
 import React from "react";
+import axios from "axios";
 
 var AddAnswerModal = (props) => {
-  var {productName, questionBody, questionId} = props;
+  var {productName, questionBody, questionId, onClose} = props;
   return (
     <div className="QandA-modal-body">
       <p className="modal-header">Submit your Answer</p>
@@ -25,9 +26,12 @@ var AddAnswerModal = (props) => {
         <br></br>
         <label htmlFor="file-upload">UPLOAD PHOTOS:</label>
         <br></br>
-        <input className="QandA-photo-upload" type="file" name="file-upload" accept="image/*" multiple></input>
+        <input className="QandA-photo-upload" id="uploaded-answer-photos" type="file" name="file-upload" accept="image/*" multiple></input>
         <br></br>
-        <input className="QandA-submit" type="submit" value="SUBMIT">
+        <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
+          e.preventDefault();
+          handleSubmit(e, questionId);
+          onClose(); }}>
         </input>
       </form>
     </div>
@@ -37,3 +41,30 @@ var AddAnswerModal = (props) => {
 AddAnswerModal.propTypes = {};
 
 export default AddAnswerModal;
+
+var handleSubmit = (e, id) => {
+  var body = document.getElementById('your-answer').value;
+  var nickname = document.getElementById('answer-nickname').value;
+  var email = document.getElementById('answer-email').value;
+  var files = document.getElementById('uploaded-answer-photos').files
+  var photos = []
+  var questionId = id;
+
+  var files = document.getElementById('uploaded-answer-photos').files
+  for (let i = 0; i < files.length; i++) {
+    photos.push(files[i]);
+  }
+
+  axios.post(`http://18.224.37.110/qa/questions/${questionId}/answers`, {
+    'body': body,
+    'name': nickname,
+    'email': email,
+    'photos': photos
+  })
+  .then((response) => {
+    console.log('success', response);
+  })
+  .catch((err) => {
+    console.log('error posting answer', err);
+  })
+}
