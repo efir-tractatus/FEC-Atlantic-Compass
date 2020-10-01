@@ -57,17 +57,18 @@ var handleSubmit = (e, id) => {
   for (let i = 0; i < files.length; i++) {
     photos.push(files[i]);
   }
-
+  /*
   axios.post(`http://18.224.37.110/qa/questions/${questionId}/answers`, {
     'body': body,
     'name': nickname,
     'email': email,
     'photos': photos
   })
-  .then((response) => {
-    console.log('success', response);
-  })
-  .catch((err) => {
-    console.log('error posting answer', err);
-  })
+    .then((response) => {
+      console.log('success', response);
+    })
+    .catch((err) => {
+      console.log('error posting answer', err);
+    })
+    */
 }
