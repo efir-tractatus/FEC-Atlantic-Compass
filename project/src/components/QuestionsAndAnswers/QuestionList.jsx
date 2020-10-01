@@ -40,9 +40,10 @@ var QuestionList = (props) => {
 
     setAvailableQuestions(processedList);
     setQuestionsToDisplay(displayList);
-
     setIsLoading(false);
   }, [searchInput, numToDisplay])
+
+
 
   if (isLoading === true) {
     return (
@@ -82,10 +83,6 @@ var QuestionList = (props) => {
   }
 };
 
-QuestionList.propTypes = {};
-
-export default QuestionList;
-
 var buildQuestionList = (listOfQuestions, propList) => {
   return listOfQuestions.map((currQuestion) => {
     return <QuestionListEntry question={currQuestion} key={currQuestion.question_id} productName={propList.product.name}/>
@@ -98,7 +95,6 @@ var buildAddQuestionModal = (isOpen, setIsOpen, propList) => {
       <AddQuestionModal productName={propList.product.name} productId={propList.product.id} onClose={() => setIsOpen(false)}/>
     </ModalTemplate>
   )
-
 }
 
 var sortQuestionsByMostHelpful = (question1, question2) => {
@@ -110,3 +106,7 @@ var sortQuestionsByMostHelpful = (question1, question2) => {
     return 0;
   }
 }
+
+QuestionList.propTypes = {};
+
+export default QuestionList;
