@@ -16,10 +16,6 @@ var AnswerPhotoEntry = (props) => {
   );
 };
 
-AnswerPhotoEntry.propTypes = {};
-
-export default AnswerPhotoEntry;
-
 var buildAnswerPhotoModal = (isOpen, setIsOpen, image) => {
   return (
     <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
@@ -27,3 +23,7 @@ var buildAnswerPhotoModal = (isOpen, setIsOpen, image) => {
     </ModalTemplate>
   )
 }
+
+AnswerPhotoEntry.propTypes = {};
+
+export default AnswerPhotoEntry;
