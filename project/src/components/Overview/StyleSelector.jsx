@@ -5,7 +5,7 @@ const StyleSelector = (props) => {
   console.log('StyleSelector', props);
 
   var styles = props.currentStyles.map((style) => {
-    return <StyleSelectorItem style={style} key={style.style_id} />;
+    return <StyleSelectorItem style={style} handleStyleChange={props.handleStyleChange} key={style.style_id} />;
   });
 
   return (
