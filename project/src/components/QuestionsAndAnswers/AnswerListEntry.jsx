@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AnswerPhotoEntry from './AnswerPhotoEntry.jsx';
 import moment from 'moment';
 
 var AnswerListEntry = (props) => {
@@ -10,6 +11,7 @@ var AnswerListEntry = (props) => {
   const [helpfulness, setHelpfulness] = useState(answer.helpfulness);
   const [isMarkedHelpful, setIsMarkedHelpful] = useState(false);
   const [isReported, setIsReported] = useState(false);
+
 
   return (
     <div className="answer-list-entry Q-grid-container">
@@ -26,7 +28,7 @@ var AnswerListEntry = (props) => {
               setHelpfulness(helpfulness + 1);
               setIsMarkedHelpful(true);
               e.target.innerHTML = 'Thanks!';
-              postHelpfulness();
+              postHelpfulness(answer.id);
             }
           }
         }>Yes</a>
@@ -36,7 +38,7 @@ var AnswerListEntry = (props) => {
             if (!isReported) {
               setIsReported(true);
               e.target.innerHTML = 'Reported!';
-              postReported();
+              postReported(answer.id);
             }
           }
         }>Report</a>
@@ -49,12 +51,14 @@ AnswerListEntry.propTypes = {};
 
 export default AnswerListEntry;
 
+
+
 var buildPhotoList = (photoArray) => {
   if (photoArray.length) {
     return (
     <div className="answer-photo-gallery Q-col-2">
       {photoArray.map((photo) =>{
-        return <img className="answer-images" src={photo} alt="User Submitted Product Photo" key={photo}></img>
+        return <AnswerPhotoEntry photo={photo} key={photo}/>
       })}
     </div>
     )
@@ -63,10 +67,22 @@ var buildPhotoList = (photoArray) => {
   }
 }
 
-var postHelpfulness = () => {
-
+var postHelpfulness = (id) => {
+  // axios.put(`http://18.224.37.110/qa/answers/${id}/helpful`)
+    // .then((response) => {
+    //   console.log('success', response);
+    // })
+    // .catch((err) => {
+    //   console.log('error marking answer helpful', err);
+    // })
 }
 
-var postReported = () => {
-
+var postReported = (id) => {
+  // axios.put(`http://18.224.37.110/qa/answers/${id}/report`)
+  //   .then((response) => {
+  //   console.log('success', response);
+  //   })
+  //   .catch((err) => {
+  //     console.log('error reporting answer', err);
+  //   })
 }
