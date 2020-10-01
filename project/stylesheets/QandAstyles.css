@@ -3,7 +3,6 @@
   position: relative;
   box-sizing: border-box;
   width: 90vw;
-  max-height: 90vh;
   margin: auto;
   padding-left: 30px;
   padding-right: 30px;
@@ -33,7 +32,7 @@ a:hover {
 }
 
 .QandA-searchbar {
-  width: 97%;
+  width: 97.5%;
   padding-left: 5px;
   padding-right: 10px;
   height: 20px;
@@ -47,6 +46,12 @@ a:hover {
   background-repeat: no-repeat;
   background-position-x: 99%;
   background-position-y: center;
+}
+
+.QandA-question-list-container {
+  display: block;
+  max-height: 85vh;
+  overflow-y: scroll;
 }
 
 .question-list {
@@ -113,6 +118,7 @@ a:hover {
   grid-column-start: 3;
   grid-column-end: 4;
   justify-self: right;
+  min-width: 125px;
 }
 
 /*QUESTION LIST GRID END*/
@@ -190,6 +196,7 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   font-size: 7px;
+  margin-right: 10px;
 }
 
 .answer-utility-container {
@@ -211,7 +218,7 @@ a:hover {
 
 .question-utility-break,
 .answer-utility-break {
-  margin-left: 0px;
+  margin-left: 3px;
   margin-right: 7px;
   font-size: 9px;
 }
@@ -360,4 +367,11 @@ a:hover {
   height: auto;
   border-radius: 3px;
   border: 1px solid rgb(184, 183, 183)
+}
+
+.QandA-photo-modal {
+  max-height: 95vh;
+  max-width: 95vh;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
