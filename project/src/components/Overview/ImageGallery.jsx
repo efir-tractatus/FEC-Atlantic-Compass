@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import ImageGalleryItem from './ImageGalleryItem.jsx';
 
 const ImageGallery = (props) => {
   console.log('ImageGallery', props);
-  
-  const [image, setImage] = useState(props.currentStyle.photos[0].url);
+
+  const [mainImage, setMainImage] = useState(props.currentStyle.photos[0].url);
+
+  var belongs = props.currentStyle.photos.some(
+    (element) => element.url === mainImage
+  );
 
   var renderImages = props.currentStyle.photos.map((image, index) => {
     return (
@@ -12,7 +15,7 @@ const ImageGallery = (props) => {
         className="image-gallery-item"
         key={index}
         onClick={() => {
-          setImage(image.url)
+          setMainImage(image.url);
         }}
       >
         <img className="image-gallery-thumbnail" src={image.thumbnail_url} />
@@ -23,10 +26,12 @@ const ImageGallery = (props) => {
   return (
     <div>
       <h2>ImageGallery Section</h2>
-      <div>
-        <img src={image} />
-        {renderImages}
+      <div className="image-gallery-main-image-box">
+        <img className='image-gallery-main-image'
+          src={belongs === false ? props.currentStyle.photos[0].url : mainImage}
+        />
       </div>
+      <div className="image-gallery-grid">{renderImages}</div>
     </div>
   );
 };
