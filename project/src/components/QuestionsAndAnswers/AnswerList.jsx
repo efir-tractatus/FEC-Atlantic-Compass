@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AnswerListEntry from "./AnswerListEntry";
+import AnswerListEntryContainer from "../../containers/AnswerListEntryContainer.js";
 
 var AnswerList = (props) => {
   if (props.answers.length) {
@@ -48,10 +48,6 @@ var AnswerList = (props) => {
   }
 };
 
-AnswerList.propTypes = {};
-
-export default AnswerList;
-
 var sortAnswersByMostHelpful = (answer1, answer2) => {
   if (answer1.helpfulness < answer2.helpfulness) {
     return 1;
@@ -64,6 +60,10 @@ var sortAnswersByMostHelpful = (answer1, answer2) => {
 
 var buildAnswerList = (listOfAnswers) => {
   return listOfAnswers.map((currAnswer) => {
-    return <AnswerListEntry answer={currAnswer} key={currAnswer.id}/>
+    return <AnswerListEntryContainer answer={currAnswer} key={currAnswer.id}/>
   })
 }
+
+AnswerList.propTypes = {};
+
+export default AnswerList;

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import AnswerList from "./AnswerList.jsx";
 import ModalTemplate from "./ModalTemplate.jsx";
-import AddAnswerModal from "./AddAnswerModal.jsx";
-import axios from "axios";
+import AddAnswerModalContainer from '../../containers/AddAnswerModalContainer.js';
+
 
 //this entry should be mapped from a list of questions in the QuestionList component
 
@@ -10,7 +11,7 @@ var QuestionListEntry = (props) => {
   //modal toggle
   const [isOpen, setIsOpen] = useState(false)
 
-  var { question, productName } = props
+  var { question, productName, populateQuestions } = props
 
   const [helpfulness, setHelpfulness] = useState(question.question_helpfulness);
   const [isMarkedHelpful, setIsMarkedHelpful] = useState(false);
@@ -28,7 +29,7 @@ var QuestionListEntry = (props) => {
               setHelpfulness(helpfulness + 1);
               setIsMarkedHelpful(true);
               e.target.innerHTML = 'Thanks!';
-              postHelpfulness(question.question_id);
+              postHelpfulness(question.question_id, populateQuestions);
             }
           }
         }>Yes</a>
@@ -38,7 +39,7 @@ var QuestionListEntry = (props) => {
             if (!isReported) {
               setIsReported(true);
               e.target.innerHTML = 'Reported!';
-              postReported(question.question_id);
+              postReported(question.question_id, populateQuestions);
             }
           }
         }>Report</a>
@@ -49,30 +50,48 @@ var QuestionListEntry = (props) => {
       </div>
       <AnswerList answers={Object.values(question.answers)}/>
       <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-          <AddAnswerModal productName={productName}  questionBody={question.question_body} questionId={question.question_id} onClose={() => setIsOpen(false)}/>
+          <AddAnswerModalContainer productName={productName}  questionBody={question.question_body} questionId={question.question_id} onClose={() => setIsOpen(false)}/>
       </ModalTemplate>
     </div>
   );
 };
 
-var postHelpfulness = (id) => {
-  // axios.put(`http://18.224.37.110/qa/questions/${id}/helpful`)
-    // .then((response) => {
-    //   console.log('success', response);
-    // })
-    // .catch((err) => {
-    //   console.log('error marking question helpful', err);
-    // })
+var postHelpfulness = (id, populateQuestions) => {
+  axios.put(`http://18.224.37.110/qa/questions/${id}/helpful`)
+    .then((response) => {
+      console.log('success', response);
+    })
+    .catch((err) => {
+      console.log('error marking question helpful', err);
+    })
+    .then(() => {
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+    })
+    .then((response) => {
+      populateQuestions(response.data.results);
+    })
+    .catch((err) => {
+      console.log('error getting new question list', err);
+    })
 }
 
-var postReported = (id) => {
-  // axios.put(`http://18.224.37.110/qa/questions/${id}/report`)
-  //   .then((response) => {
-  //   console.log('success', response);
-  //   })
-  //   .catch((err) => {
-  //     console.log('error reporting question', err);
-  //   })
+var postReported = (id, populateQuestions) => {
+  axios.put(`http://18.224.37.110/qa/questions/${id}/report`)
+    .then((response) => {
+    console.log('success', response);
+    })
+    .catch((err) => {
+      console.log('error reporting question', err);
+    })
+    .then(() => {
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+    })
+    .then((response) => {
+      populateQuestions(response.data.results);
+    })
+    .catch((err) => {
+      console.log('error getting new question list', err);
+    })
 }
 
 QuestionListEntry.propTypes = {};

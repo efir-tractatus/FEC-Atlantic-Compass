@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import QuestionListEntry from "./QuestionListEntry";
 import ModalTemplate from "./ModalTemplate.jsx";
-import AddQuestionModal from "./AddQuestionModal.jsx";
+import AddQuestionModalContainer from '../../containers/AddQuestionModalContainer.js';
+import QuestionListEntryContainer from '../../containers/QuestionListEntryContainer.js';
 
 var QuestionList = (props) => {
   console.log('Question list recieved:', props.questionList)
@@ -85,14 +85,14 @@ var QuestionList = (props) => {
 
 var buildQuestionList = (listOfQuestions, propList) => {
   return listOfQuestions.map((currQuestion) => {
-    return <QuestionListEntry question={currQuestion} key={currQuestion.question_id} productName={propList.product.name}/>
+    return <QuestionListEntryContainer question={currQuestion} key={currQuestion.question_id} productName={propList.product.name}/>
   })
 }
 
 var buildAddQuestionModal = (isOpen, setIsOpen, propList) => {
   return (
     <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-      <AddQuestionModal productName={propList.product.name} productId={propList.product.id} onClose={() => setIsOpen(false)}/>
+      <AddQuestionModalContainer productName={propList.product.name} productId={propList.product.id} onClose={() => setIsOpen(false)}/>
     </ModalTemplate>
   )
 }

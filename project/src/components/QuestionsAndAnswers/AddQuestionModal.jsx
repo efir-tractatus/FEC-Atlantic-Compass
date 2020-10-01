@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 var AddQuestionModal = (props) => {
-  var {productName, productId, onClose} = props;
+  var {productName, productId, onClose, populateQuestions} = props;
   return (
     <div className="QandA-modal-body">
       <p className="modal-header">Ask you quesiton</p>
@@ -27,7 +27,7 @@ var AddQuestionModal = (props) => {
         <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
             e.preventDefault();
             if (checkVaild()) {
-              handleSubmit(productId);
+              handleSubmit(productId, populateQuestions);
               onClose();
             }
         }}>
@@ -37,17 +37,13 @@ var AddQuestionModal = (props) => {
   );
 };
 
-AddQuestionModal.propTypes = {};
-
-export default AddQuestionModal;
-
-var handleSubmit = (id) => {
+var handleSubmit = (id, populateQuestions) => {
   var body = document.getElementById('your-question').value;
   var nickname = document.getElementById('question-nickname').value;
   var email = document.getElementById('question-email').value;
   var productId = id;
 
-/*
+
   axios.post(`http://18.224.37.110/qa/questions`, {
     'body': body,
     'name': nickname,
@@ -60,7 +56,16 @@ var handleSubmit = (id) => {
     .catch((err) => {
       console.log('error posting question', err);
     })
-*/
+    .then(() => {
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+    })
+    .then((response) => {
+      console.log(response.data.results);
+      populateQuestions(response.data.results);
+    })
+    .catch((err) => {
+      console.log('error getting new question list', err);
+    })
 }
 
 var checkVaild = () => {
@@ -91,3 +96,7 @@ var validateEmail = (email) => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+
+AddQuestionModal.propTypes = {};
+
+export default AddQuestionModal;

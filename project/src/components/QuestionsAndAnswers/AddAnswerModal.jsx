@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 
 var AddAnswerModal = (props) => {
-  var {productName, questionBody, questionId, onClose} = props;
+  var { productName, questionBody, questionId, onClose, populateQuestions } = props;
   return (
     <div className="QandA-modal-body">
       <p className="modal-header">Submit your Answer</p>
@@ -31,7 +31,7 @@ var AddAnswerModal = (props) => {
         <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
             e.preventDefault();
             if (checkVaild()) {
-              handleSubmit(questionId);
+              handleSubmit(questionId, populateQuestions);
               onClose();
             }
          }}>
@@ -41,11 +41,7 @@ var AddAnswerModal = (props) => {
   );
 };
 
-AddAnswerModal.propTypes = {};
-
-export default AddAnswerModal;
-
-var handleSubmit = (id) => {
+var handleSubmit = (id, populateQuestions) => {
   var body = document.getElementById('your-answer').value;
   var nickname = document.getElementById('answer-nickname').value;
   var email = document.getElementById('answer-email').value;
@@ -57,7 +53,7 @@ var handleSubmit = (id) => {
   for (let i = 0; i < files.length; i++) {
     photos.push(files[i]);
   }
-  /*
+
   axios.post(`http://18.224.37.110/qa/questions/${questionId}/answers`, {
     'body': body,
     'name': nickname,
@@ -70,7 +66,15 @@ var handleSubmit = (id) => {
     .catch((err) => {
       console.log('error posting answer', err);
     })
-    */
+    .then(() => {
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+    })
+    .then((response) => {
+      populateQuestions(response.data.results);
+    })
+    .catch((err) => {
+      console.log('error getting new question list', err);
+    })
 }
 
 var checkVaild = () => {
@@ -101,3 +105,7 @@ var validateEmail = (email) => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
+
+AddAnswerModal.propTypes = {};
+
+export default AddAnswerModal;

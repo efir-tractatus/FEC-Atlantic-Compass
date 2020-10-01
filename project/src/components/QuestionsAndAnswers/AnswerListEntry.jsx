@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import AnswerPhotoEntry from './AnswerPhotoEntry.jsx';
+import axios from "axios";
 import moment from 'moment';
 
 var AnswerListEntry = (props) => {
-  var { answer } = props
+  var { answer, populateQuestions } = props
   var date = answer.date
   var formattedDate = moment(date).format('MMMM D, YYYY')
   var photoList = buildPhotoList(answer.photos)
@@ -27,7 +28,7 @@ var AnswerListEntry = (props) => {
               setHelpfulness(helpfulness + 1);
               setIsMarkedHelpful(true);
               e.target.innerHTML = 'Thanks!';
-              postHelpfulness(answer.id);
+              postHelpfulness(answer.id, populateQuestions);
             }
           }
         }>Yes</a>
@@ -37,7 +38,7 @@ var AnswerListEntry = (props) => {
             if (!isReported) {
               setIsReported(true);
               e.target.innerHTML = 'Reported!';
-              postReported(answer.id);
+              postReported(answer.id, populateQuestions);
             }
           }
         }>Report</a>
@@ -72,24 +73,42 @@ var highlightSeller = (name) => {
   }
 }
 
-var postHelpfulness = (id) => {
-  // axios.put(`http://18.224.37.110/qa/answers/${id}/helpful`)
-    // .then((response) => {
-    //   console.log('success', response);
-    // })
-    // .catch((err) => {
-    //   console.log('error marking answer helpful', err);
-    // })
+var postHelpfulness = (id, populateQuestions) => {
+  axios.put(`http://18.224.37.110/qa/answers/${id}/helpful`)
+    .then((response) => {
+      console.log('success', response);
+    })
+    .catch((err) => {
+      console.log('error marking answer helpful', err);
+    })
+    .then(() => {
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+    })
+    .then((response) => {
+      populateQuestions(response.data.results);
+    })
+    .catch((err) => {
+      console.log('error getting new question list', err);
+    })
 }
 
-var postReported = (id) => {
-  // axios.put(`http://18.224.37.110/qa/answers/${id}/report`)
-  //   .then((response) => {
-  //   console.log('success', response);
-  //   })
-  //   .catch((err) => {
-  //     console.log('error reporting answer', err);
-  //   })
+var postReported = (id, populateQuestions) => {
+  axios.put(`http://18.224.37.110/qa/answers/${id}/report`)
+    .then((response) => {
+    console.log('success', response);
+    })
+    .catch((err) => {
+      console.log('error reporting answer', err);
+    })
+    .then(() => {
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+    })
+    .then((response) => {
+      populateQuestions(response.data.results);
+    })
+    .catch((err) => {
+      console.log('error getting new question list', err);
+    })
 }
 
 AnswerListEntry.propTypes = {};
