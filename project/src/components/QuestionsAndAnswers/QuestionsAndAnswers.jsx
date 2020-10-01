@@ -22,7 +22,9 @@ var QuestionsAndAnswers = (props) => {
         <input className="QandA-searchbar" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={searchInput} onChange={(e) => setSearchInput(e.target.value)}>
         </input>
       </div>
-      <QuestionList questionList={props.productQuestions} product={props.primaryProduct} searchInput={searchInputPassed} />
+      <div className="QandA-question-list-container">
+        <QuestionList questionList={props.productQuestions} product={props.primaryProduct} searchInput={searchInputPassed} />
+      </div>
     </div>
   );
 };
