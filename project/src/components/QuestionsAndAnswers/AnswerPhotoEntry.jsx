@@ -1,0 +1,29 @@
+import React, { useState } from "react";
+import ModalTemplate from "./ModalTemplate.jsx";
+import AnswerPhotoModal from "./AnswerPhotoModal.jsx";
+
+
+var AnswerPhotoEntry = (props) => {
+  //modal toggle
+  const [isPhotoOpen, setIsPhotoOpen] = useState(false);
+
+  var { photo } = props;
+  return (
+    <div>
+      <img className="answer-images" src={photo} alt="User Submitted Product Photo" onClick={() => setIsPhotoOpen(true)}></img>
+      {buildAnswerPhotoModal(isPhotoOpen, setIsPhotoOpen, photo)}
+    </div>
+  );
+};
+
+AnswerPhotoEntry.propTypes = {};
+
+export default AnswerPhotoEntry;
+
+var buildAnswerPhotoModal = (isOpen, setIsOpen, image) => {
+  return (
+    <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
+      <AnswerPhotoModal image={image} />
+    </ModalTemplate>
+  )
+}
