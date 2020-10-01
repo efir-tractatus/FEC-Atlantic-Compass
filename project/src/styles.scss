@@ -17,3 +17,20 @@ h1 {
   width: 90px;
   height: 90px;
 }
+
+.image-gallery-thumbnail {
+  border-radius: 0%;
+  object-fit: cover;
+  width: 130px;
+  height: 130px;
+}
+
+.image-gallery-grid {
+  display: inline-flex
+}
+
+.image-gallery-main-image {
+  object-fit: contain;
+  width: 400px;
+  height: 400px;
+}
