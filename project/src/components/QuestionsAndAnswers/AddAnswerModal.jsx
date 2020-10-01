@@ -29,11 +29,11 @@ var AddAnswerModal = (props) => {
         <input className="QandA-photo-upload" id="uploaded-answer-photos" type="file" name="file-upload" accept="image/*" multiple></input>
         <br></br>
         <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
-          if (document.getElementById('submit-answer-form').checkValidity()) {
             e.preventDefault();
-            handleSubmit(e, questionId);
-            onClose();
-          }
+            if (checkVaild()) {
+              handleSubmit(questionId);
+              onClose();
+            }
          }}>
         </input>
       </form>
@@ -45,7 +45,7 @@ AddAnswerModal.propTypes = {};
 
 export default AddAnswerModal;
 
-var handleSubmit = (e, id) => {
+var handleSubmit = (id) => {
   var body = document.getElementById('your-answer').value;
   var nickname = document.getElementById('answer-nickname').value;
   var email = document.getElementById('answer-email').value;
@@ -71,4 +71,33 @@ var handleSubmit = (e, id) => {
       console.log('error posting answer', err);
     })
     */
+}
+
+var checkVaild = () => {
+  var body = document.getElementById('your-answer').value;
+  var nickname = document.getElementById('answer-nickname').value;
+  var email = document.getElementById('answer-email').value;
+
+  if (body.length <= 0) {
+    alert('You must enter the following: Answer');
+    return false;
+  }
+  if (nickname.length <= 0) {
+    alert('You must enter the following: Nickname');
+    return false;
+  }
+  if (email.length <= 0) {
+    alert('You must enter the following: E-mail Address');
+    return false;
+  }
+  if (!validateEmail(email)) {
+    alert('Please enter a valid E-mail Address.');
+    return false;
+  }
+  return true;
+}
+
+var validateEmail = (email) => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
 }

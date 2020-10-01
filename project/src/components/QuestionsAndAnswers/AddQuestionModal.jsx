@@ -25,11 +25,11 @@ var AddQuestionModal = (props) => {
         <p className="modal-email-warning">For authentication reasons, you will not be emailed</p>
         <br></br>
         <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
-          if (document.getElementById('submit-question-form').checkValidity()) {
             e.preventDefault();
-            handleSubmit(e, productId);
-            onClose();
-          }
+            if (checkVaild()) {
+              handleSubmit(productId);
+              onClose();
+            }
         }}>
         </input>
       </form>
@@ -41,11 +41,12 @@ AddQuestionModal.propTypes = {};
 
 export default AddQuestionModal;
 
-var handleSubmit = (e, id) => {
+var handleSubmit = (id) => {
   var body = document.getElementById('your-question').value;
   var nickname = document.getElementById('question-nickname').value;
   var email = document.getElementById('question-email').value;
   var productId = id;
+
 /*
   axios.post(`http://18.224.37.110/qa/questions`, {
     'body': body,
@@ -60,4 +61,33 @@ var handleSubmit = (e, id) => {
       console.log('error posting question', err);
     })
 */
+}
+
+var checkVaild = () => {
+  var body = document.getElementById('your-question').value;
+  var nickname = document.getElementById('question-nickname').value;
+  var email = document.getElementById('question-email').value;
+
+  if (body.length <= 0) {
+    alert('You must enter the following: Quesiton');
+    return false;
+  }
+  if (nickname.length <= 0) {
+    alert('You must enter the following: Nickname');
+    return false;
+  }
+  if (email.length <= 0) {
+    alert('You must enter the following: E-mail Address');
+    return false;
+  }
+  if (!validateEmail(email)) {
+    alert('Please enter a valid E-mail Address.');
+    return false;
+  }
+  return true;
+}
+
+var validateEmail = (email) => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
 }
