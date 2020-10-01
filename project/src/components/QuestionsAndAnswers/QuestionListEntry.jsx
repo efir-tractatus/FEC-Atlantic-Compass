@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AnswerList from "./AnswerList.jsx";
 import ModalTemplate from "./ModalTemplate.jsx";
 import AddAnswerModal from "./AddAnswerModal.jsx";
+import axios from "axios";
 
 //this entry should be mapped from a list of questions in the QuestionList component
 
@@ -13,6 +14,7 @@ var QuestionListEntry = (props) => {
 
   const [helpfulness, setHelpfulness] = useState(question.question_helpfulness);
   const [isMarkedHelpful, setIsMarkedHelpful] = useState(false);
+  const [isReported, setIsReported] = useState(false);
 
   return (
     <div className="question-list-entry">
@@ -26,12 +28,22 @@ var QuestionListEntry = (props) => {
               setHelpfulness(helpfulness + 1);
               setIsMarkedHelpful(true);
               e.target.innerHTML = 'Thanks!';
-              postHelpfulness();
+              postHelpfulness(question.question_id);
             }
           }
         }>Yes</a>
           <p className="question-utility-count">({helpfulness})</p>
           <p className="question-utility-break">|</p>
+          <a className="question-utility-link" onClick={(e) => {
+            if (!isReported) {
+              setIsReported(true);
+              e.target.innerHTML = 'Reported!';
+              postReported(question.question_id);
+            }
+          }
+        }>Report</a>
+        </div>
+        <div className="question-utility-container Q-col-3">
           <a className="question-utility-link" onClick={() => setIsOpen(true)}>Add Answer</a>
         </div>
       </div>
@@ -43,10 +55,26 @@ var QuestionListEntry = (props) => {
   );
 };
 
+var postHelpfulness = (id) => {
+  // axios.put(`http://18.224.37.110/qa/questions/${id}/helpful`)
+    // .then((response) => {
+    //   console.log('success', response);
+    // })
+    // .catch((err) => {
+    //   console.log('error marking question helpful', err);
+    // })
+}
+
+var postReported = (id) => {
+  // axios.put(`http://18.224.37.110/qa/questions/${id}/report`)
+  //   .then((response) => {
+  //   console.log('success', response);
+  //   })
+  //   .catch((err) => {
+  //     console.log('error reporting question', err);
+  //   })
+}
+
 QuestionListEntry.propTypes = {};
 
 export default QuestionListEntry;
-
-var postHelpfulness = () => {
-
-}
