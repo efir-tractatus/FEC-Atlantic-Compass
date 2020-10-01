@@ -12,7 +12,6 @@ var AnswerListEntry = (props) => {
   const [isMarkedHelpful, setIsMarkedHelpful] = useState(false);
   const [isReported, setIsReported] = useState(false);
 
-
   return (
     <div className="answer-list-entry Q-grid-container">
       <p className="answer-label Q-col-1">A:</p>
@@ -47,12 +46,6 @@ var AnswerListEntry = (props) => {
   );
 };
 
-AnswerListEntry.propTypes = {};
-
-export default AnswerListEntry;
-
-
-
 var buildPhotoList = (photoArray) => {
   if (photoArray.length) {
     return (
@@ -86,3 +79,7 @@ var postReported = (id) => {
   //     console.log('error reporting answer', err);
   //   })
 }
+
+AnswerListEntry.propTypes = {};
+
+export default AnswerListEntry;
