@@ -46,17 +46,18 @@ var handleSubmit = (e, id) => {
   var nickname = document.getElementById('question-nickname').value;
   var email = document.getElementById('question-email').value;
   var productId = id;
-
+/*
   axios.post(`http://18.224.37.110/qa/questions`, {
     'body': body,
     'name': nickname,
     'email': email,
     'product_id': productId
   })
-  .then((response) => {
-    console.log('success', response);
-  })
-  .catch((err) => {
-    console.log('error posting question', err);
-  })
+    .then((response) => {
+      console.log('success', response);
+    })
+    .catch((err) => {
+      console.log('error posting question', err);
+    })
+*/
 }
