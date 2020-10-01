@@ -18,7 +18,7 @@ var AnswerListEntry = (props) => {
       <div className="answer-body Q-col-2">{answer.body}</div>
       {photoList}
       <div className="answer-utility-container Q-col-2">
-        <p className="answer-utility-text">by {answer.answerer_name} ,</p>
+        {highlightSeller(answer.answerer_name)}
         <p className="answer-utility-date">{formattedDate}</p>
         <p className="answer-utility-break">|</p>
         <p className="answer-utility-text">Helpful?</p>
@@ -57,6 +57,18 @@ var buildPhotoList = (photoArray) => {
     )
   } else {
     return null
+  }
+}
+
+var highlightSeller = (name) => {
+  if (name.toLowerCase() === 'seller') {
+    return (
+      <p className="answer-utility-text">by <b>{name}</b> ,</p>
+    )
+  } else {
+    return (
+      <p className="answer-utility-text">by {name} ,</p>
+    )
   }
 }
 
