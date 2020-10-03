@@ -5,7 +5,7 @@ const ImageGallery = (props) => {
 
   const [mainImage, setMainImage] = useState(props.currentStyle.photos[0].url);
 
-  var belongs = props.currentStyle.photos.some(
+  var belongs = props.currentStyle.photos.find(
     (element) => element.url === mainImage
   );
 
@@ -28,7 +28,7 @@ const ImageGallery = (props) => {
       <h2>ImageGallery Section</h2>
       <div className="image-gallery-main-image-box">
         <img className='image-gallery-main-image'
-          src={belongs === false ? props.currentStyle.photos[0].url : mainImage}
+          src={belongs === undefined ? props.currentStyle.photos[0].url : mainImage}
         />
       </div>
       <div className="image-gallery-grid">{renderImages}</div>

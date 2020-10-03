@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SelectSize from './SelectSize.jsx';
 
 const AddToCart = (props) => {
-  console.log('AddToCart', props);
+  // console.log('AddToCart', props);
   var skus = [];
   var skusObject = {};
 
