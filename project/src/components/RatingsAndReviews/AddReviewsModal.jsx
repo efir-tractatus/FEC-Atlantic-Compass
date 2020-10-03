@@ -33,5 +33,5 @@ let handleSubmit = (productId, recommend, characteristics) => {
   axios.post(`http://18.224.37.110/reviews`, sentJSON)
 };
 
-MoreReviewsModal.prototypes = {};
+AddReviewsModal.prototypes = {};
 export default AddReviewsModal;
