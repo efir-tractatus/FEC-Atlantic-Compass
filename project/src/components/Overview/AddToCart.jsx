@@ -22,6 +22,8 @@ const AddToCart = (props) => {
     return <SelectSize sku={sku} key={sku[0]} />;
   });
 
+  renderSkus.push(<option value='' key={'default'}>Select Size</option>)
+
   const [quantity, setSize] = useState(skus[0][1]);
 
   var renderQuantity = [];
@@ -33,7 +35,7 @@ const AddToCart = (props) => {
   return (
     <div>
       <h2>AddToCart Section</h2>
-      <select
+      <select defaultValue=''
         className="size-selector"
         onChange={(e) => {
           setSize(e.target.value);

@@ -25,6 +25,7 @@ const ProductInformation = (props) => {
       <p className='product-name'>{props.primaryProduct.name}</p>
       {price}
       <p className='product-description'>{props.primaryProduct.description}</p>
+      <p>Share On Social Media Placeholder</p>
     </div>
   );
 };
