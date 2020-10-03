@@ -5,6 +5,7 @@ import changeStyle from '../../actions/changeStyle.js';
 
 const mapStateToProps = (store) => ({
   currentStyles: store.currentStyles,
+  currentStyle: store.currentStyle,
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -15,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-var styleSelectorContainer = connect(mapStateToProps, mapDispatchToProps)(StyleSelector);
+var styleSelectorContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StyleSelector);
 
 export default styleSelectorContainer;
