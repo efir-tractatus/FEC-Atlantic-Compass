@@ -21,7 +21,7 @@ const ProductInformation = (props) => {
       <h2>ProductInformation Section</h2>
       <h3>Star Rating Placeholder</h3>
       <p className='product-category'>{props.primaryProduct.category}</p>
-      <p className='product-name'>{props.currentStyle.name}</p>
+      <p className='product-name'>{props.primaryProduct.name}</p>
       {price}
       <p className='product-description'>{props.primaryProduct.description}</p>
     </div>
