@@ -3,8 +3,8 @@ import store from '../../store/store.js';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (store) => ({
-  currentImage: store.currentImage,
-  currentImages: store.currentImages,
+  currentStyle: store.currentStyle,
+  currentStyles: store.currentStyles,
 });
 
 var imageGalleryContainer = connect(mapStateToProps, null)(ImageGallery);

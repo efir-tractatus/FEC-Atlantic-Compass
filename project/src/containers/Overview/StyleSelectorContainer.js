@@ -1,12 +1,20 @@
 import StyleSelector from '../../components/Overview/StyleSelector.jsx';
 import store from '../../store/store.js';
 import { connect } from 'react-redux';
+import changeStyle from '../../actions/changeStyle.js';
 
 const mapStateToProps = (store) => ({
-  currentStyle: store.currentStyle,
   currentStyles: store.currentStyles,
 });
 
-var styleSelectorContainer = connect(mapStateToProps, null)(StyleSelector);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleStyleChange: (style) => {
+      dispatch(changeStyle(style));
+    },
+  };
+};
+
+var styleSelectorContainer = connect(mapStateToProps, mapDispatchToProps)(StyleSelector);
 
 export default styleSelectorContainer;
