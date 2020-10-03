@@ -2,10 +2,6 @@ import React, { useState } from 'react';
 import SelectSize from './SelectSize.jsx';
 
 const AddToCart = (props) => {
-<<<<<<< HEAD
- // console.log('AddToCart', props);
-  return <h2>AddToCart Section</h2>;
-=======
   // console.log('AddToCart', props);
   var skus = [];
   var skusObject = {};
@@ -50,7 +46,6 @@ const AddToCart = (props) => {
       <div>Star/Heart Placeholder</div>
     </div>
   );
->>>>>>> ed590664081c269cabfd1b7441d5239ac01767cd
 };
 
 export default AddToCart;

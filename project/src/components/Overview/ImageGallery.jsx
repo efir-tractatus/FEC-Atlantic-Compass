@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 
 const ImageGallery = (props) => {
-<<<<<<< HEAD
-//    console.log('ImageGallery', props)
-    return <h2>ImageGallery Section</h2>
-}
-=======
   console.log('ImageGallery', props);
->>>>>>> ed590664081c269cabfd1b7441d5239ac01767cd
 
   const [mainImage, setMainImage] = useState(props.currentStyle.photos[0].url);
 
