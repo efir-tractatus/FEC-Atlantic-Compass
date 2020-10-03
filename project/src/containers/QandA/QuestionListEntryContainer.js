@@ -1,8 +1,8 @@
 //import exampleAction from '../actions/example.action.js'
-import store from '../store/store.js';
+import store from '../../store/store.js';
 import { connect } from 'react-redux';
-import changeProductQuestions from '../actions/changeProductQuestions.js';
-import QuestionListEntry from '../components/QuestionsAndAnswers/QuestionListEntry.jsx';
+import changeProductQuestions from '../../actions/changeProductQuestions.js';
+import QuestionListEntry from '../../components/QuestionsAndAnswers/QuestionListEntry/QuestionListEntry.jsx';
 
 const mapDispatchToProps = (dispatch) => {
     return {

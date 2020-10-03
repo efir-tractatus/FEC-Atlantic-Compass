@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import AnswerList from "./AnswerList.jsx";
-import ModalTemplate from "./ModalTemplate.jsx";
-import AddAnswerModalContainer from '../../containers/AddAnswerModalContainer.js';
+import AnswerList from "../AnswerList/AnswerList.jsx";
+import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
+import AddAnswerModalContainer from '../../../containers/QandA/AddAnswerModalContainer.js';
 
 
 //this entry should be mapped from a list of questions in the QuestionList component

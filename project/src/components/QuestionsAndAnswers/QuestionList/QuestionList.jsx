@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import ModalTemplate from "./ModalTemplate.jsx";
-import AddQuestionModalContainer from '../../containers/AddQuestionModalContainer.js';
-import QuestionListEntryContainer from '../../containers/QuestionListEntryContainer.js';
+import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
+import AddQuestionModalContainer from '../../../containers/QandA/AddQuestionModalContainer.js';
+import QuestionListEntryContainer from '../../../containers/QandA/QuestionListEntryContainer.js';
 
 var QuestionList = (props) => {
-  console.log('Question list recieved:', props.questionList)
-  console.log('Search input recieved:', props.searchInput)
   var searchInput = props.searchInput
 
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +18,7 @@ var QuestionList = (props) => {
 
     if (searchInput.length >= 3) {
       var processedList = questionList.filter((question) => {
-        return question.question_body.toLowerCase().includes(searchInput.toLowerCase());
+        return question.question_body.toLowerCase().includes(searchInput);
       })
     } else {
       var processedList = questionList;

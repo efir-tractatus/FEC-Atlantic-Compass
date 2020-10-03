@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AnswerListEntryContainer from "../../containers/AnswerListEntryContainer.js";
+import AnswerListEntryContainer from "../../../containers/QandA/AnswerListEntryContainer.js";
 
 var AnswerList = (props) => {
   if (props.answers.length) {

@@ -7,7 +7,7 @@ var ModalTemplate = ({ open, children, onClose }) => {
   }
 
   return ReactDOM.createPortal(
-    <div className="modal-overlay">
+    <div className="modal-overlay" id="modal-root">
       <div className="modal">
         <a className="modal-close" onClick={onClose}>X</a>
         {children}

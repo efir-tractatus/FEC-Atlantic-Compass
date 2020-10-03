@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import QuestionList from "./QuestionList.jsx";
+import QuestionList from "../QuestionList/QuestionList.jsx";
 
 var QuestionsAndAnswers = (props) => {
   const [searchInput, setSearchInput] = useState('');

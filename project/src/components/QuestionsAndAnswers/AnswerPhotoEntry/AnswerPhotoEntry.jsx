@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ModalTemplate from "./ModalTemplate.jsx";
-import AnswerPhotoModal from "./AnswerPhotoModal.jsx";
+import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
+import AnswerPhotoModal from "../AnswerPhotoModal/AnswerPhotoModal.jsx";
 
 
 var AnswerPhotoEntry = (props) => {

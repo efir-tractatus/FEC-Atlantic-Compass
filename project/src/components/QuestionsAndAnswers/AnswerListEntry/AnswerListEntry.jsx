@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AnswerPhotoEntry from './AnswerPhotoEntry.jsx';
+import AnswerPhotoEntry from '../AnswerPhotoEntry/AnswerPhotoEntry.jsx';
 import axios from "axios";
 import moment from 'moment';
 
