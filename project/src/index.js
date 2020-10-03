@@ -2,7 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./styles.scss";
+import { Provider } from 'react-redux';
+import { initializeStore, store } from './store/store.js';
 
 
-var mountNode = document.getElementById("app");
-ReactDOM.render(<App name="Jane" />, mountNode);
+//call intializeStore from store file before mounting app this will populate the store with an initial api call before rendering the page
+initializeStore(() => {
+  var mountNode = document.getElementById("app");
+  ReactDOM.render(
+  <Provider store={store}>
+    <App name="Jane" />
+  </Provider>,
+  mountNode);
+})
