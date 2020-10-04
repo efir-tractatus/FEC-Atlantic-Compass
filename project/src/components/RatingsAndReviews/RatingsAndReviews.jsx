@@ -1,10 +1,14 @@
-import React from "react";
+import React from 'react';
+import ReviewsBreakDownContainer from '../../containers/RatingsAndReviews/ReviewsBreakDownContainer.js';
+import ReviewsContainer from '../../containers/RatingsAndReviews/ReviewsContainer.js';
 
 var RatingsAndReviews = () => {
   return (
-    <h1>
-      Ratings And Reviews Component
-    </h1>
+    <div>
+      <h1>Ratings And Reviews</h1>
+      <ReviewsBreakDownContainer/>
+      <ReviewsContainer/>
+    </div>
   );
 };
 

@@ -1,8 +1,6 @@
 import React from 'react';
 
 const ProductInformation = (props) => {
-  // console.log('Product Information', props);
-
   if (props.currentStyle.sale_price === '0') {
     var price = <p>{props.currentStyle.original_price}</p>;
   } else {
