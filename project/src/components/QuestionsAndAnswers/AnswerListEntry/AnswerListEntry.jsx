@@ -5,7 +5,7 @@ import moment from 'moment';
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
 
 var AnswerListEntry = (props) => {
-  var { answer, populateQuestions } = props
+  var { answer, product, populateQuestions } = props
   var date = answer.date
   var formattedDate = moment(date).format('MMMM D, YYYY')
   var photoList = buildPhotoList(answer.photos)
@@ -32,7 +32,7 @@ var AnswerListEntry = (props) => {
               setIsMarkedHelpful(true);
               e.target.innerHTML = 'Thanks!';
               postInteraction();
-              postHelpfulness(answer.id, populateQuestions);
+              postHelpfulness(answer.id, product.id, populateQuestions);
             }
           }
         }>Yes</a>
@@ -46,7 +46,7 @@ var AnswerListEntry = (props) => {
               setIsReported(true);
               e.target.innerHTML = 'Reported!';
               postInteraction();
-              postReported(answer.id, populateQuestions);
+              postReported(answer.id, product.id, populateQuestions);
             }
           }
         }>Report</a>
@@ -82,7 +82,7 @@ var highlightSeller = (name) => {
   }
 }
 
-var postHelpfulness = (id, populateQuestions) => {
+var postHelpfulness = (id, productId, populateQuestions) => {
   axios.put(`http://18.224.37.110/qa/answers/${id}/helpful`)
     .then((response) => {
       console.log('success', response);
@@ -91,7 +91,7 @@ var postHelpfulness = (id, populateQuestions) => {
       console.log('error marking answer helpful', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${productId}&count=20`)
     })
     .then((response) => {
       populateQuestions(response.data.results);
@@ -101,7 +101,7 @@ var postHelpfulness = (id, populateQuestions) => {
     })
 }
 
-var postReported = (id, populateQuestions) => {
+var postReported = (id, productId, populateQuestions) => {
   axios.put(`http://18.224.37.110/qa/answers/${id}/report`)
     .then((response) => {
     console.log('success', response);
@@ -110,7 +110,7 @@ var postReported = (id, populateQuestions) => {
       console.log('error reporting answer', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${productId}&count=20`)
     })
     .then((response) => {
       populateQuestions(response.data.results);

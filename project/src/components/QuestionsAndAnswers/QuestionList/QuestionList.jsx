@@ -102,14 +102,14 @@ var QuestionList = (props) => {
 
 var buildQuestionList = (listOfQuestions, propList) => {
   return listOfQuestions.map((currQuestion) => {
-    return <QuestionListEntryContainer question={currQuestion} key={currQuestion.question_id} product={propList.product}/>
+    return <QuestionListEntryContainer question={currQuestion} key={currQuestion.question_id}/>
   })
 }
 
 var buildAddQuestionModal = (isOpen, setIsOpen, propList) => {
   return (
     <ModalTemplate open={isOpen} onClose={() => setIsOpen(false)}>
-      <AddQuestionModalContainer productName={propList.product.name} productId={propList.product.id} onClose={() => setIsOpen(false)}/>
+      <AddQuestionModalContainer onClose={() => setIsOpen(false)}/>
     </ModalTemplate>
   )
 }

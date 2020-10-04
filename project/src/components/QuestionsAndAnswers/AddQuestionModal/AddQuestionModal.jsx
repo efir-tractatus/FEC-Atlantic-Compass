@@ -3,7 +3,10 @@ import axios from "axios";
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
 
 var AddQuestionModal = (props) => {
-  var {productName, productId, onClose, populateQuestions} = props;
+  var {product, onClose, populateQuestions} = props;
+  var productName = product.name;
+  var productId = product.id;
+
   return (
     <div className="QandA-modal-body">
       <p className="modal-header">Ask you quesiton</p>
@@ -46,14 +49,13 @@ var handleSubmit = (id, populateQuestions) => {
   var body = document.getElementById('your-question').value;
   var nickname = document.getElementById('question-nickname').value;
   var email = document.getElementById('question-email').value;
-  var productId = id;
 
 
   axios.post(`http://18.224.37.110/qa/questions`, {
     'body': body,
     'name': nickname,
     'email': email,
-    'product_id': productId
+    'product_id': id
   })
     .then((response) => {
       console.log('success', response);
@@ -62,7 +64,7 @@ var handleSubmit = (id, populateQuestions) => {
       console.log('error posting question', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${productId}&count=20`)
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=20`)
     })
     .then((response) => {
       console.log(response.data.results);

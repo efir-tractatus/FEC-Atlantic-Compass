@@ -12,8 +12,12 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+const mapStateToProps = (store) => ({
+    product: store.primaryProduct
+  })
+
 var AddQuestionModalContainer = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(AddQuestionModal)
 
