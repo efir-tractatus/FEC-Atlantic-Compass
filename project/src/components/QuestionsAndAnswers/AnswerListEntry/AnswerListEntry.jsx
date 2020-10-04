@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import AnswerPhotoEntry from '../AnswerPhotoEntry/AnswerPhotoEntry.jsx';
 import axios from "axios";
 import moment from 'moment';
+import InteractionTracker from "../../Utility/InteractionTracker.jsx";
 
 var AnswerListEntry = (props) => {
   var { answer, populateQuestions } = props
@@ -23,25 +24,33 @@ var AnswerListEntry = (props) => {
         <p className="answer-utility-date">{formattedDate}</p>
         <p className="answer-utility-break">|</p>
         <p className="answer-utility-text">Helpful?</p>
+        <InteractionTracker widget="QandA" element="Mark-answer-helpful"
+           render={({ postInteraction }) => (
         <a className="answer-utility-link" id="answer-helpful" onClick={(e) => {
             if (!isMarkedHelpful) {
               setHelpfulness(helpfulness + 1);
               setIsMarkedHelpful(true);
               e.target.innerHTML = 'Thanks!';
+              postInteraction();
               postHelpfulness(answer.id, populateQuestions);
             }
           }
         }>Yes</a>
+        )} />
         <p className="answer-utility-count">({helpfulness})</p>
         <p className="answer-utility-break">|</p>
+        <InteractionTracker widget="QandA" element="Report-answer"
+           render={({ postInteraction }) => (
         <a className="answer-utility-link" onClick={(e) => {
             if (!isReported) {
               setIsReported(true);
               e.target.innerHTML = 'Reported!';
+              postInteraction();
               postReported(answer.id, populateQuestions);
             }
           }
         }>Report</a>
+        )} />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
 import AddQuestionModalContainer from '../../../containers/QandA/AddQuestionModalContainer.js';
 import QuestionListEntryContainer from '../../../containers/QandA/QuestionListEntryContainer.js';
+import InteractionTracker from "../../Utility/InteractionTracker.jsx";
 
 var QuestionList = (props) => {
   var searchInput = props.searchInput
@@ -52,8 +53,11 @@ var QuestionList = (props) => {
   if (availableQuestions.length <= 0) {
     return (
     <div>
-      <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}>ADD A QUESTION +</button>
-      {buildAddQuestionModal(isOpen, setIsOpen, props)}
+      <InteractionTracker widget="QandA" element="Add-a-question"
+           render={({ postInteraction }) => (
+              <button className="QandA-button-add-question" onClick={() => { postInteraction(); setIsOpen(true) }}>ADD A QUESTION +</button>
+            )} />
+       {buildAddQuestionModal(isOpen, setIsOpen, props)}
     </div>
     )
   }
@@ -63,9 +67,21 @@ var QuestionList = (props) => {
       <div className="question-list">
           {buildQuestionList(questionsToDisplay, props)}
         <div className="button-flex-container">
+        <InteractionTracker widget="QandA" element="Load-more-questions"
+           render={({ postInteraction }) => (
           <button className="QandA-button-more-questions" onClick={() => {
-          setNumtoDisplay(numToDisplay + 2)}}><p>MORE ANSWERED QUESTIONS</p></button>
-          <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}><p>ADD A QUESTION </p><p className="button-plus">+</p></button>
+            postInteraction();
+            setNumtoDisplay(numToDisplay + 2);
+        }}><p>MORE ANSWERED QUESTIONS</p></button>
+          )} />
+          <InteractionTracker widget="QandA" element="Add-a-question"
+           render={({ postInteraction }) => (
+          <button className="QandA-button-add-question" onClick={() => {
+            postInteraction();
+            setIsOpen(true) }}>
+              <p>ADD A QUESTION </p><p className="button-plus">+</p>
+          </button>
+          )} />
         </div>
         {buildAddQuestionModal(isOpen, setIsOpen, props)}
       </div>
@@ -74,7 +90,10 @@ var QuestionList = (props) => {
     return (
       <div>
         {buildQuestionList(questionsToDisplay, props)}
-        <button className="QandA-button-add-question" onClick={() => setIsOpen(true)}>ADD A QUESTION +</button>
+        <InteractionTracker widget="QandA" element="Add-a-question"
+           render={({ postInteraction }) => (
+        <button className="QandA-button-add-question" onClick={() => { postInteraction(); setIsOpen(true) }}>ADD A QUESTION +</button>
+        )} />
         {buildAddQuestionModal(isOpen, setIsOpen, props)}
       </div>
     );
@@ -83,7 +102,7 @@ var QuestionList = (props) => {
 
 var buildQuestionList = (listOfQuestions, propList) => {
   return listOfQuestions.map((currQuestion) => {
-    return <QuestionListEntryContainer question={currQuestion} key={currQuestion.question_id} productName={propList.product.name}/>
+    return <QuestionListEntryContainer question={currQuestion} key={currQuestion.question_id} product={propList.product}/>
   })
 }
 
