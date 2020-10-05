@@ -19,6 +19,7 @@ const ImageGallery = (props) => {
         }}
       >
         <img className="image-gallery-thumbnail" src={image.thumbnail_url} />
+        <hr className='thumbnail-selection' style={mainImage === image.url ? {display: 'block'} : {display: 'none'}}></hr>
       </div>
     );
   });

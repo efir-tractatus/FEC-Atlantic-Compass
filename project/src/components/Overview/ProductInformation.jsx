@@ -8,8 +8,8 @@ const ProductInformation = (props) => {
   } else {
     var price = (
       <div>
-        <p className="sale-price">{props.currentStyle.sale_price}</p>
-        <p>
+        <p className="sale-price">
+          {props.currentStyle.sale_price}{' '}
           <strike>{props.currentStyle.original_price}</strike>
         </p>
       </div>
