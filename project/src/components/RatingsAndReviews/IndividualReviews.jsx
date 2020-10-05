@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
+
 
 const IndividualReviews = (props) => {
   let data = props.reviewId;
@@ -8,7 +10,6 @@ const IndividualReviews = (props) => {
     checkIfAlreadyPressedHelpful,
     setCheckIfAlreadyPressedHelpful,
   ] = useState(false);
-
   return (
     <div>
       <div className='placeHolder'>
@@ -68,6 +69,7 @@ const checkIfResponses = (data) => {
 
 
 const userNameDiv = (data) => {
+  let formattedDate = moment(data.date).format('MMMM D, YYYY')
   let checkMark = false;
   if (data.reccomend === 1) {
     checkMark = true;
@@ -79,7 +81,7 @@ const userNameDiv = (data) => {
     return (
       <div>
         <p>
-          {data.reviewer_name} {data.date}
+          {data.reviewer_name} {formattedDate}
         </p>
       </div>
     );
@@ -88,7 +90,7 @@ const userNameDiv = (data) => {
   if (!data.reviewer_name) {
     return (
       <div>
-        <p>cognito {data.date}</p>
+        <p>cognito {formattedDate}</p>
       </div>
     );
   }

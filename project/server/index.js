@@ -19,7 +19,7 @@ app.get('/catwalk', (req, res) => {
     axios.get(`http://18.224.37.110/products/1/styles`),
     axios.get(`http://18.224.37.110/products/1/related`),
     axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=10`),
-    axios.get(`http://18.224.37.110/reviews?product_id=1`),
+    axios.get(`http://18.224.37.110/reviews?product_id=1&count=50`),
     axios.get(`http://18.224.37.110/reviews/meta?product_id=1`)
   ];
 
