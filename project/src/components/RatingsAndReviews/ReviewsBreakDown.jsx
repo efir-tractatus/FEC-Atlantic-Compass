@@ -10,15 +10,22 @@ class ReviewsBreakDown extends React.Component {
 
     let reviewCount = 0;
     let aggregateTotal = 0;
+    let modeRatings = 0;
     for (let i = 1; i <= 5; i++) {
       reviewCount += this.props.primaryProductMetadata.ratings[i];
       aggregateTotal += i * this.props.primaryProductMetadata.ratings[i];
+      if (this.props.primaryProductMetadata.ratings[i] > modeRatings) {
+        modeRatings = this.props.primaryProductMetadata.ratings[i]
+      }
+
     }
     let overAllReviews = Math.round((aggregateTotal / reviewCount) * 10) / 10;
 
     this.state = {
+      reviewCount: reviewCount
       recommendedPercentage: recommendedPercentage,
       overAllReviews: overAllReviews,
+      modeRatings = modeRatings,
     };
   }
 
