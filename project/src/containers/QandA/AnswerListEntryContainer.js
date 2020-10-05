@@ -12,8 +12,12 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
+const mapStateToProps = (store) => ({
+    product: store.primaryProduct
+  })
+
 var AnswerListEntryContainer = connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
 )(AnswerListEntry)
 
