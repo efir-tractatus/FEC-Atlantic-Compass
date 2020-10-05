@@ -1,0 +1,29 @@
+.style-grid {
+    display: grid;
+    grid-template-rows: 90px 90px;
+    grid-template-columns: 90px 90px 90px;
+  }
+
+  .style-grid-image {
+    border-radius: 50%;
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+  }
+
+  .image-gallery-thumbnail {
+    border-radius: 0%;
+    object-fit: cover;
+    width: 130px;
+    height: 130px;
+  }
+
+  .image-gallery-grid {
+    display: inline-flex
+  }
+
+  .image-gallery-main-image {
+    object-fit: contain;
+    width: 640px;
+    height: 480px;
+  }

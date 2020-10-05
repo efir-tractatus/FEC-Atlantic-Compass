@@ -1,7 +1,7 @@
 import React from "react";
 import Overview from './components/Overview/Overview.jsx';
 import RatingsAndReviews from './components/RatingsAndReviews/RatingsAndReviews.jsx';
-import QuestionsAndAnswersWidgetContainer from './containers/QuestionsAndAnswersWidgetContainer.js';
+import QuestionsAndAnswersWidgetContainer from './containers/QandA/QuestionsAndAnswersWidgetContainer.js';
 import RelatedItemsAndComparison from './components/RelatedItemsAndComparison/RelatedItemsAndComparison.jsx';
 
 class App extends React.Component {
@@ -9,9 +9,8 @@ class App extends React.Component {
     return (
       <div>
         <Overview/>
-        <RatingsAndReviews/>
         <QuestionsAndAnswersWidgetContainer/>
-        <RelatedItemsAndComparison/>
+        <RatingsAndReviews/>
       </div>
     );
   }
