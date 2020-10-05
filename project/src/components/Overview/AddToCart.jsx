@@ -22,13 +22,14 @@ const AddToCart = (props) => {
     return <SelectSize sku={sku} key={sku[0]} />;
   });
 
-  renderSkus.push(<option value='' key={'default'}>Select Size</option>)
+  renderSkus.unshift(<option value='' key={'default'}>Select Size</option>)
 
-  const [quantity, setSize] = useState(skus[0][1]);
+  const [quantity, setSize] = useState('');
 
   var renderQuantity = [];
+  var maxQuantity = quantity > 15 ? 15 : quantity
 
-  for (var i = 0; i <= quantity; i++) {
+  for (var i = 1; i <= maxQuantity; i++) {
     renderQuantity.push(<option key={i}>{i}</option>);
   }
 
@@ -43,7 +44,9 @@ const AddToCart = (props) => {
       >
         {renderSkus}
       </select>
-      <select className="quantity-selector">{renderQuantity}</select>
+      <select className="quantity-selector">
+        {quantity === '' ? <option key={'none'}>-</option> : renderQuantity}
+        </select>
       <button className='add-to-bag'>ADD TO BAG</button>
       <div>Star/Heart Placeholder</div>
     </div>
