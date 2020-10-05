@@ -24,14 +24,14 @@ const ImageGallery = (props) => {
   });
 
   return (
-    <div>
-      <h2>ImageGallery Section</h2>
-      <div className="image-gallery-main-image-box">
-        <img className='image-gallery-main-image'
-          src={belongs === undefined ? props.currentStyle.photos[0].url : mainImage}
-        />
-      </div>
+    <div className="image-gallery-main-image-box">
       <div className="image-gallery-grid">{renderImages}</div>
+      <img
+        className="image-gallery-main-image"
+        src={
+          belongs === undefined ? props.currentStyle.photos[0].url : mainImage
+        }
+      />
     </div>
   );
 };
