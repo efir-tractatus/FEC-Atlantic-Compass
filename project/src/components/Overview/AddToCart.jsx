@@ -44,7 +44,7 @@ const AddToCart = (props) => {
       >
         {renderSkus}
       </select>
-      <select className="quantity-selector">
+      <select className="quantity-selector" disabled={quantity === '' ? true : false}>
         {quantity === '' ? <option key={'none'}>-</option> : renderQuantity}
         </select>
       <button className='add-to-bag'>ADD TO BAG</button>
