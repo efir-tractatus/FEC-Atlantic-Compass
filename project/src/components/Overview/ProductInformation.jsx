@@ -8,8 +8,8 @@ const ProductInformation = (props) => {
   } else {
     var price = (
       <div>
-        <p className="sale-price">{props.currentStyle.sale_price}</p>
-        <p>
+        <p className="sale-price">
+          {props.currentStyle.sale_price}{' '}
           <strike>{props.currentStyle.original_price}</strike>
         </p>
       </div>
@@ -17,14 +17,18 @@ const ProductInformation = (props) => {
   }
 
   return (
-    <div className="product-information">
+    <div className="product-information-box">
       <h2>ProductInformation Section</h2>
       <h3>Star Rating Placeholder</h3>
-      <h4><a href='#question-and-answers'>Read all {props.reviews.length} Reviews</a></h4>
-      <p className='product-category'>{props.primaryProduct.category}</p>
-      <p className='product-name'>{props.primaryProduct.name}</p>
+      <h4>
+        <a href="#question-and-answers">
+          Read all {props.reviews.length} Reviews
+        </a>
+      </h4>
+      <p className="product-category">{props.primaryProduct.category}</p>
+      <p className="product-name">{props.primaryProduct.name}</p>
       {price}
-      <p className='product-description'>{props.primaryProduct.description}</p>
+      <p className="product-description">{props.primaryProduct.description}</p>
       <p>Share On Social Media Placeholder</p>
     </div>
   );
