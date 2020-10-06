@@ -3,7 +3,11 @@ import React, { useState } from 'react';
 const ImageGallery = (props) => {
   console.log('ImageGallery', props);
 
-  const [mainImage, setMainImage] = useState(props.currentStyle.photos[0].url);
+  var photos = props.currentStyle.photos;
+  var lastImg = false;
+  var firstImg = true;
+
+  const [mainImage, setMainImage] = useState(photos[0].url);
 
   var belongs = props.currentStyle.photos.find(
     (element) => element.url === mainImage
@@ -19,19 +23,56 @@ const ImageGallery = (props) => {
         }}
       >
         <img className="image-gallery-thumbnail" src={image.thumbnail_url} />
+        <hr
+          className="thumbnail-selection"
+          style={
+            mainImage === image.url ? { display: 'block' } : { display: 'none' }
+          }
+        ></hr>
       </div>
     );
   });
 
   return (
-    <div>
-      <h2>ImageGallery Section</h2>
-      <div className="image-gallery-main-image-box">
-        <img className='image-gallery-main-image'
-          src={belongs === undefined ? props.currentStyle.photos[0].url : mainImage}
-        />
-      </div>
+    <div className="image-gallery-main-image-box">
       <div className="image-gallery-grid">{renderImages}</div>
+      <div
+        onClick={(e) => {
+          var imageIdx = photos.findIndex(
+            (element) => element.url === mainImage
+          );
+          if (imageIdx === 0) {
+            firstImg = true;
+          } else {
+            setMainImage(photos[imageIdx - 1].url)
+            firstImg = false
+          }
+          console.log(firstImg);
+        }}
+      >
+        <img className="left-arrow" src="./attributes/left-arrow.png" />
+      </div>
+      <img
+        className="image-gallery-main-image"
+        src={
+          belongs === undefined ? props.currentStyle.photos[0].url : mainImage
+        }
+      />
+      <div
+        onClick={(e) => {
+          var imageIdx = photos.findIndex(
+            (element) => element.url === mainImage
+          );
+          if (imageIdx + 2 > photos.length) {
+            lastImg = true;
+          } else {
+            setMainImage(photos[imageIdx + 1].url);
+          }
+          console.log(lastImg);
+        }}
+      >
+        <img className="right-arrow" src="./attributes/right-arrow.png" />
+      </div>
     </div>
   );
 };

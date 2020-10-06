@@ -38,13 +38,14 @@ const AddToCart = (props) => {
       <h2>AddToCart Section</h2>
       <select defaultValue=''
         className="size-selector"
+        disabled={renderSkus.length === 1 ? true : false}
         onChange={(e) => {
           setSize(e.target.value);
         }}
       >
-        {renderSkus}
+        {renderSkus.length === 1 ? <option key={'oos'}>OUT OF STOCK</option> : renderSkus}
       </select>
-      <select className="quantity-selector">
+      <select className="quantity-selector" disabled={quantity === '' ? true : false}>
         {quantity === '' ? <option key={'none'}>-</option> : renderQuantity}
         </select>
       <button className='add-to-bag'>ADD TO BAG</button>
