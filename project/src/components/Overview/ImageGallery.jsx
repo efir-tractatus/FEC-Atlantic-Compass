@@ -13,7 +13,7 @@ const ImageGallery = (props) => {
     (element) => element.url === mainImage
   );
 
-  var renderImages = props.currentStyle.photos.map((image, index) => {
+  var imageCollection = props.currentStyle.photos.map((image, index) => {
     return (
       <div
         className="image-gallery-item"
@@ -33,19 +33,51 @@ const ImageGallery = (props) => {
     );
   });
 
+  const [midPoint, setMidPoint] = useState(
+    Math.floor(imageCollection.length / 2)
+  );
+
+  console.log('Mid Point', midPoint);
+
+  var renderImages = imageCollection.slice(midPoint - 2, midPoint + 2);
+
   return (
     <div className="image-gallery-main-image-box">
-      <div className="image-gallery-grid">{renderImages}</div>
+      <div className="image-gallery-thumbnail-column">
+        <div
+          className="image-gallery-scroll-up"
+          onClick={() => {
+            if (midPoint - 2 > 0) {
+              setMidPoint(midPoint - 1);
+              console.log('that');
+            }
+          }}
+        >
+          <img src="./attributes/keyboard-up-arrow.png" />
+        </div>
+        <div className="image-gallery-grid">{renderImages}</div>
+        <div
+          className="image-gallery-scroll-down"
+          onClick={() => {
+            if (midPoint + 2 < imageCollection.length) {
+              setMidPoint(midPoint + 1);
+              console.log('this');
+            }
+          }}
+        >
+          <img src="./attributes/keyboard-down-arrow.png" />
+        </div>
+      </div>
       <div
-        onClick={(e) => {
+        onClick={() => {
           var imageIdx = photos.findIndex(
             (element) => element.url === mainImage
           );
           if (imageIdx === 0) {
             firstImg = true;
           } else {
-            setMainImage(photos[imageIdx - 1].url)
-            firstImg = false
+            setMainImage(photos[imageIdx - 1].url);
+            firstImg = false;
           }
           console.log(firstImg);
         }}
@@ -59,7 +91,7 @@ const ImageGallery = (props) => {
         }
       />
       <div
-        onClick={(e) => {
+        onClick={() => {
           var imageIdx = photos.findIndex(
             (element) => element.url === mainImage
           );
