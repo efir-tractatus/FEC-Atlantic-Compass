@@ -9,13 +9,18 @@ var AddAnswerModal = (props) => {
 
   useEffect(() => {
     console.log(images);
+    if (images.length) {
+      document.getElementById("QandA-clear-photos").style.visibility = "visible";
+    } else {
+      document.getElementById("QandA-clear-photos").style.visibility = "hidden";
+    }
   }, [images]);
 
   return (
     <div className="QandA-modal-body">
       <p className="modal-header">Submit your Answer</p>
       <p className="modal-sub-header"> {product.name}: {questionBody}</p>
-      <form id="submit-answer-form">
+      <form id="submit-answer-form" className="QandA-modal-form">
         <label htmlFor="your-answer">YOUR ANSWER*:</label>
         <br></br>
         <textarea type="text" id="your-answer" name="your-answer" maxLength="1000" placeholder="Your answer here..." required></textarea>
@@ -32,15 +37,23 @@ var AddAnswerModal = (props) => {
         <br></br>
         <p className="modal-email-warning">For authentication reasons, you will not be emailed</p>
         <br></br>
-        <label htmlFor="file-upload">UPLOAD PHOTOS:</label>
+        <label className="QandA-photo-upload" id="uploaded-answer-photos-psuedo-button" htmlFor="file-upload" onClick={() => getFiles()}>UPLOAD PHOTOS
         <br></br>
-        <input className="QandA-photo-upload" id="uploaded-answer-photos" type="file" name="file-upload" accept="image/*" multiple onChange={() => {
-          setImages([]);
-          handlePhotoUploadChange(setImages);
-        }}></input>
+          <input id="uploaded-answer-photos" type="file" name="file-upload" accept="image/*" multiple onChange={() => {
+            setImages([]);
+            handlePhotoUploadChange(setImages);
+          }}></input>
+        </label>
+        <br></br>
         <div className="photo-upload-preview-container" id="photo-upload-preview-container">
         </div>
-        <br></br>
+        <button className="QandA-clear-photos" id="QandA-clear-photos" onClick={(e) => {
+          e.preventDefault();
+          setImages([]);
+          document.getElementById('photo-upload-preview-container').innerHTML= '';
+          document.getElementById('uploaded-answer-photos-psuedo-button').style.visibility = "visible";
+          }}>CLEAR PHOTOS</button>
+          <br></br>
         <InteractionTracker widget="QandA" element="Submit-answer"
            render={({ postInteraction }) => (
         <input className="QandA-submit" type="submit" value="SUBMIT" onClick={(e) => {
@@ -57,6 +70,10 @@ var AddAnswerModal = (props) => {
     </div>
   );
 };
+
+var getFiles = () => {
+  document.getElementById("uploaded-answer-photos").click();
+}
 
 var handlePhotoUploadChange = (callback) => {
   var files = document.getElementById('uploaded-answer-photos').files
@@ -81,7 +98,7 @@ var handlePhotoUploadChange = (callback) => {
     reader.readAsDataURL(files[i]);
 
     if (i >= 4) {
-      document.getElementById('uploaded-answer-photos').style.visibility = "hidden";
+      document.getElementById('uploaded-answer-photos-psuedo-button').style.visibility = "hidden";
     }
   }
 }
