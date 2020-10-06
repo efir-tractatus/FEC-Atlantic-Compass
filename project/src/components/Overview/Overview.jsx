@@ -9,8 +9,10 @@ var Overview = () => {
     <div>
       <h1>Overview Component</h1>
       <div className="overview-main-box">
-        <ImageGalleryContainer />
-        <div className="overview-side-box">
+        <div className="overview-left-box">
+          <ImageGalleryContainer />
+        </div>
+        <div className="overview-right-box">
           <ProductInformationContainer />
           <StyleSelectorContainer />
           <AddToCartContainer />

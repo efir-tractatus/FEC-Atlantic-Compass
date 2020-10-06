@@ -22,7 +22,7 @@ h1 {
 
 // Style Selector Ends
 
-// Image Gallery Begins
+// Image Gallery Contents Begins
 
 .image-gallery-item {
   margin-left: 20%;
@@ -53,15 +53,14 @@ h1 {
   object-fit: contain;
   width: 80%;
   height: 80%;
-  z-index: 1;
 }
 
 .image-gallery-main-image-box {
   display: flex;
   background-color: lightgrey;
-  width: 55%;
+  width: 100%;
   height: 100%;
-  margin-right: 2%;
+  z-index: 1;
 }
 
 // Image Gallery Ends
@@ -70,18 +69,30 @@ h1 {
 
 .overview-main-box {
   display: flex;
-  height: 900px;
+  height: 768px;
   margin-left: 10%;
   margin-right: 10%;
 }
 
 // Overview Top Element Ends
 
+// Image Gallery Box Begins
+
+.overview-left-box {
+  width: 98%;
+  padding-right: 1%;
+  z-index: 2;
+}
+
+// Image Gallery Box Ends
+
 
 // Product Info, Style Selector & Add to Cart Top Level Begins
 
-.overview-side-box {
-  width: 30%;
+.overview-right-box {
+  margin-left: 2%;
+  width: 100%;
+  z-index: 1;
 }
 
 // Product Info, Style Selector & Add to Cart Top Level Ends

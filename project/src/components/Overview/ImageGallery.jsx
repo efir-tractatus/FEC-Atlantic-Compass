@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import $ from 'jquery';
 
 const ImageGallery = (props) => {
   console.log('ImageGallery', props);
@@ -33,9 +34,9 @@ const ImageGallery = (props) => {
     );
   });
 
-  const [midPoint, setMidPoint] = useState(
-    Math.floor(imageCollection.length / 2)
-  );
+  const [midPoint, setMidPoint] = useState(2);
+
+  const [expanded, setExpand] = useState(false);
 
   console.log('Mid Point', midPoint);
 
@@ -104,6 +105,30 @@ const ImageGallery = (props) => {
         }}
       >
         <img className="right-arrow" src="./attributes/right-arrow.png" />
+      </div>
+      <div
+        className="image-gallery-expand"
+        onClick={() => {
+          if (!expanded) {
+            $('.image-gallery-main-image-box').animate(
+              {
+                width: '200%',
+              },
+              1000
+            );
+            setExpand(true);
+          } else {
+            $('.image-gallery-main-image-box').animate(
+              {
+                width: '100%',
+              },
+              1000
+            );
+            setExpand(false);
+          }
+        }}
+      >
+        <img className="expand-icon" src="./attributes/resize.png" />
       </div>
     </div>
   );
