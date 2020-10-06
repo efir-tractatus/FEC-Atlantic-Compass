@@ -11,7 +11,7 @@ var AddQuestionModal = (props) => {
     <div className="QandA-modal-body">
       <p className="modal-header">Ask you quesiton</p>
       <p className="modal-sub-header">About the {productName}</p>
-      <form id="submit-question-form">
+      <form id="submit-question-form" className="QandA-modal-form">
         <label className="QandA-modal-label" htmlFor="your-question">YOUR QUESTION*:</label>
         <br></br>
         <textarea type="text" id="your-question" name="your-question" maxLength="1000" placeholder="Why did you like the product or not?" required></textarea>
