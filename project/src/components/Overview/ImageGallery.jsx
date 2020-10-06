@@ -9,6 +9,9 @@ const ImageGallery = (props) => {
   var firstImg = true;
 
   const [mainImage, setMainImage] = useState(photos[0].url);
+  const [midPoint, setMidPoint] = useState(2);
+  const [expanded, setExpand] = useState(false);
+  const [zoomed, setZoom] = useState(false);
 
   var belongs = props.currentStyle.photos.find(
     (element) => element.url === mainImage
@@ -33,10 +36,6 @@ const ImageGallery = (props) => {
       </div>
     );
   });
-
-  const [midPoint, setMidPoint] = useState(2);
-
-  const [expanded, setExpand] = useState(false);
 
   console.log('Mid Point', midPoint);
 
@@ -85,12 +84,57 @@ const ImageGallery = (props) => {
       >
         <img className="left-arrow" src="./attributes/left-arrow.png" />
       </div>
-      <img
-        className="image-gallery-main-image"
-        src={
-          belongs === undefined ? props.currentStyle.photos[0].url : mainImage
-        }
-      />
+      <div
+        className="image-gallery-zoom"
+        onClick={() => {
+          if (expanded) {
+            if (!zoomed) {
+              $('.image-gallery-main-image').css({
+                'object-fit': 'cover',
+              });
+              setZoom(true);
+            } else {
+              $('.image-gallery-main-image').css({
+                'object-fit': 'contain',
+              });
+              setZoom(false);
+            }
+          }
+        }}
+      >
+        <img
+          className="image-gallery-main-image"
+          onClick={() => {
+            if (!expanded) {
+              $('.image-gallery-main-image-box').animate(
+                {
+                  width: '200%',
+                },
+                1000
+              );
+              setExpand(true);
+            }
+          }}
+          onMouseEnter={(e) => {
+            if (expanded) {
+              console.log('change to +');
+            }
+          }}
+          onMouseLeave={() => {
+            if (expanded) {
+              console.log('change to regular');
+            }
+          }}
+          onMouseMove={(e) => {
+            if (expanded && zoomed) {
+              console.log('X', e.pageX);
+            }
+          }}
+          src={
+            belongs === undefined ? props.currentStyle.photos[0].url : mainImage
+          }
+        />
+      </div>
       <div
         onClick={() => {
           var imageIdx = photos.findIndex(
