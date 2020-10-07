@@ -6,6 +6,7 @@ const mapStateToProps = (store) => ({
   primaryProduct: store.primaryProduct,
   reviews: store.reviews,
   currentStyle: store.currentStyle,
+  productMetaData: store.primaryProductMetadata
 });
 
 var productInformationContainer = connect(

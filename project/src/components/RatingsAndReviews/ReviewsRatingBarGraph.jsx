@@ -50,4 +50,5 @@ const BarGraphComponents = (props) => {
   );
 };
 
+ReviewsRatingBarGraph.prototype = {};
 export default ReviewsRatingBarGraph;

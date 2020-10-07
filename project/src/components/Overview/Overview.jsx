@@ -8,10 +8,16 @@ var Overview = () => {
   return (
     <div>
       <h1>Overview Component</h1>
-      <ImageGalleryContainer />
-      <ProductInformationContainer />
-      <StyleSelectorContainer />
-      <AddToCartContainer />
+      <div className="overview-main-box">
+        <div className="overview-left-box">
+          <ImageGalleryContainer />
+        </div>
+        <div className="overview-right-box">
+          <ProductInformationContainer />
+          <StyleSelectorContainer />
+          <AddToCartContainer />
+        </div>
+      </div>
     </div>
   );
 };
