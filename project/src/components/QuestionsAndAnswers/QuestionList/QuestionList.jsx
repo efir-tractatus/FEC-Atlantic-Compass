@@ -40,7 +40,7 @@ var QuestionList = (props) => {
     setAvailableQuestions(processedList);
     setQuestionsToDisplay(displayList);
     setIsLoading(false);
-  }, [searchInput, numToDisplay])
+  }, [searchInput, numToDisplay, props.questionList])
 
 
 
@@ -55,7 +55,7 @@ var QuestionList = (props) => {
     <div>
       <InteractionTracker widget="QandA" element="Add-a-question"
            render={({ postInteraction }) => (
-              <button className="QandA-button-add-question" onClick={() => { postInteraction(); setIsOpen(true) }}>ADD A QUESTION +</button>
+            <button className="QandA-button-add-question" onClick={() => {postInteraction(); setIsOpen(true) }}>ADD A QUESTION +</button>
             )} />
        {buildAddQuestionModal(isOpen, setIsOpen, props)}
     </div>
