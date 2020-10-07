@@ -60,7 +60,8 @@ app.get('/catwalk/:id', (req, res) => {
     }))
 
     .catch((err) => {
-      //console.log(err)
+      console.log(err)
+      res.status(404).send('could not find product info')
     })
 });
 
