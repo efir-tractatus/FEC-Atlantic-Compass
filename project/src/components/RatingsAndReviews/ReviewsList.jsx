@@ -3,12 +3,14 @@ import IndividualReviews from './IndividualReviews.jsx';
 import ReviewsBreakDown from './ReviewsBreakDown.jsx';
 import axios from 'axios';
 import AddReviewsModal from './AddReviewsModal.jsx';
+import ModalTemplate from '../QuestionsAndAnswers/ModalTemplate/ModalTemplate';
 
 class ReviewsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 2,
+      isOpen: false,
     };
     this.moreReviewsButton = this.moreReviewsButton.bind(this);
   }
@@ -43,8 +45,8 @@ class ReviewsList extends React.Component {
       <div className='placeHolder'>
         <div className='placeHolder'>
           {this.props.reviews.length} reviews, sorted by
-          <select>
-            <option selected value='relevance'>
+          <select defaultValue='relevance'>
+            <option>
               relevance
             </option>
             <option value='helpfulness'>helpfulness</option>
@@ -63,11 +65,19 @@ class ReviewsList extends React.Component {
           className='placeHolder'
           type='button'
           onClick={() => {
-            return 'holding this place';
+            this.setState({ isOpen: true });
           }}
         >
-          Add A Reviews +
+          Add A Review +
         </div>
+        <ModalTemplate
+          open={this.state.isOpen}
+          onClose={() => {
+            this.setState({ isOpen: false });
+          }}
+        >
+          <AddReviewsModal productName={this.props.primaryProduct.name} productID={this.props.primaryProduct.id}/>
+        </ModalTemplate>
       </div>
     );
   }
