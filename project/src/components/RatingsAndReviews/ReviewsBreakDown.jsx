@@ -34,7 +34,7 @@ class ReviewsBreakDown extends React.Component {
   render() {
     return (
       <div>
-        <div>{this.state.overAllReviews}<StarRating number={this.state.overAllReviews}/></div>
+        <div><p>{this.state.overAllReviews}</p><StarRating number={this.state.overAllReviews}/></div>
         <div>
           {this.state.recommendedPercentage}% of reviews recommend this product
         </div>

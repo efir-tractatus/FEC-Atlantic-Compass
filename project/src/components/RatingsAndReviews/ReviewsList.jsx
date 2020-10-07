@@ -38,17 +38,16 @@ class ReviewsList extends React.Component {
     return returner;
   }
 
-  addReviews() {}
-
   render() {
     return (
       <div className='placeHolder'>
         <div className='placeHolder'>
           {this.props.reviews.length} reviews, sorted by
-          <select defaultValue='relevance'>
-            <option>
-              relevance
-            </option>
+          <select defaultValue='relevance' onchange={(event) => {
+            let newValue = event.target.value
+
+          }}>
+            <option value='relevance'>relevance</option>
             <option value='helpfulness'>helpfulness</option>
             <option value='newest'>newest</option>
           </select>
@@ -76,7 +75,10 @@ class ReviewsList extends React.Component {
             this.setState({ isOpen: false });
           }}
         >
-          <AddReviewsModal productName={this.props.primaryProduct.name} productID={this.props.primaryProduct.id}/>
+          <AddReviewsModal
+            productName={this.props.primaryProduct.name}
+            productID={this.props.primaryProduct.id}
+          />
         </ModalTemplate>
       </div>
     );
