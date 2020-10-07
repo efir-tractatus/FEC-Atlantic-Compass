@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewsRatingBarGraph from './ReviewsRatingBarGraph.jsx';
 import Characteristics from './Characteristics';
-
+import StarRating from '../StarRatingLogic';
 class ReviewsBreakDown extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +34,7 @@ class ReviewsBreakDown extends React.Component {
   render() {
     return (
       <div>
-        <div>{this.state.overAllReviews}</div>
+        <div>{this.state.overAllReviews}<StarRating number={this.state.overAllReviews}/></div>
         <div>
           {this.state.recommendedPercentage}% of reviews recommend this product
         </div>
