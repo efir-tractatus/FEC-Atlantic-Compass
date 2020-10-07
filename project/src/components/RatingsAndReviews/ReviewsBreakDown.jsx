@@ -1,6 +1,7 @@
 import React from 'react';
-import ReviewsRatingBarGraph from "./ReviewsRatingBarGraph.jsx"
-
+import ReviewsRatingBarGraph from './ReviewsRatingBarGraph.jsx';
+import Characteristics from './Characteristics';
+import StarRating from '../StarRatingLogic';
 class ReviewsBreakDown extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +18,7 @@ class ReviewsBreakDown extends React.Component {
       reviewCount += this.props.primaryProductMetadata.ratings[i];
       aggregateTotal += i * this.props.primaryProductMetadata.ratings[i];
       if (this.props.primaryProductMetadata.ratings[i] > modeRatings) {
-        modeRatings = this.props.primaryProductMetadata.ratings[i]
+        modeRatings = this.props.primaryProductMetadata.ratings[i];
       }
     }
     let overAllReviews = Math.round((aggregateTotal / reviewCount) * 10) / 10;
@@ -33,14 +34,21 @@ class ReviewsBreakDown extends React.Component {
   render() {
     return (
       <div>
-        <div>{this.state.overAllReviews}</div>
+        <div>{this.state.overAllReviews}<StarRating number={this.state.overAllReviews}/></div>
         <div>
           {this.state.recommendedPercentage}% of reviews recommend this product
         </div>
         <div>
-        <ReviewsRatingBarGraph ratings={this.props.primaryProductMetadata.ratings} modeRatings={this.state.modeRatings}/>
+          <ReviewsRatingBarGraph
+            ratings={this.props.primaryProductMetadata.ratings}
+            modeRatings={this.state.modeRatings}
+          />
         </div>
-        <div>a pointer graph showing how the sizes compare</div>
+        <div>
+          <Characteristics
+            characteristics={this.props.primaryProductMetadata.characteristics}
+          />
+        </div>
       </div>
     );
   }

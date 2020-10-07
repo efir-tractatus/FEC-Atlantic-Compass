@@ -26,7 +26,7 @@ const BarGraphComponents = (props) => {
 
   const containerStyles = {
     height: 10,
-    width: '20%',
+    width: '13.5%',
     backgroundColor: '#e0e0de',
     borderRadius: 25,
     margin: 25,
