@@ -99,19 +99,27 @@ const ImageGallery = (props) => {
             }
             if (expanded && !zoomed) {
               $('.image-gallery-main-image').css({
-                'object-fit': 'cover',
+                transform: 'scale(2.5)',
                 cursor: 'zoom-out',
               });
               setZoom(true);
             } else if (expanded && zoomed) {
               $('.image-gallery-main-image').css({
+                transform: 'scale(1)',
                 'object-fit': 'contain',
+                width: '100%',
+                height: '100%',
+                'max-height': '100%',
                 cursor: 'zoom-in',
               });
               setZoom(false);
             }
           }}
           onMouseEnter={(e) => {
+            var imagePos = $('.image-gallery-main-image').css(
+              'object-position'
+            );
+            console.log(imagePos);
             if (expanded) {
               if (zoomed) {
                 $('.image-gallery-main-image').css('cursor', 'zoom-out');
@@ -127,7 +135,12 @@ const ImageGallery = (props) => {
           }}
           onMouseMove={(e) => {
             if (expanded && zoomed) {
-              console.log('X', e.screenX);
+              var x = e.movementX;
+              var y = e.movementY;
+              console.log(x, y);
+              $('.image-gallery-main-image').css({
+                cursor: 'zoom-out',
+              });
             }
           }}
           src={
