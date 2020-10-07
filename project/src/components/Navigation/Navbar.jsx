@@ -26,6 +26,8 @@ var changeProduct = (e, props) => {
           var newData = response.data;
           props.updatePrimaryProduct(newData.primaryProduct);
           props.updateQuestions(newData.primaryProductQuestions.results);
+          props.updateStyles(newData.primaryProductStyles.results);
+          props.updateCurrentStyle(newData.primaryProductStyles.results[0]);
         })
         .catch((err) => {
           console.log('error changing the product', err);
