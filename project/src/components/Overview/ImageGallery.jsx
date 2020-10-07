@@ -12,6 +12,7 @@ const ImageGallery = (props) => {
   const [midPoint, setMidPoint] = useState(2);
   const [expanded, setExpand] = useState(false);
   const [zoomed, setZoom] = useState(false);
+  const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 
   var belongs = props.currentStyle.photos.find(
     (element) => element.url === mainImage
@@ -109,7 +110,6 @@ const ImageGallery = (props) => {
                 'object-fit': 'contain',
                 width: '100%',
                 height: '100%',
-                'max-height': '100%',
                 cursor: 'zoom-in',
               });
               setZoom(false);
@@ -135,11 +135,11 @@ const ImageGallery = (props) => {
           }}
           onMouseMove={(e) => {
             if (expanded && zoomed) {
-              var x = e.movementX;
-              var y = e.movementY;
-              console.log(x, y);
-              $('.image-gallery-main-image').css({
-                cursor: 'zoom-out',
+              var x = coordinates.x - e.movementX;
+              var y = coordinates.y - e.movementY;
+              setCoordinates({ x: x, y: y });
+              var translateScale = $('.image-gallery-main-image').css({
+                transform: 'translate(' + x + 'px,' + y + 'px) scale(2.5)',
               });
             }
           }}
