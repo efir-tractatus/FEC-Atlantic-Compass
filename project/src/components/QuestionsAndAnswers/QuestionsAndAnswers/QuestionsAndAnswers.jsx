@@ -18,11 +18,11 @@ var QuestionsAndAnswers = (props) => {
 
   return (
     <div className="QandA-widget">
-      <h4 className="QandA-primary-header">QUESTIONS & ANSWERS</h4>
+      <p className="QandA-primary-header">QUESTIONS & ANSWERS</p>
       <div className="QandA-searchbar-container">
       <InteractionTracker widget="QandA" element="Search-questions"
            render={({ postInteraction }) => (
-        <input className="QandA-searchbar" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onClick={() => postInteraction()}>
+       <input className="QandA-searchbar" type="text" placeholder="HAVE A QUESTION? SEARCH FOR ANSWERS..." aria-label="searchbar" value={searchInput} onChange={(e) => setSearchInput(e.target.value)} onClick={() => postInteraction()}>
         </input>
         )} />
       </div>

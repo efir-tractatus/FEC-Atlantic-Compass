@@ -12,7 +12,7 @@ $fontStack: arial, sans-serif;
   margin-bottom: 2vw;
   font-family: $fontStack;
   font-size: 2.25vw;
-  color: gray;
+  color: rgb(29, 29, 29);
 }
 
 a:hover {
@@ -41,7 +41,7 @@ a:hover {
   font-size: 1vw;
   font-weight: 300;
   border-radius: 0%;
-  border: 1px solid rgb(42, 42, 42);
+  border: 1px solid rgb(24, 24, 24);
   background-color: none;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAzMCAzMCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDEzIDMgQyA3LjQ4ODk5NzEgMyAzIDcuNDg4OTk3MSAzIDEzIEMgMyAxOC41MTEwMDMgNy40ODg5OTcxIDIzIDEzIDIzIEMgMTUuMzk2NTA4IDIzIDE3LjU5NzM4NSAyMi4xNDg5ODYgMTkuMzIyMjY2IDIwLjczNjMyOCBMIDI1LjI5Mjk2OSAyNi43MDcwMzEgQSAxLjAwMDEgMS4wMDAxIDAgMSAwIDI2LjcwNzAzMSAyNS4yOTI5NjkgTCAyMC43MzYzMjggMTkuMzIyMjY2IEMgMjIuMTQ4OTg2IDE3LjU5NzM4NSAyMyAxNS4zOTY1MDggMjMgMTMgQyAyMyA3LjQ4ODk5NzEgMTguNTExMDAzIDMgMTMgMyB6IE0gMTMgNSBDIDE3LjQzMDEyMyA1IDIxIDguNTY5ODc3NCAyMSAxMyBDIDIxIDE3LjQzMDEyMyAxNy40MzAxMjMgMjEgMTMgMjEgQyA4LjU2OTg3NzQgMjEgNSAxNy40MzAxMjMgNSAxMyBDIDUgOC41Njk4Nzc0IDguNTY5ODc3NCA1IDEzIDUgeiI+PC9wYXRoPjwvc3ZnPg==');
   background-size: 1.5vw 1.5vw;
@@ -141,7 +141,7 @@ a:hover {
 .answer-label {
   font-size: 1.3vw;
   font-weight: 600;
-  color: rgb(90, 90, 90);
+  color: rgb(24, 24, 24);
   margin-top: auto;
   margin-bottom: auto;
   margin-left: .5vw;
@@ -177,8 +177,8 @@ a:hover {
   background: none;
   font-weight: 700;
   font-size: .85vw;
-  color: rgb(66, 65, 65);
-  border: 1px solid rgb(66, 65, 65);
+  color: rgb(39, 39, 39);
+  border: 1px solid rgb(24, 24, 24);
   max-height: 2.5vw;
   min-width: 10vw;
   max-width: 17vw;
@@ -380,7 +380,7 @@ a:hover {
   font-size: 1.2vw;
   font-family: $fontStack;
   background-color: none;
-  color: rgb(31, 31, 31);
+  color: rgb(24, 24, 24);
   border-radius: .2vw;
   border: 1px solid rgb(31, 31, 31);
   box-shadow: inset 0 0 .1vw #00000085;
