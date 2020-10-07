@@ -13,14 +13,16 @@ app.get('/', (req, res) => {
   res.status(200).send('./index.html')
 });
 
-app.get('/catwalk', (req, res) => {
+app.get('/catwalk/:id', (req, res) => {
+  console.log(req.params)
+  var id = req.params.id
   const params = [
-    axios.get(`http://18.224.37.110/products/1`),
-    axios.get(`http://18.224.37.110/products/1/styles`),
-    axios.get(`http://18.224.37.110/products/1/related`),
-    axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=10`),
-    axios.get(`http://18.224.37.110/reviews?product_id=1&count=50`),
-    axios.get(`http://18.224.37.110/reviews/meta?product_id=1`)
+    axios.get(`http://18.224.37.110/products/${id}`),
+    axios.get(`http://18.224.37.110/products/${id}/styles`),
+    axios.get(`http://18.224.37.110/products/${id}/related`),
+    axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=10`),
+    axios.get(`http://18.224.37.110/reviews?product_id=${id}&count=50`),
+    axios.get(`http://18.224.37.110/reviews/meta?product_id=${id}`)
   ];
 
   let results = {};
@@ -59,6 +61,7 @@ app.get('/catwalk', (req, res) => {
 
     .catch((err) => {
       console.log(err)
+      res.status(404).send('could not find product info')
     })
 });
 

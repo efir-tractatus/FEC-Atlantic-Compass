@@ -52,7 +52,7 @@ var QuestionListEntry = (props) => {
           }}>Report</a>
         )} />
         </div>
-        <div className="question-utility-container Q-col-3">
+        <div className="question-utility-container-addAnswer Q-col-3">
           <InteractionTracker widget="QandA" element="Add-an-answer"
            render={({ postInteraction }) => (
             <a className="question-utility-link" onClick={() => { postInteraction(); setIsOpen(true);}}>Add Answer</a>
@@ -87,7 +87,7 @@ var postHelpfulness = (id, productId, populateQuestions) => {
 }
 
 var postReported = (id, productId, populateQuestions) => {
-  axios.put(`http://18.224.37.110/qa/questions/${productId}/report`)
+  axios.put(`http://18.224.37.110/qa/questions/${id}/report`)
     .then((response) => {
     console.log('success', response);
     })
