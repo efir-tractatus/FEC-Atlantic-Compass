@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-
+import StarRating from '../StarRatingLogic';
 
 const IndividualReviews = (props) => {
   let data = props.reviewId;
@@ -13,7 +13,7 @@ const IndividualReviews = (props) => {
   return (
     <div>
       <div className='placeHolder'>
-        {/* <StarIndicator starData={data.rating} /> */}
+        <StarRating number={data.rating} />
       </div>
       {userNameDiv(data)}
       <div className='placeHolder'>

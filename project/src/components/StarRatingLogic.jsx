@@ -30,8 +30,8 @@ let Stars = (props) => {
   if (prop === 4) {
     return (
       <svg
-        width='300px'
-        height='275px'
+        width='33px'
+        height='30px'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -51,8 +51,8 @@ let Stars = (props) => {
   if (prop === 1) {
     return (
       <svg
-        width='300px'
-        height='275px'
+        width='33px'
+        height='30px'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -84,8 +84,8 @@ let Stars = (props) => {
   if (prop === 2) {
     return (
       <svg
-        width='300px'
-        height='275px'
+        width='33px'
+        height='30px'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -117,8 +117,8 @@ let Stars = (props) => {
   if (prop === 3) {
     return (
       <svg
-        width='300px'
-        height='275px'
+        width='33px'
+        height='30px'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -150,8 +150,8 @@ let Stars = (props) => {
   if (prop === 0) {
     return (
       <svg
-        width='300px'
-        height='275px'
+        width='33px'
+        height='30px'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
