@@ -42,7 +42,7 @@ const ImageGallery = (props) => {
   var renderImages = imageCollection.slice(midPoint - 2, midPoint + 2);
 
   return (
-    <div className="image-gallery-main-image-box">
+    <div className="image-gallery-main-box">
       <div className="image-gallery-thumbnail-column">
         <div
           className="image-gallery-scroll-up"
@@ -84,29 +84,12 @@ const ImageGallery = (props) => {
       >
         <img className="left-arrow" src="./attributes/left-arrow.png" />
       </div>
-      <div
-        className="image-gallery-zoom"
-        onClick={() => {
-          if (expanded) {
-            if (!zoomed) {
-              $('.image-gallery-main-image').css({
-                'object-fit': 'cover',
-              });
-              setZoom(true);
-            } else {
-              $('.image-gallery-main-image').css({
-                'object-fit': 'contain',
-              });
-              setZoom(false);
-            }
-          }
-        }}
-      >
+      <div className="image-gallery-main-image-box">
         <img
           className="image-gallery-main-image"
           onClick={() => {
             if (!expanded) {
-              $('.image-gallery-main-image-box').animate(
+              $('.image-gallery-main-box').animate(
                 {
                   width: '200%',
                 },
@@ -114,20 +97,37 @@ const ImageGallery = (props) => {
               );
               setExpand(true);
             }
+            if (expanded && !zoomed) {
+              $('.image-gallery-main-image').css({
+                'object-fit': 'cover',
+                cursor: 'zoom-out',
+              });
+              setZoom(true);
+            } else if (expanded && zoomed) {
+              $('.image-gallery-main-image').css({
+                'object-fit': 'contain',
+                cursor: 'zoom-in',
+              });
+              setZoom(false);
+            }
           }}
           onMouseEnter={(e) => {
             if (expanded) {
-              console.log('change to +');
+              if (zoomed) {
+                $('.image-gallery-main-image').css('cursor', 'zoom-out');
+              } else {
+                $('.image-gallery-main-image').css('cursor', 'zoom-in');
+              }
             }
           }}
           onMouseLeave={() => {
             if (expanded) {
-              console.log('change to regular');
+              $('.image-gallery-main-image').css('cursor', 'auto');
             }
           }}
           onMouseMove={(e) => {
             if (expanded && zoomed) {
-              console.log('X', e.pageX);
+              console.log('X', e.screenX);
             }
           }}
           src={
@@ -154,7 +154,7 @@ const ImageGallery = (props) => {
         className="image-gallery-expand"
         onClick={() => {
           if (!expanded) {
-            $('.image-gallery-main-image-box').animate(
+            $('.image-gallery-main-box').animate(
               {
                 width: '200%',
               },
@@ -162,7 +162,7 @@ const ImageGallery = (props) => {
             );
             setExpand(true);
           } else {
-            $('.image-gallery-main-image-box').animate(
+            $('.image-gallery-main-box').animate(
               {
                 width: '100%',
               },
