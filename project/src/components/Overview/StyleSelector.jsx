@@ -2,12 +2,13 @@ import React from 'react';
 import StyleSelectorItem from './StyleSelectorItem.jsx';
 
 const StyleSelector = (props) => {
-  // console.log('StyleSelector', props);
+  console.log('StyleSelector', props);
 
   var styles = props.currentStyles.map((style) => {
     return (
       <StyleSelectorItem
         style={style}
+        currentStyleID={props.currentStyle.style_id}
         handleStyleChange={props.handleStyleChange}
         key={style.style_id}
       />
