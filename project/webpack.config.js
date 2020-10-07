@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 const config = {
   entry: './src/index.js',
@@ -33,7 +34,8 @@ const config = {
   },
   plugins: [
     new LodashModuleReplacementPlugin,
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    new CompressionPlugin()
   ]
 };
 

@@ -2,14 +2,17 @@ const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
+const compression = require('compression');
 const app = express();
 const PORT = 4206;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression())
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/', (req, res) => {
+  res.set('Content-Encoding', 'gzip')
   res.status(200).send('./index.html')
 });
 
@@ -55,8 +58,8 @@ app.get('/catwalk/:id', (req, res) => {
         relatedProductsArray[j].photo = args[i + 2].data.results[0].photos[1]
         j++
       }
-      results.relatedProducts = relatedProductsArray
-      res.send(results)
+      results.relatedProducts = relatedProductsArray;
+      res.send(results);
     }))
 
     .catch((err) => {
