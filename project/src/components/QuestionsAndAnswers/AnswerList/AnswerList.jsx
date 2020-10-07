@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AnswerListEntryContainer from "../../../containers/QandA/AnswerListEntryContainer.js";
+import InteractionTracker from "../../Utility/InteractionTracker.jsx";
 
 var AnswerList = (props) => {
   if (props.answers.length) {
@@ -27,8 +28,13 @@ var AnswerList = (props) => {
         <div className="answer-list">
           {buildAnswerList(answersToDisplay)}
           <div className="answer-load-more Q-grid-container">
+          <InteractionTracker widget="QandA" element="Load-more-answers"
+           render={({ postInteraction }) => (
           <a className="answer-load-more-link Q-col-2" onClick={() => {
-            setNumtoDisplay(numToDisplay + 2)}}>LOAD MORE ANSWERS...</a>
+            setNumtoDisplay(numToDisplay + 2);
+            postInteraction();
+          }}>LOAD MORE ANSWERS...</a>
+            )} />
           </div>
         </div>
       );

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import AnswerPhotoEntry from '../AnswerPhotoEntry/AnswerPhotoEntry.jsx';
 import axios from "axios";
 import moment from 'moment';
+import InteractionTracker from "../../Utility/InteractionTracker.jsx";
 
 var AnswerListEntry = (props) => {
-  var { answer, populateQuestions } = props
+  var { answer, product, populateQuestions } = props
   var date = answer.date
   var formattedDate = moment(date).format('MMMM D, YYYY')
   var photoList = buildPhotoList(answer.photos)
@@ -23,25 +24,33 @@ var AnswerListEntry = (props) => {
         <p className="answer-utility-date">{formattedDate}</p>
         <p className="answer-utility-break">|</p>
         <p className="answer-utility-text">Helpful?</p>
+        <InteractionTracker widget="QandA" element="Mark-answer-helpful"
+           render={({ postInteraction }) => (
         <a className="answer-utility-link" id="answer-helpful" onClick={(e) => {
             if (!isMarkedHelpful) {
               setHelpfulness(helpfulness + 1);
               setIsMarkedHelpful(true);
               e.target.innerHTML = 'Thanks!';
-              postHelpfulness(answer.id, populateQuestions);
+              postInteraction();
+              postHelpfulness(answer.id, product.id, populateQuestions);
             }
           }
         }>Yes</a>
+        )} />
         <p className="answer-utility-count">({helpfulness})</p>
         <p className="answer-utility-break">|</p>
+        <InteractionTracker widget="QandA" element="Report-answer"
+           render={({ postInteraction }) => (
         <a className="answer-utility-link" onClick={(e) => {
             if (!isReported) {
               setIsReported(true);
               e.target.innerHTML = 'Reported!';
-              postReported(answer.id, populateQuestions);
+              postInteraction();
+              postReported(answer.id, product.id, populateQuestions);
             }
           }
         }>Report</a>
+        )} />
       </div>
     </div>
   );
@@ -73,7 +82,7 @@ var highlightSeller = (name) => {
   }
 }
 
-var postHelpfulness = (id, populateQuestions) => {
+var postHelpfulness = (id, productId, populateQuestions) => {
   axios.put(`http://18.224.37.110/qa/answers/${id}/helpful`)
     .then((response) => {
       console.log('success', response);
@@ -82,7 +91,7 @@ var postHelpfulness = (id, populateQuestions) => {
       console.log('error marking answer helpful', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${productId}&count=20`)
     })
     .then((response) => {
       populateQuestions(response.data.results);
@@ -92,7 +101,7 @@ var postHelpfulness = (id, populateQuestions) => {
     })
 }
 
-var postReported = (id, populateQuestions) => {
+var postReported = (id, productId, populateQuestions) => {
   axios.put(`http://18.224.37.110/qa/answers/${id}/report`)
     .then((response) => {
     console.log('success', response);
@@ -101,7 +110,7 @@ var postReported = (id, populateQuestions) => {
       console.log('error reporting answer', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${productId}&count=20`)
     })
     .then((response) => {
       populateQuestions(response.data.results);

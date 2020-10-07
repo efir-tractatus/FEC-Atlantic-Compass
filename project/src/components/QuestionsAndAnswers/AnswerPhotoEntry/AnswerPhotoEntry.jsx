@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
 import AnswerPhotoModal from "../AnswerPhotoModal/AnswerPhotoModal.jsx";
+import InteractionTracker from "../../Utility/InteractionTracker.jsx";
 
 
 var AnswerPhotoEntry = (props) => {
@@ -10,7 +11,13 @@ var AnswerPhotoEntry = (props) => {
   var { photo } = props;
   return (
     <div>
-      <img className="answer-images" src={photo} alt="User Submitted Product Photo" onClick={() => setIsPhotoOpen(true)}></img>
+      <InteractionTracker widget="QandA" element="Open-answer-image"
+           render={({ postInteraction }) => (
+      <img className="answer-images" src={photo} alt="User Submitted Product Photo" onClick={() => {
+        setIsPhotoOpen(true);
+        postInteraction();
+      }}></img>
+      )} />
       {buildAnswerPhotoModal(isPhotoOpen, setIsPhotoOpen, photo)}
     </div>
   );

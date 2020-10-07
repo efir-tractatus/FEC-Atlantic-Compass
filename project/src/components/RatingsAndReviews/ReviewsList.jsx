@@ -2,62 +2,38 @@ import React from 'react';
 import IndividualReviews from './IndividualReviews.jsx';
 import ReviewsBreakDown from './ReviewsBreakDown.jsx';
 import axios from 'axios';
-import AddReviewsModal from './AddReviewsModal.jsx'
+import AddReviewsModal from './AddReviewsModal.jsx';
+import ModalTemplate from '../QuestionsAndAnswers/ModalTemplate/ModalTemplate';
 
 class ReviewsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       count: 2,
+      isOpen: false,
     };
     this.moreReviewsButton = this.moreReviewsButton.bind(this);
   }
 
   moreReviewsButton() {
-    if (this.state.count >= 4) {
-      //runs a function that I need to write that pull requests more reviews
-      let newCount = this.state.count + 2;
-      axios
-        .get(
-          `http://18.224.37.110/reviews/?product_id=${this.props.primaryProduct.id}&count=${newCount}`
-        )
-        .then((res) => {
-          this.setState({
-            allReviews: res.data.results,
-            count: res.data.results.length,
-          });
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-    } else {
-      let newCount = this.state.count + 2;
-      this.setState({
-        count: newCount,
-      });
-    }
+    let newCount = this.state.count + 2;
+    this.setState({
+      count: newCount,
+    });
   }
 
   buildIndividualReviews(counter) {
     var returner = [];
-    if (this.state.count > 5) {
-      for (let i = 0; i < counter; i++) {
-        returner.push(
-          <IndividualReviews
-            reviewId={this.state.allReviews[i]}
-            key={this.state.allReviews[i].review_id}
-          />
-        );
+    for (let i = 0; i < counter; i++) {
+      if (!this.props.reviews[i]) {
+        break;
       }
-    } else {
-      for (let i = 0; i < counter; i++) {
-        returner.push(
-          <IndividualReviews
-            reviewId={this.props.reviews[i]}
-            key={this.props.reviews[i].review_id}
-          />
-        );
-      }
+      returner.push(
+        <IndividualReviews
+          reviewId={this.props.reviews[i]}
+          key={this.props.reviews[i].review_id}
+        />
+      );
     }
     return returner;
   }
@@ -68,7 +44,14 @@ class ReviewsList extends React.Component {
     return (
       <div className='placeHolder'>
         <div className='placeHolder'>
-          {this.state.count} reviews, sorted by relevance
+          {this.props.reviews.length} reviews, sorted by
+          <select defaultValue='relevance'>
+            <option>
+              relevance
+            </option>
+            <option value='helpfulness'>helpfulness</option>
+            <option value='newest'>newest</option>
+          </select>
         </div>
         {this.buildIndividualReviews(this.state.count)}
         <div
@@ -82,11 +65,19 @@ class ReviewsList extends React.Component {
           className='placeHolder'
           type='button'
           onClick={() => {
-            return 'holding this place';
+            this.setState({ isOpen: true });
           }}
         >
-          Add A Reviews +
+          Add A Review +
         </div>
+        <ModalTemplate
+          open={this.state.isOpen}
+          onClose={() => {
+            this.setState({ isOpen: false });
+          }}
+        >
+          <AddReviewsModal productName={this.props.primaryProduct.name} productID={this.props.primaryProduct.id}/>
+        </ModalTemplate>
       </div>
     );
   }

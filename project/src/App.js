@@ -9,9 +9,8 @@ class App extends React.Component {
     return (
       <div>
         <Overview/>
-        <RatingsAndReviews/>
         <QuestionsAndAnswersWidgetContainer/>
-        <RelatedItemsAndComparison/>
+        <RatingsAndReviews/>
       </div>
     );
   }
