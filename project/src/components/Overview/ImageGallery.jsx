@@ -38,8 +38,6 @@ const ImageGallery = (props) => {
     );
   });
 
-  console.log('Mid Point', midPoint);
-
   var renderImages = imageCollection.slice(midPoint - 2, midPoint + 2);
 
   return (
