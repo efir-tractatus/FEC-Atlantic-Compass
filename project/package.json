@@ -10,6 +10,7 @@
     "clean": "rm dist/bundle.js",
     "build-dev": "webpack -d --mode development -w",
     "build-prod": "webpack -p --mode production -w",
+    "build-css": "node-sass --watch ./stylesheets -o ./dist/stylesheets --output-style compressed",
     "test": "jest",
     "start": "nodemon ./server/index.js"
   },
