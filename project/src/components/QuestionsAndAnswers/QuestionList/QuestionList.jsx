@@ -70,11 +70,13 @@ var QuestionList = (props) => {
         <div className="button-flex-container">
         <InteractionTracker widget="QandA" element="Load-more-questions"
            render={({ postInteraction }) => (
-          <button className="QandA-button-more-questions" onClick={() => {
-            postInteraction();
-            setNumtoDisplay(numToDisplay + 2);
-        }}><p>MORE ANSWERED QUESTIONS</p></button>
-          )} />
+            <a href="#QandA-widget">
+              <button className="QandA-button-more-questions" href="#QandA-widget" onClick={() => {
+                postInteraction();
+                setNumtoDisplay(numToDisplay + 2);
+            } }><p>MORE ANSWERED QUESTIONS</p></button>
+          </a>
+        )} />
           <InteractionTracker widget="QandA" element="Add-a-question"
            render={({ postInteraction }) => (
           <button className="QandA-button-add-question" onClick={() => {

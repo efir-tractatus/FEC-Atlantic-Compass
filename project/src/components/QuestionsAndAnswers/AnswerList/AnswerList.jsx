@@ -49,7 +49,7 @@ var AnswerList = (props) => {
   } else {
     return (
       <div className="answer-list-default Q-grid-container">
-        <p className="Q-col-2">No answers yet...</p>
+        <p className="no-answer-default Q-col-2">No answers yet...</p>
       </div>
     );
   }

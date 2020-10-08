@@ -1,18 +1,18 @@
-$fontStack: arial, sans-serif;
+@import "Head";
 
 .QandA-widget {
   display: block;
   position: relative;
   box-sizing: border-box;
-  width: 90vw;
+  width: 80vw;
   margin: auto;
   padding-left: 30px;
   padding-right: 30px;
   margin-top: 2vw;
   margin-bottom: 2vw;
-  font-family: $fontStack;
-  font-size: 2.25vw;
-  color: rgb(29, 29, 29);
+  font-family: $MainFont;
+  font-size: $FontXL;
+  color: $ColorExtraDarkGray;
 }
 
 a:hover {
@@ -22,8 +22,7 @@ a:hover {
 .QandA-primary-header {
   width: 100%;
   margin: auto;
-  font-weight: 400;
-  font-size: 1.25vw;
+  font-size: $FontL;
   margin-bottom: .25vw;
 }
 
@@ -38,10 +37,10 @@ a:hover {
   padding-left: 1vw;
   padding-right: 1vw;
   height: 2.5vw;
-  font-size: 1vw;
-  font-weight: 300;
+  font-size: $FontM;
+  font-weight: 400;
   border-radius: 0%;
-  border: 1px solid rgb(24, 24, 24);
+  border: 1px solid $ColorExtraDarkGray;
   background-color: none;
   background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMjQiIGhlaWdodD0iMjQiCnZpZXdCb3g9IjAgMCAzMCAzMCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDEzIDMgQyA3LjQ4ODk5NzEgMyAzIDcuNDg4OTk3MSAzIDEzIEMgMyAxOC41MTEwMDMgNy40ODg5OTcxIDIzIDEzIDIzIEMgMTUuMzk2NTA4IDIzIDE3LjU5NzM4NSAyMi4xNDg5ODYgMTkuMzIyMjY2IDIwLjczNjMyOCBMIDI1LjI5Mjk2OSAyNi43MDcwMzEgQSAxLjAwMDEgMS4wMDAxIDAgMSAwIDI2LjcwNzAzMSAyNS4yOTI5NjkgTCAyMC43MzYzMjggMTkuMzIyMjY2IEMgMjIuMTQ4OTg2IDE3LjU5NzM4NSAyMyAxNS4zOTY1MDggMjMgMTMgQyAyMyA3LjQ4ODk5NzEgMTguNTExMDAzIDMgMTMgMyB6IE0gMTMgNSBDIDE3LjQzMDEyMyA1IDIxIDguNTY5ODc3NCAyMSAxMyBDIDIxIDE3LjQzMDEyMyAxNy40MzAxMjMgMjEgMTMgMjEgQyA4LjU2OTg3NzQgMjEgNSAxNy40MzAxMjMgNSAxMyBDIDUgOC41Njk4Nzc0IDguNTY5ODc3NCA1IDEzIDUgeiI+PC9wYXRoPjwvc3ZnPg==');
   background-size: 1.5vw 1.5vw;
@@ -53,7 +52,7 @@ a:hover {
 .QandA-question-list-container {
   display: block;
   max-height: 85vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .question-list {
@@ -86,21 +85,22 @@ a:hover {
   margin-left: 30px;
   margin-top: .3vw;
   margin-bottom: .5vw;
-  font-size: 1.4vw;
+  font-size: $FontM;
 }
 
 .answer-list-default {
-  margin-top: .2vw;
-  margin-bottom: .2vw;
-  margin-left: .25vw;
-  font-size: 1.4vw;
+  font-size: $FontM;
+}
+
+.no-answer-default {
+  margin-left: 1vw;
 }
 
 .answer-load-more-link {
-  font-size: .8vw;
-  font-weight: 600;
+  font-size: $FontS;
+  font-weight: 700;
   margin: auto;
-  margin-left: 0;
+  margin-left: .5vw;
   margin-bottom: 1vw;
 }
 
@@ -139,22 +139,22 @@ a:hover {
 .question-label,
 .answer-body,
 .answer-label {
-  font-size: 1.3vw;
+  font-size: $FontL;
   font-weight: 600;
-  color: rgb(24, 24, 24);
+  color: $ColorExtraDarkGray;
   margin-top: auto;
   margin-bottom: auto;
   margin-left: .5vw;
 }
 
 .answer-body {
-  font-size: 1.1vw;
+  font-size:$FontM;
   font-weight: 500;
 }
 
 .answer-label,
 .question-label {
-  font-size: 1.3vw;
+  font-size: $FontL;
   margin-right: 5px;
 }
 
@@ -176,17 +176,20 @@ a:hover {
   align-items: center;
   background: none;
   font-weight: 700;
-  font-size: .85vw;
+  font-size: $FontS;
   color: rgb(39, 39, 39);
-  border: 1px solid rgb(24, 24, 24);
+  border: 1px solid $ColorExtraDarkGray;
   max-height: 2.5vw;
   min-width: 10vw;
   max-width: 17vw;
 }
 
+.button-flex-container a {
+  text-decoration: none;
+}
+
 .button-plus {
-  font-size: 1.75vw;
-  font-family: $fontStack;
+  font-size: $FontL;
   font-weight: 300;
   margin-left: .5vw;
 }
@@ -199,7 +202,7 @@ a:hover {
 
 .QandA-button-add-question:hover,
 .QandA-button-more-questions:hover {
-  box-shadow: inset 0 0 1.5vh #000000;
+  box-shadow: inset 0 0 1.5vh $ColorExtraDarkGray;
 }
 
 .question-utility-container,
@@ -211,12 +214,13 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   margin-right: 1vw;
-  font-size: .9vw;
+  font-size: $FontS;
+  color: $ColorDarkGray;
 }
 
 .answer-utility-container {
   justify-content: flex-start;
-  margin-left: .3vw;
+  margin-left: .5vw;
 }
 
 .question-utility-text,
@@ -253,7 +257,7 @@ a:hover {
   margin-right: 1vw;
   margin-top: 0;
   line-height: 0;
-  font-size: .95vw;
+  font-size: $FontM;
 }
 
 /*ANSWER LIST IMAGES*/
@@ -289,7 +293,7 @@ a:hover {
   margin: .25vw;
   max-height: 4vw;
   max-width: 6vw;
-  border: 1px solid rgb(110, 109, 109);
+  border: 1px solid $ColorExtraDarkGray;
 }
 
 /*MODAL STYLING*/
@@ -306,6 +310,8 @@ a:hover {
   flex-direction: column;
   border-radius: 1vw;
   box-shadow: 0 0 1.25vw #f8f8f8;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-overlay {
@@ -322,37 +328,37 @@ a:hover {
   align-self: flex-end;
   font-size: 1.25vw;
   line-height: 0;
-  font-family: $fontStack;
+  font-family: $MainFont;
   margin-top: .25vw;
 }
 
 
 .QandA-modal-body {
-  font-family: $fontStack;
-  font-size: 1vw;
+  display: flex;
+  flex-direction: column;
+  font-family: $MainFont;
+  font-size: $FontM;
   margin: 2vw 1vw;
   margin-top: 1vw;
 }
 
-.QandA-modal-form {
-  max-height: 85vh;
-  overflow-y: scroll;
-}
-
 .modal-header {
-  font-size: 1.5vw;
+  font-size: $FontL;
   font-weight: 700;
+  margin-bottom: 1vw;
 }
 
 .modal-sub-header {
-  font-size: 1.3vw;
+  font-size: $FontL;
   font-weight: 500;
+  margin: .5vw 0;
+  margin-bottom: 1.2vw;
 }
 
 .QandA-modal-body input,
 .QandA-modal-body textarea {
-  font-family: $fontStack;
-  font-size: 1vw;
+  font-family: $MainFont;
+  font-size: $FontM;
   margin-top: .7vw;
 }
 
@@ -363,28 +369,29 @@ a:hover {
 
 .QandA-modal-body textarea {
   width: 35vw;
-  height: 10vw;
+  min-height: 4vw;
   resize: none;
   border-radius: .1vw;
   margin-bottom: 1.2vw;
+  padding: .5vw;
 }
 
 .QandA-modal-body input {
   width: 35vw;
-  height: 2vw;
+  height: 1.75vw;
 }
 
 .QandA-modal-body .QandA-submit {
   width: 10vw;
   height: 2vw;
-  font-size: 1.2vw;
-  font-family: $fontStack;
+  font-size: $FontL;
+  font-family: $MainFont;
   background-color: none;
-  color: rgb(24, 24, 24);
+  color: $ColorExtraDarkGray;
   border-radius: .2vw;
-  border: 1px solid rgb(31, 31, 31);
+  border: 1px solid $ColorExtraDarkGray;
   box-shadow: inset 0 0 .1vw #00000085;
-  margin-top: .6vw;
+  justify-self: flex-end;
 }
 
 @keyframes glowChange {
@@ -403,7 +410,8 @@ a:hover {
 
 .modal-privacy-warning,
 .modal-email-warning {
-  color: gray;
+  color:$ColorMediumGray;
+  margin: .5vw 0;
 }
 
 label.QandA-photo-upload,
@@ -413,13 +421,13 @@ label.QandA-photo-upload,
   align-items: center;
   background: none;
   margin-right: .25vw;
-  font-size: 1vw;
+  font-size: $FontM;
   text-align: center;
   padding: .4vw;
   width: auto;
   height: auto;
   border-radius: .25vw;
-  border: 1px solid rgb(107, 107, 107)
+  border: 1px solid $ColorExtraDarkGray;
 }
 
 .QandA-clear-photos {
@@ -433,7 +441,7 @@ label.QandA-photo-upload,
 
 .QandA-photo-upload:hover,
 .QandA-clear-photos:hover {
-  box-shadow: inset 0 0 1.5vh #000000;
+  box-shadow: inset 0 0 1.5vh $ColorExtraDarkGray;
 }
 
 input[type="file"] {

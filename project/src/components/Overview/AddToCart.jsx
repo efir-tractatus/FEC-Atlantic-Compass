@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import SelectSize from './SelectSize.jsx';
+import '../../../dist/stylesheets/OverviewStyles.css';
 
 const AddToCart = (props) => {
   // console.log('AddToCart', props);
