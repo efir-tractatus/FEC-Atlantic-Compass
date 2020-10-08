@@ -14,8 +14,8 @@ const StyleSelectorItem = ({ style, handleStyleChange, currentStyleID }) => {
         src={'./attributes/checkmark.png'}
         style={
           style.style_id === currentStyleID
-            ? { display: 'inline-block' }
-            : { display: 'none' }
+            ? { visibility: 'visible' }
+            : { visibility: 'hidden' }
         }
       />
       <img className="style-grid-image" src={style.photos[0].thumbnail_url} />
