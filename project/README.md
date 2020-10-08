@@ -1,6 +1,6 @@
 # projectcatwalk
 
-Empty project.
+A new e-commerce site for our client made by Team Atlantic Compass
 
 ## Building and running on localhost
 
@@ -8,6 +8,12 @@ First install dependencies:
 
 ```sh
 npm install
+```
+
+To compile SASS:
+
+```sh
+npm run build-css
 ```
 
 To create a production build:
