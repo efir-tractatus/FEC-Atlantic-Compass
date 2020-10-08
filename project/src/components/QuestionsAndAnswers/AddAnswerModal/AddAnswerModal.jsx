@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 var AddAnswerModal = (props) => {
   var { product, questionBody, questionId, onClose, populateQuestions } = props;

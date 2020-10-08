@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
 import AnswerPhotoModal from "../AnswerPhotoModal/AnswerPhotoModal.jsx";
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 
 var AnswerPhotoEntry = (props) => {

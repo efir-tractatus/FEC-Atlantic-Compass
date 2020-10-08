@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import QuestionList from "../QuestionList/QuestionList.jsx";
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 var QuestionsAndAnswers = (props) => {
   const [searchInput, setSearchInput] = useState('');

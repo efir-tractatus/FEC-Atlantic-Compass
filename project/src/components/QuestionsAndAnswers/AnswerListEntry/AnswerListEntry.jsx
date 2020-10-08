@@ -3,6 +3,7 @@ import AnswerPhotoEntry from '../AnswerPhotoEntry/AnswerPhotoEntry.jsx';
 import axios from "axios";
 import moment from 'moment';
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 var AnswerListEntry = (props) => {
   var { answer, product, populateQuestions } = props
