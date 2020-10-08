@@ -3,6 +3,7 @@ import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
 import AddQuestionModalContainer from '../../../containers/QandA/AddQuestionModalContainer.js';
 import QuestionListEntryContainer from '../../../containers/QandA/QuestionListEntryContainer.js';
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 var QuestionList = (props) => {
   var searchInput = props.searchInput

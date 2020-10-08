@@ -1,4 +1,5 @@
 import React from "react";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 var AnswerPhotoModal = (props) => {
   var { image } = props;

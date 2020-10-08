@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AnswerListEntryContainer from "../../../containers/QandA/AnswerListEntryContainer.js";
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 var AnswerList = (props) => {
   if (props.answers.length) {
