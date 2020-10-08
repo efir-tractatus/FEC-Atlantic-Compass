@@ -3,12 +3,12 @@ import $ from 'jquery';
 import '../../../dist/stylesheets/OverviewStyles.css';
 
 const ImageGallery = (props) => {
-  // console.log('ImageGallery', props);
+  console.log('ImageGallery', props);
 
   var photos = props.currentStyle.photos;
 
   const [mainImage, setMainImage] = useState(photos[0].url);
-  const [midPoint, setMidPoint] = useState(2);
+  const [midPoint, setMidPoint] = useState(3);
   const [expanded, setExpand] = useState(false);
   const [zoomed, setZoom] = useState(false);
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
@@ -39,7 +39,7 @@ const ImageGallery = (props) => {
     );
   });
 
-  var renderImages = imageCollection.slice(midPoint - 2, midPoint + 2);
+  var renderImages = imageCollection.slice(midPoint - 3, midPoint + 3);
 
   return (
     <div className="image-gallery-main-box">
@@ -47,7 +47,7 @@ const ImageGallery = (props) => {
         <div
           className="image-gallery-scroll-up"
           onClick={() => {
-            if (midPoint - 2 > 0) {
+            if (midPoint - 3 > 0) {
               setMidPoint(midPoint - 1);
             }
           }}
@@ -58,7 +58,7 @@ const ImageGallery = (props) => {
         <div
           className="image-gallery-scroll-down"
           onClick={() => {
-            if (midPoint + 2 < imageCollection.length) {
+            if (midPoint + 3 < imageCollection.length) {
               setMidPoint(midPoint + 1);
             }
           }}
@@ -67,18 +67,19 @@ const ImageGallery = (props) => {
         </div>
       </div>
       <div
+        className="left-arrow-box"
         onClick={() => {
           var imageIdx = photos.findIndex(
             (element) => element.url === mainImage
           );
           if (imageIdx - 1 === 0) {
-            setMainImage(photos[imageIdx - 1].url)
-            setFirstImg(true)
+            setMainImage(photos[imageIdx - 1].url);
+            setFirstImg(true);
           } else {
             setMainImage(photos[imageIdx - 1].url);
-            setFirstImg(false)
+            setFirstImg(false);
           }
-          setLastImg(false)
+          setLastImg(false);
         }}
       >
         <img
@@ -98,7 +99,7 @@ const ImageGallery = (props) => {
             if (!expanded) {
               $('.image-gallery-main-box').animate(
                 {
-                  width: '200%',
+                  width: '160%',
                 },
                 1000
               );
@@ -108,15 +109,18 @@ const ImageGallery = (props) => {
               $('.image-gallery-main-image').css({
                 transform: 'scale(2.5)',
                 cursor: 'zoom-out',
+                'z-index': '2',
               });
               setZoom(true);
             } else if (expanded && zoomed) {
               $('.image-gallery-main-image').css({
                 transform: 'scale(1)',
                 'object-fit': 'contain',
-                width: '100%',
+                width: '90%',
                 height: '100%',
                 cursor: 'zoom-in',
+                display: 'block',
+                margin: 'auto',
               });
               setZoom(false);
             }
@@ -150,57 +154,64 @@ const ImageGallery = (props) => {
           }
         />
       </div>
-      <div
-        onClick={() => {
-          if (lastImg === false) {
-            console.log(lastImg);
-            var imageIdx = photos.findIndex(
-              (element) => element.url === mainImage
-            );
-            if (imageIdx + 2 === photos.length) {
-              setMainImage(photos[imageIdx + 1].url);
-              setLastImg(true)
+      <div className="right-arrow-expand-box">
+        <div
+          className="image-gallery-expand"
+          onClick={() => {
+            if (!expanded) {
+              $('.image-gallery-main-box').animate(
+                {
+                  width: '160%',
+                },
+                1000
+              );
+              setExpand(true);
             } else {
-              setMainImage(photos[imageIdx + 1].url);
-              setFirstImg(false)
+              $('.image-gallery-main-box').animate(
+                {
+                  display: 'flex',
+                  'background-color': 'lightgrey',
+                  width: '100%',
+                  height: '100%',
+                  'z-index': '1',
+                },
+                1000
+              );
+              setExpand(false);
             }
-          }
-          // console.log(lastImg);
-        }}
-      >
-        <img
-          className="right-arrow"
-          src="./attributes/right-arrow.png"
-          style={
-            lastImg === true
-              ? { visibility: 'hidden' }
-              : { visibility: 'visible' }
-          }
-        />
-      </div>
-      <div
-        className="image-gallery-expand"
-        onClick={() => {
-          if (!expanded) {
-            $('.image-gallery-main-box').animate(
-              {
-                width: '200%',
-              },
-              1000
-            );
-            setExpand(true);
-          } else {
-            $('.image-gallery-main-box').animate(
-              {
-                width: '100%',
-              },
-              1000
-            );
-            setExpand(false);
-          }
-        }}
-      >
-        <img className="expand-icon" src="./attributes/resize.png" />
+          }}
+        >
+          <img className="expand-icon" src="./attributes/resize.png" />
+        </div>
+        <div
+          className="right-arrow-box"
+          onClick={() => {
+            if (lastImg === false) {
+              console.log(lastImg);
+              var imageIdx = photos.findIndex(
+                (element) => element.url === mainImage
+              );
+              if (imageIdx + 2 === photos.length) {
+                setMainImage(photos[imageIdx + 1].url);
+                setLastImg(true);
+              } else {
+                setMainImage(photos[imageIdx + 1].url);
+                setFirstImg(false);
+              }
+            }
+            // console.log(lastImg);
+          }}
+        >
+          <img
+            className="right-arrow"
+            src="./attributes/right-arrow.png"
+            style={
+              lastImg === true
+                ? { visibility: 'hidden' }
+                : { visibility: 'visible' }
+            }
+          />
+        </div>
       </div>
     </div>
   );
