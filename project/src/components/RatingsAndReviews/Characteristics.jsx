@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const Characteristics = (props) => {
   let { Size, Width, Comfort, Quality, Length, Fit } = props.characteristics;
@@ -121,7 +122,7 @@ const IndividualCharacteristics = (props) => {
   const parent = {
     display: 'grid',
     gridTemplateColumns: 'repeat(99, 1fr)',
-    width: '15%',
+    width: '16vw',
   };
 
   const colLeft = {
@@ -160,9 +161,10 @@ const IndividualCharacteristics = (props) => {
     grid: 'overlay',
     width: 0,
     height: 0,
-    borderLeft: '7px solid transparent',
-    borderRight: '7px solid transparent',
-    borderTop: '14px solid #696969',
+    borderLeft: '0.5vw solid transparent',
+    borderRight: '0.5vw solid transparent',
+    borderTop: '0.7vw solid #696969',
+
   };
 
   return (

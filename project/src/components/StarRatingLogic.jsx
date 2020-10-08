@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../dist/stylesheets/RatingsAndReviews.css';
 
 let StarRating = (props) => {
   const { number } = props;
@@ -29,8 +30,8 @@ let Stars = (props) => {
   if (prop === 4) {
     return (
       <svg
-        width='33px'
-        height='30px'
+        width='1.71875vw'
+        height='1.5625vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -50,8 +51,8 @@ let Stars = (props) => {
   if (prop === 1) {
     return (
       <svg
-        width='33px'
-        height='30px'
+        width='1.71875vw'
+        height='1.5625vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -83,8 +84,8 @@ let Stars = (props) => {
   if (prop === 2) {
     return (
       <svg
-        width='33px'
-        height='30px'
+        width='1.71875vw'
+        height='1.5625vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -116,8 +117,8 @@ let Stars = (props) => {
   if (prop === 3) {
     return (
       <svg
-        width='33px'
-        height='30px'
+        width='1.71875vw'
+        height='1.5625vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -149,8 +150,8 @@ let Stars = (props) => {
   if (prop === 0) {
     return (
       <svg
-        width='33px'
-        height='30px'
+        width='1.71875vw'
+        height='1.5625vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'

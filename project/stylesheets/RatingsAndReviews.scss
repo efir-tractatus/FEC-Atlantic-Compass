@@ -1,0 +1,171 @@
+@import "Head";
+
+.topLevelRatingsAndReviews {
+  display: grid;
+  grid-template-columns: 1fr 2.4fr;
+  margin: auto;
+  margin-top: 1vw;
+  margin-bottom: 2vw;
+  margin-left: 15vw;
+  margin-right: 15vw;
+  font-family: $MainFont;
+  font-size: $FontS;
+  color: $ColorMediumGray;
+}
+
+.reviews-header {
+  width: 100%;
+  margin: auto;
+  font-family: $MainFont;
+  font-size: $FontXL;
+  margin-top: 2vw;
+  margin-left: 14.5vw;
+}
+
+.review-score {
+  display: inline-grid;
+  grid-template-columns: 1fr 6fr;
+  font-size: 3vw;
+}
+
+.recommends-product {
+  font-size: $FontS;
+  margin-top: 0.5vw;
+  margin-bottom: 0.5vw;
+  color: $ColorDarkGray;
+}
+
+.barGraph {
+  display: grid;
+  grid-template-columns: 1.5fr 6fr;
+  vertical-align: middle;
+  margin-bottom: 0.5vw;
+}
+
+.rating-num {
+  font-size: $FontM;
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+}
+
+.Characteristics-bars{
+  margin-top: 1vw;
+  font-size: $FontS;;
+}
+
+.review-score-text {
+  color: rgb(85, 85, 85);
+  margin-right: 1vw
+}
+.review-existance {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 0.5fr;
+  margin-top: 1vw;
+  border-bottom: 2px solid rgb(82, 82, 82);
+}
+
+.data-summary {
+  font-size: $FontL;
+  color: rgb(82, 82, 82);
+}
+
+
+.review-buttons {
+  display:grid;
+  grid-template-columns: 6.5vh 3vh 4vh 5vh;
+  grid-row-start: 3;
+}
+
+.userNameText {
+  text-align: right;
+  margin-top: 0;
+}
+
+.yes-button {
+  text-decoration:underline;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer
+}
+
+.report-button {
+  text-decoration:underline;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.seperator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.top-of-review {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.review-list {
+  margin-top: 1vw
+}
+
+.review-buttons-adder {
+  display: grid;
+  grid-template-columns: .7fr 1fr;
+  margin-top: 1vw;
+}
+
+
+.more-review-button {
+  display: grid;
+  margin: .6vw;
+  margin-left: 0px;
+  margin-right: 1vw;
+  padding: .6vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  font-weight: 700;
+  font-size: $FontS;
+  color: rgb(39, 39, 39);
+  border: 1px solid rgb(24, 24, 24);
+  max-height: 2.5vw;
+  min-width: 10vw;
+  max-width: 15vw;
+  cursor: pointer;
+}
+
+.add-review-button {
+  display: grid;
+  margin: .6vw;
+  margin-left: 0px;
+  margin-right: 1vw;
+  padding: .6vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  font-weight: 700;
+  font-size: $FontS;
+  color: rgb(39, 39, 39);
+  border: 1px solid rgb(24, 24, 24);
+  max-height: 2.5vw;
+  min-width: 10vw;
+  max-width: 15vw;
+  cursor: pointer;
+}
+
+.Add-Review-Modal {
+  font-family: sans-serif;
+}
+
+.modal-display-stars {
+  font-size: $FontL;
+  color: gray
+}
+
