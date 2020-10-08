@@ -2,7 +2,7 @@ import React from 'react';
 import '../../../dist/stylesheets/OverviewStyles.css';
 
 const ProductInformation = (props) => {
-  console.log('Product Information', props);
+  // console.log('Product Information', props);
 
   if (props.currentStyle.sale_price === '0') {
     var price = <p>{props.currentStyle.original_price}</p>;
