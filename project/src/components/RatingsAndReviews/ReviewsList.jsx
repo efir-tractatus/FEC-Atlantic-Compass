@@ -60,7 +60,7 @@ class ReviewsList extends React.Component {
           type='button'
           onClick={this.moreReviewsButton}
         >
-          More Reviews
+          MORE REVIEWS
         </div>
         <div
           className='add-review-button'
@@ -69,7 +69,7 @@ class ReviewsList extends React.Component {
             this.setState({ isOpen: true });
           }}
         >
-          Add A Review +
+          ADD A REVIEW +
         </div>
         <ModalTemplate
           open={this.state.isOpen}
