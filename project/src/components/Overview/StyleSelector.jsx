@@ -1,5 +1,6 @@
 import React from 'react';
 import StyleSelectorItem from './StyleSelectorItem.jsx';
+import '../../../dist/stylesheets/OverviewStyles.css';
 
 const StyleSelector = (props) => {
   console.log('StyleSelector', props);

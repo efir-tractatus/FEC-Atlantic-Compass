@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../../dist/stylesheets/OverviewStyles.css';
 
 const ProductInformation = (props) => {
   console.log('Product Information', props);

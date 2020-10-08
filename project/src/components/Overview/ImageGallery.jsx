@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import $ from 'jquery';
+import '../../../dist/stylesheets/OverviewStyles.css';
 
 const ImageGallery = (props) => {
   console.log('ImageGallery', props);

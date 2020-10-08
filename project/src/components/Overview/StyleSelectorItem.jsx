@@ -1,4 +1,5 @@
 import React from 'react';
+'../../../dist/stylesheets/OverviewStyles.css';
 
 const StyleSelectorItem = ({ style, handleStyleChange, currentStyleID }) => {
   var styleObj = style;
