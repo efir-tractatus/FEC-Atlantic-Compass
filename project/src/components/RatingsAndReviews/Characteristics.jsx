@@ -8,7 +8,7 @@ const Characteristics = (props) => {
   if (Size) {
     returner.push(
       <div>
-        Size
+        <b>Size</b>
         <IndividualCharacteristics key='size' value={Size.value} item='Size' />
       </div>
     );
@@ -17,7 +17,7 @@ const Characteristics = (props) => {
   if (Width) {
     returner.push(
       <div>
-        Width
+        <b>Width</b>
         <IndividualCharacteristics
           key='width'
           value={Width.value}
@@ -30,7 +30,7 @@ const Characteristics = (props) => {
   if (Comfort) {
     returner.push(
       <div>
-        Comfort
+        <b>Comfort</b>
         <IndividualCharacteristics
           key='comfort'
           value={Comfort.value}
@@ -43,7 +43,7 @@ const Characteristics = (props) => {
   if (Quality) {
     returner.push(
       <div>
-        Quality
+        <b>Quality</b>
         <IndividualCharacteristics
           key='quality'
           value={Quality.value}
@@ -56,7 +56,7 @@ const Characteristics = (props) => {
   if (Length) {
     returner.push(
       <div>
-        Length
+        <b>Length</b>
         <IndividualCharacteristics
           key='length'
           value={Length.value}
@@ -69,7 +69,7 @@ const Characteristics = (props) => {
   if (Fit) {
     returner.push(
       <div>
-        Fit
+        <b>Fit</b>
         <IndividualCharacteristics key='fit' value={Fit.value} item='Fit' />
       </div>
     );
