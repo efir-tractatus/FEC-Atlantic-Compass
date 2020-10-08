@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import InteractionTracker from '../Utility/InteractionTracker';
+import Rating from './AddReviewsStars';
 
 var AddReviewsModal = (props) => {
   const [images, setImages] = useState([]);
   let imagesArr = [];
+  let characteristics = {};
+
   return (
     <div className='Add-Review-Modal'>
       <p className='modal-header'>Submit your Review!</p>
@@ -41,6 +44,11 @@ var AddReviewsModal = (props) => {
           </select>
         </div>
         <br></br>
+        <div>
+          How Would You Rate It? (Please Make Sure To Click!)
+          <Rating/>
+        </div>
+        <br></br>
         <label htmlFor='Reviews-nickname'>WHAT IS YOUR NICKNAME*:</label>
         <br></br>
         <input
@@ -72,7 +80,7 @@ var AddReviewsModal = (props) => {
           us
         </p>
         <br></br>
-        <label htmlFor="Review-Photos">UPLOAD PHOTOS</label>
+        <label htmlFor='Review-Photos'>UPLOAD PHOTOS</label>
         <br></br>
         <input
           type='text'
@@ -81,18 +89,26 @@ var AddReviewsModal = (props) => {
           placeholder='Post a link to your image here!'
         ></input>
         <br></br>
-        <button onClick={() => {
-          let url = document.getElementById('photo-upload').value
-          imagesArr.push(url);
-          console.log(imagesArr)
-        }}>Submit Photo</button>
+        <button
+          onClick={() => {
+            let url = document.getElementById('photo-upload').value;
+            imagesArr.push(url);
+            console.log(imagesArr);
+          }}
+        >
+          Submit Photo
+        </button>
         <div
           className='photo-upload-preview-container'
           id='photo-upload-preview-container'
         ></div>
-        <button onClick={() => {
-          imagesArr = [];
-        }}>CLEAR PHOTOS</button>
+        <button
+          onClick={() => {
+            imagesArr = [];
+          }}
+        >
+          CLEAR PHOTOS
+        </button>
         <br></br>
         <InteractionTracker
           widget='RatingsAndReviews'
@@ -109,7 +125,6 @@ var AddReviewsModal = (props) => {
                     props.productID,
                     imagesArr,
                     characteristics,
-                    rating
                   );
                   postInteraction();
                   onClose();
@@ -123,12 +138,12 @@ var AddReviewsModal = (props) => {
   );
 };
 
-let handleSubmit = (productId, images, characteristics, rating) => {
+let handleSubmit = (productId, images, characteristics) => {
   let sentJSON = {};
   sentJSON.product_id = productId;
-  sentJSON.rating = null;
-  sentJSON.summary = document.getElementById('Reviews-Summary');
-  sentJSON.body = document.getElementById('Reviews-Body');
+  sentJSON.rating = document.getElementById("currentRating").innerHTML;
+  sentJSON.summary = document.getElementById('Reviews-Summary').value;
+  sentJSON.body = document.getElementById('Reviews-Body').value;
   let checkRecommend = getElementById('recommends');
   if (checkRecommend === 'yes') {
     let recommend = true;
@@ -137,8 +152,9 @@ let handleSubmit = (productId, images, characteristics, rating) => {
     let recommend = false;
   }
   sentJSON.recommend = recommend;
-  sentJSON.name = document.getElementById('Reviews-nickname');
-  sentJSON.email = document.getElementById('Reviews-email');
+  sentJSON.name = document.getElementById('Reviews-nickname').value;
+  sentJSON.email = document.getElementById('Reviews-email').value;
+  console.log(sentJSON)
   sentJSON.characteristics = {};
   for (let i = 0; i < characteristics.length; i++) {
     sentJSON.characteristics[characteristics[i]] = document.getElementById();
@@ -149,8 +165,8 @@ let handleSubmit = (productId, images, characteristics, rating) => {
 
 let checkVaild = () => {
   var body = document.getElementById('Reviews-Body').value;
-  var nickname = document.getElementById('answer-nickname').value;
-  var email = document.getElementById('answer-email').value;
+  var nickname = document.getElementById('Reviews-nickname').value;
+  var email = document.getElementById('Reviews-email').value;
 
   if (body.length < 50) {
     alert('Your review body must be between 50 and 1000 characters');

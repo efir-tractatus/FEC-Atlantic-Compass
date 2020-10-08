@@ -5,8 +5,7 @@ let StarRating = (props) => {
   const renderedStars = Math.floor(number);
   const starDetermination = number - renderedStars;
   const prop = Math.floor(starDetermination * 4);
-  console.log(renderedStars);
-  console.log(prop);
+
   let returner = [];
 
   for (let i = 0; i < renderedStars; i++) {
@@ -37,8 +36,8 @@ let Stars = (props) => {
         version='1.1'
       >
         <polygon
-          fill='#fdff00'
-          stroke='#605a00'
+          fill='#808080'
+          stroke='#808080'
           stroke-width='15'
           points='150,25  179,111 269,111 197,165
                     223,251  150,200 77,251  103,165
@@ -72,8 +71,8 @@ let Stars = (props) => {
           clip-path='url(#empty)'
         />
         <polygon
-          fill='#fdff00'
-          stroke='#605a00'
+          fill='#808080'
+          stroke='#808080'
           stroke-width='15'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#filled)'
@@ -105,8 +104,8 @@ let Stars = (props) => {
           clip-path='url(#empty)'
         />
         <polygon
-          fill='#fdff00'
-          stroke='#605a00'
+          fill='#808080'
+          stroke='#808080'
           stroke-width='15'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#filled)'
@@ -138,8 +137,8 @@ let Stars = (props) => {
           clip-path='url(#empty)'
         />
         <polygon
-          fill='#fdff00'
-          stroke='#605a00'
+          fill='#808080'
+          stroke='#808080'
           stroke-width='15'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#filled)'
