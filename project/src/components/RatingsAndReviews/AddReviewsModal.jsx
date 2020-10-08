@@ -21,6 +21,7 @@ var AddReviewsModal = (props) => {
           name='Reviews-Summary'
           maxLength='60'
           placeholder='Your review summary...'
+          className='Reviews-Summary'
           required
         ></textarea>
         <br></br>
@@ -33,6 +34,7 @@ var AddReviewsModal = (props) => {
           maxLength='1000'
           minLength='50'
           placeholder='Your review body...'
+          className="Reviews-Body"
           required
         ></textarea>
         <br></br>
