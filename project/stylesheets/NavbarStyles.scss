@@ -1,0 +1,49 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 3vw;
+  max-height: 100px;
+  width: 90%;
+  padding: 2vw;
+  padding-left: 5vw;
+  padding-right: 7vw;
+  background-color: rgb(42, 42, 42);
+  color: whitesmoke;
+}
+
+.navbar-header {
+  font-weight: 500;
+  font-size: 2.5vw;
+  font-family: 'Courier New', Courier, monospace;
+  text-decoration: underline;
+}
+
+.navbar-searchbar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-searchbar {
+  font-size: 1.5vw;
+  width: 15vw;
+  color: whitesmoke;
+  background: none;
+  border: none;
+  border-bottom: 2px solid whitesmoke;
+  box-shadow: none;
+}
+
+.navbar-searchbar:focus {
+  outline: none;
+}
+
+.navbar-searchbar-symbol {
+  margin-left: .5vw;
+  height: 2vw;
+  width: 2vw;
+  background-color: none;
+  background: none;
+}

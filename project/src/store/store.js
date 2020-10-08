@@ -5,9 +5,9 @@ import rootReducer from './../reducers/main.js';
 
 var store = {};
 
-function initializeStore(callback) {
+function initializeStore(id, callback) {
   return axios
-    .get('/catwalk')
+    .get(`/catwalk/${id}`)
     .then((response) => {
       var data = response.data;
       console.log('Data', data)
@@ -17,11 +17,7 @@ function initializeStore(callback) {
         currentStyle: data.primaryProductStyles.results[0],
         currentImages: data.primaryProductStyles.results[0].photos,
         currentImage: data.primaryProductStyles.results[0].photos[0],
-        relatedProducts: data.relatedProducts,
-        //tbd savedOutfits
-        questionSearchbarInput: '',
         productQuestions: data.primaryProductQuestions.results,
-        questionsAmount: 2,
         sortingMethod: 'relevance',
         reviews: data.primaryProductReviews.results,
         primaryProductMetadata: data.primaryProductReviewsNumbers,

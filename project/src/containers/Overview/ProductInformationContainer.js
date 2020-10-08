@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = (store) => ({
   primaryProduct: store.primaryProduct,
-  primaryProductMetadata: store.primaryProductMetadata,
+  reviews: store.reviews,
   currentStyle: store.currentStyle,
+  productMetaData: store.primaryProductMetadata
 });
 
 var productInformationContainer = connect(
