@@ -1,13 +1,16 @@
 import React from 'react';
 import ReviewsBreakDownContainer from '../../containers/RatingsAndReviews/ReviewsBreakDownContainer.js';
 import ReviewsContainer from '../../containers/RatingsAndReviews/ReviewsContainer.js';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 var RatingsAndReviews = () => {
   return (
-    <div id="topLevelRatingsAndReviews">
-      <h1>Ratings And Reviews</h1>
-      <ReviewsBreakDownContainer/>
-      <ReviewsContainer/>
+    <div>
+      <p className='reviews-header'>RATINGS AND REVIEWS</p>
+      <div className='topLevelRatingsAndReviews'>
+        <ReviewsBreakDownContainer />
+        <ReviewsContainer />
+      </div>
     </div>
   );
 };

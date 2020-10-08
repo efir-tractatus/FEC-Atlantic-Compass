@@ -2,6 +2,8 @@ import React from 'react';
 import ReviewsRatingBarGraph from './ReviewsRatingBarGraph.jsx';
 import Characteristics from './Characteristics';
 import StarRating from '../StarRatingLogic';
+import '../../../dist/stylesheets/RatingsAndReviews.css'
+
 class ReviewsBreakDown extends React.Component {
   constructor(props) {
     super(props);
@@ -34,9 +36,12 @@ class ReviewsBreakDown extends React.Component {
   render() {
     return (
       <div>
-        <div><p>{this.state.overAllReviews}</p><StarRating number={this.state.overAllReviews}/></div>
-        <div>
-          {this.state.recommendedPercentage}% of reviews recommend this product
+        <div className='review-score'>
+          <b className="review-score-text">{this.state.overAllReviews}</b>
+          <StarRating number={this.state.overAllReviews} />
+        </div>
+        <div className='recommends-product'>
+          {this.state.recommendedPercentage}% of reviews recommend this products
         </div>
         <div>
           <ReviewsRatingBarGraph
@@ -44,7 +49,7 @@ class ReviewsBreakDown extends React.Component {
             modeRatings={this.state.modeRatings}
           />
         </div>
-        <div>
+        <div className="Characteristics-bars">
           <Characteristics
             characteristics={this.props.primaryProductMetadata.characteristics}
           />

@@ -4,6 +4,7 @@ import ReviewsBreakDown from './ReviewsBreakDown.jsx';
 import axios from 'axios';
 import AddReviewsModal from './AddReviewsModal.jsx';
 import ModalTemplate from '../QuestionsAndAnswers/ModalTemplate/ModalTemplate';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 class ReviewsList extends React.Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class ReviewsList extends React.Component {
 
   render() {
     return (
-      <div className='placeHolder'>
+      <div className='review-list'>
         <div className='placeHolder'>
           {this.props.reviews.length} reviews, sorted by
           <select defaultValue='relevance' onchange={(event) => {
@@ -53,15 +54,16 @@ class ReviewsList extends React.Component {
           </select>
         </div>
         {this.buildIndividualReviews(this.state.count)}
+        <div className="review-buttons-adder">
         <div
-          className='placeHolder'
+          className='more-review-button'
           type='button'
           onClick={this.moreReviewsButton}
         >
           More Reviews
         </div>
         <div
-          className='placeHolder'
+          className='add-review-button'
           type='button'
           onClick={() => {
             this.setState({ isOpen: true });
@@ -80,6 +82,7 @@ class ReviewsList extends React.Component {
             productID={this.props.primaryProduct.id}
           />
         </ModalTemplate>
+      </div>
       </div>
     );
   }

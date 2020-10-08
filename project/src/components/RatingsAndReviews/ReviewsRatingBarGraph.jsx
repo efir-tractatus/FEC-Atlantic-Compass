@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const ReviewsRatingBarGraph = (props) => {
   const [data, setData] = useState(props.ratings);
@@ -26,10 +27,10 @@ const BarGraphComponents = (props) => {
 
   const containerStyles = {
     height: 10,
-    width: '13.5%',
+    width: '11vw',
     backgroundColor: '#e0e0de',
-    borderRadius: 25,
-    margin: 25,
+    borderRadius: 30,
+    marginTop: '8px',
   };
 
   const fillerStyles = {
@@ -41,8 +42,9 @@ const BarGraphComponents = (props) => {
   };
 
   return (
-    <div>
-      {props.value}
+    <div className="barGraph"><p className="rating-num">
+      {props.value} Stars
+      </p>
       <div style={containerStyles}>
         <div style={fillerStyles}></div>
       </div>

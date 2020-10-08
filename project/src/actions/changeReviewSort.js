@@ -1,5 +1,5 @@
 var changeReviewSort = (sortMethod) => ({
-  type: "CHANGE_REVIEW_SORT",
+  type: "CHANGE_SORTING_METHOD",
   payload: sortMethod
 });
 

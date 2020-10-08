@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import InteractionTracker from '../Utility/InteractionTracker';
 import Rating from './AddReviewsStars';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 var AddReviewsModal = (props) => {
   const [images, setImages] = useState([]);
@@ -10,8 +11,7 @@ var AddReviewsModal = (props) => {
 
   return (
     <div className='Add-Review-Modal'>
-      <p className='modal-header'>Submit your Review!</p>
-      <p className='modal-sub-header'> {props.productName}</p>
+      <p className='modal-header'>Submit your Review, for a: {props.productName}!</p>
       <form id='submit-answer-form'>
         <label htmlFor='Reviews-Summary'>YOUR SUMMARY:</label>
         <br></br>
@@ -63,7 +63,6 @@ var AddReviewsModal = (props) => {
         <p className='modal-privacy-warning'>
           For privacy reasons, do not use your full name.
         </p>
-        <br></br>
         <label htmlFor='Reviews-email'>YOUR E-MAIL*:</label>
         <br></br>
         <input
@@ -79,7 +78,6 @@ var AddReviewsModal = (props) => {
           For authentication purposes only, you will not recieve any emails from
           us
         </p>
-        <br></br>
         <label htmlFor='Review-Photos'>UPLOAD PHOTOS</label>
         <br></br>
         <input
@@ -109,6 +107,7 @@ var AddReviewsModal = (props) => {
         >
           CLEAR PHOTOS
         </button>
+        <br></br>
         <br></br>
         <InteractionTracker
           widget='RatingsAndReviews'
