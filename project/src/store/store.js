@@ -5,8 +5,6 @@ import rootReducer from './../reducers/main.js';
 
 var store = {};
 
-// window.location.pathname
-
 function initializeStore(id, callback) {
   return axios
     .get(`/catwalk/${id}`)

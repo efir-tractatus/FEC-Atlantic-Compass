@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 var ModalTemplate = ({ open, children, onClose }) => {
   if (open === false) {

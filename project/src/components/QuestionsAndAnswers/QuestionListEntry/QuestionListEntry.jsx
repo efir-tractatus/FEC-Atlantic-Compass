@@ -4,7 +4,7 @@ import AnswerList from "../AnswerList/AnswerList.jsx";
 import ModalTemplate from "../ModalTemplate/ModalTemplate.jsx";
 import AddAnswerModalContainer from '../../../containers/QandA/AddAnswerModalContainer.js';
 import InteractionTracker from "../../Utility/InteractionTracker.jsx";
-
+import '../../../../dist/stylesheets/QandAstyles.css';
 
 //this entry should be mapped from a list of questions in the QuestionList component
 
