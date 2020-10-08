@@ -86,7 +86,7 @@ const ImageGallery = (props) => {
           className="left-arrow"
           src="./attributes/left-arrow.png"
           style={
-            firstImg === true
+            firstImg === true || zoomed
               ? { visibility: 'hidden' }
               : { visibility: 'visible' }
           }
@@ -97,6 +97,7 @@ const ImageGallery = (props) => {
           className="image-gallery-main-image"
           onClick={() => {
             if (!expanded) {
+              $('.image-gallery-thumbnail-column').css('visibility', 'hidden')
               $('.image-gallery-main-box').animate(
                 {
                   width: '160%',
@@ -106,13 +107,14 @@ const ImageGallery = (props) => {
               setExpand(true);
             }
             if (expanded && !zoomed) {
+              $('.right-arrow-expand-box').css('visibility', 'hidden')
               $('.image-gallery-main-image').css({
                 transform: 'scale(2.5)',
                 cursor: 'zoom-out',
-                'z-index': '2',
               });
               setZoom(true);
             } else if (expanded && zoomed) {
+              $('.right-arrow-expand-box').css('visibility', 'visible')
               $('.image-gallery-main-image').css({
                 transform: 'scale(1)',
                 'object-fit': 'contain',
@@ -132,6 +134,8 @@ const ImageGallery = (props) => {
               } else {
                 $('.image-gallery-main-image').css('cursor', 'zoom-in');
               }
+            } else {
+              $('.image-gallery-main-image').css('cursor', 'zoom-in');
             }
           }}
           onMouseLeave={() => {
@@ -159,6 +163,7 @@ const ImageGallery = (props) => {
           className="image-gallery-expand"
           onClick={() => {
             if (!expanded) {
+              $('.image-gallery-thumbnail-column').css('visibility', 'hidden')
               $('.image-gallery-main-box').animate(
                 {
                   width: '160%',
@@ -167,6 +172,7 @@ const ImageGallery = (props) => {
               );
               setExpand(true);
             } else {
+              $('.image-gallery-thumbnail-column').css('visibility', 'visible')
               $('.image-gallery-main-box').animate(
                 {
                   display: 'flex',
@@ -206,7 +212,7 @@ const ImageGallery = (props) => {
             className="right-arrow"
             src="./attributes/right-arrow.png"
             style={
-              lastImg === true
+              lastImg === true || zoomed
                 ? { visibility: 'hidden' }
                 : { visibility: 'visible' }
             }
