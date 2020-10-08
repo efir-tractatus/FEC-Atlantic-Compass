@@ -18,8 +18,6 @@ const StyleSelector = (props) => {
     );
   });
 
-  console.log(styles);
-
   var displayStyles = styles.slice(group * 4, group * 4 + 8);
 
   return (
@@ -35,11 +33,14 @@ const StyleSelector = (props) => {
         }}
       />
       <div className="style-grid">{displayStyles}</div>
-      <img src={'./attributes/keyboard-down-arrow.png'} onClick={() => {
-        if (group * 4 + 8 < styles.length) {
-          setGroup(group + 1)
-        }
-      }} />
+      <img
+        src={'./attributes/keyboard-down-arrow.png'}
+        onClick={() => {
+          if (group * 4 + 8 < styles.length) {
+            setGroup(group + 1);
+          }
+        }}
+      />
     </div>
   );
 };

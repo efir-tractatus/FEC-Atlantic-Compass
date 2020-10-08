@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import $ from 'jquery';
 
 const ImageGallery = (props) => {
-  console.log('ImageGallery', props);
+  // console.log('ImageGallery', props);
 
   var photos = props.currentStyle.photos;
-  var lastImg = false;
-  var firstImg = true;
 
   const [mainImage, setMainImage] = useState(photos[0].url);
   const [midPoint, setMidPoint] = useState(2);
   const [expanded, setExpand] = useState(false);
   const [zoomed, setZoom] = useState(false);
   const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
+  const [firstImg, setFirstImg] = useState(true);
+  const [lastImg, setLastImg] = useState(false);
 
   var belongs = props.currentStyle.photos.find(
     (element) => element.url === mainImage
@@ -48,7 +48,6 @@ const ImageGallery = (props) => {
           onClick={() => {
             if (midPoint - 2 > 0) {
               setMidPoint(midPoint - 1);
-              console.log('that');
             }
           }}
         >
@@ -60,7 +59,6 @@ const ImageGallery = (props) => {
           onClick={() => {
             if (midPoint + 2 < imageCollection.length) {
               setMidPoint(midPoint + 1);
-              console.log('this');
             }
           }}
         >
@@ -72,16 +70,25 @@ const ImageGallery = (props) => {
           var imageIdx = photos.findIndex(
             (element) => element.url === mainImage
           );
-          if (imageIdx === 0) {
-            firstImg = true;
+          if (imageIdx - 1 === 0) {
+            setMainImage(photos[imageIdx - 1].url)
+            setFirstImg(true)
           } else {
             setMainImage(photos[imageIdx - 1].url);
-            firstImg = false;
+            setFirstImg(false)
           }
-          console.log(firstImg);
+          setLastImg(false)
         }}
       >
-        <img className="left-arrow" src="./attributes/left-arrow.png" />
+        <img
+          className="left-arrow"
+          src="./attributes/left-arrow.png"
+          style={
+            firstImg === true
+              ? { visibility: 'hidden' }
+              : { visibility: 'visible' }
+          }
+        />
       </div>
       <div className="image-gallery-main-image-box">
         <img
@@ -114,10 +121,6 @@ const ImageGallery = (props) => {
             }
           }}
           onMouseEnter={(e) => {
-            var imagePos = $('.image-gallery-main-image').css(
-              'object-position'
-            );
-            console.log(imagePos);
             if (expanded) {
               if (zoomed) {
                 $('.image-gallery-main-image').css('cursor', 'zoom-out');
@@ -136,7 +139,7 @@ const ImageGallery = (props) => {
               var x = coordinates.x - e.movementX;
               var y = coordinates.y - e.movementY;
               setCoordinates({ x: x, y: y });
-              var translateScale = $('.image-gallery-main-image').css({
+              $('.image-gallery-main-image').css({
                 transform: 'translate(' + x + 'px,' + y + 'px) scale(2.5)',
               });
             }
@@ -148,18 +151,31 @@ const ImageGallery = (props) => {
       </div>
       <div
         onClick={() => {
-          var imageIdx = photos.findIndex(
-            (element) => element.url === mainImage
-          );
-          if (imageIdx + 2 > photos.length) {
-            lastImg = true;
-          } else {
-            setMainImage(photos[imageIdx + 1].url);
+          if (lastImg === false) {
+            console.log(lastImg);
+            var imageIdx = photos.findIndex(
+              (element) => element.url === mainImage
+            );
+            if (imageIdx + 2 === photos.length) {
+              setMainImage(photos[imageIdx + 1].url);
+              setLastImg(true)
+            } else {
+              setMainImage(photos[imageIdx + 1].url);
+              setFirstImg(false)
+            }
           }
-          console.log(lastImg);
+          // console.log(lastImg);
         }}
       >
-        <img className="right-arrow" src="./attributes/right-arrow.png" />
+        <img
+          className="right-arrow"
+          src="./attributes/right-arrow.png"
+          style={
+            lastImg === true
+              ? { visibility: 'hidden' }
+              : { visibility: 'visible' }
+          }
+        />
       </div>
       <div
         className="image-gallery-expand"
