@@ -19,13 +19,11 @@ const ProductInformation = (props) => {
 
   return (
     <div className="product-information-box">
-      <h2>ProductInformation Section</h2>
-      <h3>Star Rating Placeholder</h3>
-      <h4>
+      <h3>Star Rating Placeholder</h3><p>
         <a href="#question-and-answers">
           Read all {props.reviews.length} Reviews
         </a>
-      </h4>
+      </p>
       <p className="product-category">{props.primaryProduct.category}</p>
       <p className="product-name">{props.primaryProduct.name}</p>
       {price}
