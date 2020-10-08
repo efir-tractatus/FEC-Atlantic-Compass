@@ -1,4 +1,9 @@
-@import "Head";
+$primary-color: white;
+$bg: black;
+h1 {
+  color: $primary-color;
+  background-color: $bg;
+}
 
 // Style Selector Begins
 
@@ -9,10 +14,18 @@
 }
 
 .style-grid-image {
+  position: relative;
   border-radius: 50%;
   object-fit: cover;
   width: 90px;
   height: 90px;
+}
+
+.style-grid-item-checkmark {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  transform: translateX(190%);
 }
 
 // Style Selector Ends
@@ -46,12 +59,13 @@
 .image-gallery-main-image {
   object-fit: contain;
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   cursor: zoom-in;
 }
 
 .image-gallery-main-image-box {
   width: inherit;
+  position: relative;
 }
 
 .image-gallery-main-box {
@@ -108,5 +122,3 @@
   height: 15px;
   // margin-top: 50%;
 }
-
-
