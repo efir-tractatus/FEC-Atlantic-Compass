@@ -1,4 +1,4 @@
-
+@import "Head";
 
 .navbar {
   display: flex;
@@ -7,17 +7,18 @@
   justify-content: space-between;
   height: 3vw;
   max-height: 100px;
-  width: 90%;
+  width: 90vw;
   padding: 2vw;
   padding-left: 5vw;
   padding-right: 7vw;
-  background-color: rgb(42, 42, 42);
+  background-color: $ColorExtraDarkGray;
   color: whitesmoke;
+  margin: auto;
 }
 
 .navbar-header {
   font-weight: 500;
-  font-size: 2.5vw;
+  font-size: $FontXL;
   font-family: 'Courier New', Courier, monospace;
   text-decoration: underline;
 }
@@ -29,13 +30,13 @@
 }
 
 .navbar-searchbar {
-  font-size: 1.5vw;
+  font-size: $FontL;
   width: 15vw;
   color: whitesmoke;
   background: none;
   border: none;
-  border-bottom: 2px solid whitesmoke;
   box-shadow: none;
+  border-bottom: 2px solid whitesmoke;
 }
 
 .navbar-searchbar:focus {

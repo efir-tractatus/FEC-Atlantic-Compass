@@ -18,7 +18,7 @@ var QuestionsAndAnswers = (props) => {
   }, [searchInput])
 
   return (
-    <div className="QandA-widget">
+    <div className="QandA-widget" id="QandA-widget">
       <p className="QandA-primary-header">QUESTIONS & ANSWERS</p>
       <div className="QandA-searchbar-container">
       <InteractionTracker widget="QandA" element="Search-questions"
