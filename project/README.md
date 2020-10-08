@@ -1,6 +1,6 @@
 # projectcatwalk
 
-Empty project.
+A new e-commerce site for our client made by Team Atlantic Compass
 
 ## Building and running on localhost
 
