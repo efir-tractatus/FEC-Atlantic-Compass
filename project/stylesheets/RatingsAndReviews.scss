@@ -115,7 +115,7 @@
 
 .review-buttons-adder {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: .7fr 1fr;
   margin-top: 1vw;
 }
 
@@ -136,7 +136,7 @@
   border: 1px solid rgb(24, 24, 24);
   max-height: 2.5vw;
   min-width: 10vw;
-  max-width: 17vw;
+  max-width: 15vw;
   cursor: pointer;
 }
 
@@ -156,7 +156,7 @@
   border: 1px solid rgb(24, 24, 24);
   max-height: 2.5vw;
   min-width: 10vw;
-  max-width: 17vw;
+  max-width: 15vw;
   cursor: pointer;
 }
 

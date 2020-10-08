@@ -26,7 +26,7 @@ const BarGraphComponents = (props) => {
   let completed = Math.floor((props.data / props.barHeight) * 100);
 
   const containerStyles = {
-    height: 10,
+    height: ".52vw",
     width: '11vw',
     backgroundColor: '#e0e0de',
     borderRadius: 30,
