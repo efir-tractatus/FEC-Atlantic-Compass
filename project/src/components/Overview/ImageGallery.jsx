@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import '../../../dist/stylesheets/OverviewStyles.css';
 
@@ -15,9 +15,12 @@ const ImageGallery = (props) => {
   const [firstImg, setFirstImg] = useState(true);
   const [lastImg, setLastImg] = useState(false);
 
-  var belongs = props.currentStyle.photos.find(
-    (element) => element.url === mainImage
-  );
+  useEffect(() => {
+    setMainImage(photos[0].url);
+    setFirstImg(true);
+    setLastImg(false);
+    setMidPoint(3);
+  }, [props.currentStyle.style_id]);
 
   var imageCollection = props.currentStyle.photos.map((image, index) => {
     return (
@@ -27,14 +30,14 @@ const ImageGallery = (props) => {
         onClick={() => {
           setMainImage(image.url);
           if (index === 0) {
-            setFirstImg(true)
-            setLastImg(false)
+            setFirstImg(true);
+            setLastImg(false);
           } else if (index === imageCollection.length - 1) {
-            setLastImg(true)
-            setFirstImg(false)
+            setLastImg(true);
+            setFirstImg(false);
           } else {
-            setFirstImg(false)
-            setLastImg(false)
+            setFirstImg(false);
+            setLastImg(false);
           }
         }}
       >
@@ -42,7 +45,11 @@ const ImageGallery = (props) => {
           className="image-gallery-thumbnail"
           src={image.thumbnail_url}
           alt="thumbnail"
-          style={mainImage === image.url ? {border: '2px solid black', transform: 'translateX(5%)'} : {border: '0px'}}
+          style={
+            mainImage === image.url
+              ? { border: '2px solid black', transform: 'translateX(5%)' }
+              : { border: '0px' }
+          }
         />
       </div>
     );
@@ -65,7 +72,7 @@ const ImageGallery = (props) => {
             src="./attributes/keyboard-up-arrow.png"
             alt="up arrow"
             style={
-              renderImages[0].key === imageCollection[0].key
+              renderImages[0].key === imageCollection[0].key || expanded
                 ? { visibility: 'hidden' }
                 : { visibility: 'visible' }
             }
@@ -85,7 +92,7 @@ const ImageGallery = (props) => {
             alt="down arrow"
             style={
               renderImages[renderImages.length - 1].key ===
-              imageCollection[imageCollection.length - 1].key
+              imageCollection[imageCollection.length - 1].key || expanded
                 ? { visibility: 'hidden' }
                 : { visibility: 'visible' }
             }
@@ -107,7 +114,7 @@ const ImageGallery = (props) => {
           }
           setLastImg(false);
           if (Number(renderImages[0].key) === imageIdx) {
-            setMidPoint(midPoint - 1)
+            setMidPoint(midPoint - 1);
           }
         }}
       >
@@ -195,9 +202,7 @@ const ImageGallery = (props) => {
               });
             }
           }}
-          src={
-            belongs === undefined ? props.currentStyle.photos[0].url : mainImage
-          }
+          src={mainImage}
           alt="product image"
         />
       </div>
