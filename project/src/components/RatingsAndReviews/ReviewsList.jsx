@@ -68,9 +68,9 @@ class ReviewsList extends React.Component {
               return this.changeSort(e);
             }}
           >
-            <option value='relevance'>relevance</option>
-            <option value='helpfulness'>helpfulness</option>
-            <option value='newest'>newest</option>
+            <option value='relevance' label="relevance">relevance</option>
+            <option value='helpfulness' label="helpfulness">helpfulness</option>
+            <option value='newest' label="newest">newest</option>
           </select>
         </div>
         {this.buildIndividualReviews(this.state.count)}
