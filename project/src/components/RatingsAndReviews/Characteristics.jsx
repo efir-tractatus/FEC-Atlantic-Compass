@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const Characteristics = (props) => {
   let { Size, Width, Comfort, Quality, Length, Fit } = props.characteristics;
@@ -7,7 +8,7 @@ const Characteristics = (props) => {
   if (Size) {
     returner.push(
       <div>
-        Size
+        <b>Size</b>
         <IndividualCharacteristics key='size' value={Size.value} item='Size' />
       </div>
     );
@@ -16,7 +17,7 @@ const Characteristics = (props) => {
   if (Width) {
     returner.push(
       <div>
-        Width
+        <b>Width</b>
         <IndividualCharacteristics
           key='width'
           value={Width.value}
@@ -29,7 +30,7 @@ const Characteristics = (props) => {
   if (Comfort) {
     returner.push(
       <div>
-        Comfort
+        <b>Comfort</b>
         <IndividualCharacteristics
           key='comfort'
           value={Comfort.value}
@@ -42,7 +43,7 @@ const Characteristics = (props) => {
   if (Quality) {
     returner.push(
       <div>
-        Quality
+        <b>Quality</b>
         <IndividualCharacteristics
           key='quality'
           value={Quality.value}
@@ -55,7 +56,7 @@ const Characteristics = (props) => {
   if (Length) {
     returner.push(
       <div>
-        Length
+        <b>Length</b>
         <IndividualCharacteristics
           key='length'
           value={Length.value}
@@ -68,7 +69,7 @@ const Characteristics = (props) => {
   if (Fit) {
     returner.push(
       <div>
-        Fit
+        <b>Fit</b>
         <IndividualCharacteristics key='fit' value={Fit.value} item='Fit' />
       </div>
     );
@@ -121,7 +122,7 @@ const IndividualCharacteristics = (props) => {
   const parent = {
     display: 'grid',
     gridTemplateColumns: 'repeat(99, 1fr)',
-    width: '15%',
+    width: '16vw',
   };
 
   const colLeft = {
@@ -160,9 +161,10 @@ const IndividualCharacteristics = (props) => {
     grid: 'overlay',
     width: 0,
     height: 0,
-    borderLeft: '7px solid transparent',
-    borderRight: '7px solid transparent',
-    borderTop: '14px solid #696969',
+    borderLeft: '0.5vw solid transparent',
+    borderRight: '0.5vw solid transparent',
+    borderTop: '0.7vw solid #696969',
+
   };
 
   return (

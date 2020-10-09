@@ -10,7 +10,6 @@ function initializeStore(id, callback) {
     .get(`/catwalk/${id}`)
     .then((response) => {
       var data = response.data;
-      console.log('Data', data)
       var defaultState = {
         primaryProduct: data.primaryProduct,
         currentStyles: data.primaryProductStyles.results,

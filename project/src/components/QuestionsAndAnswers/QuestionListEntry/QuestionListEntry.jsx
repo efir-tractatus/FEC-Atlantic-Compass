@@ -67,8 +67,8 @@ var QuestionListEntry = (props) => {
   );
 };
 
-var postHelpfulness = (id, productId, populateQuestions) => {
-  axios.put(`http://18.224.37.110/qa/questions/${id}/helpful`)
+var postHelpfulness = (questionId, productId, populateQuestions) => {
+  axios.put(`/catwalk/qa/questions/helpful/${questionId}`)
     .then((response) => {
       console.log('success', response);
     })
@@ -76,7 +76,7 @@ var postHelpfulness = (id, productId, populateQuestions) => {
       console.log('error marking question helpful', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=1&count=20`)
+      return axios.get(`/catwalk/qa/questions/${productId}`)
     })
     .then((response) => {
       populateQuestions(response.data.results);
@@ -86,8 +86,8 @@ var postHelpfulness = (id, productId, populateQuestions) => {
     })
 }
 
-var postReported = (id, productId, populateQuestions) => {
-  axios.put(`http://18.224.37.110/qa/questions/${id}/report`)
+var postReported = (questionId, productId, populateQuestions) => {
+  axios.put(`/catwalk/qa/questions/report/${questionId}`)
     .then((response) => {
     console.log('success', response);
     })
@@ -95,7 +95,7 @@ var postReported = (id, productId, populateQuestions) => {
       console.log('error reporting question', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${productId}&count=20`)
+      return axios.get(`/catwalk/qa/questions/${productId}`)
     })
     .then((response) => {
       populateQuestions(response.data.results);

@@ -18,8 +18,9 @@ const StyleSelectorItem = ({ style, handleStyleChange, currentStyleID }) => {
             ? { visibility: 'visible' }
             : { visibility: 'hidden' }
         }
+        alt='style checkmark'
       />
-      <img className="style-grid-image" src={style.photos[0].thumbnail_url} />
+      <img className="style-grid-image" src={style.photos[0].thumbnail_url} alt='style image'/>
     </div>
   );
 };

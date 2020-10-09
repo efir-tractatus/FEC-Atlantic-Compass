@@ -1,10 +1,11 @@
 import React from 'react';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 class Rating extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      rating: this.props.rating || null,
+      rating: 2,
       temp_rating: null,
     };
   }
@@ -45,27 +46,14 @@ class Rating extends React.PureComponent {
           onClick={() => this.rate(i)}
           onMouseOut={() => this.handleMouseout()}
         >
-          <clipPath id='empty'>
-            <rect x='110' y='0' width='190' height='275' />
-          </clipPath>
-          <clipPath id='filled'>
-            <rect x='0' y='0' width='110' height='275' />
-          </clipPath>
           <polygon
-            fill='#808080'
-            stroke='#808080'
-            stroke-width='15'
-            stroke-opacity='0.37647060'
-            points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-            clip-path='url(#empty)'
-          />
-          <polygon
-            fill='#808080'
-            stroke='#808080'
-            stroke-width='15'
-            points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-            clip-path='url(#filled)'
-          />
+          fill='#808080'
+          stroke='#808080'
+          stroke-width='15'
+          points='150,25  179,111 269,111 197,165
+                    223,251  150,200 77,251  103,165
+                    31,111 121,111'
+        />
         </svg>
       );
       let emptyStar = (
@@ -95,9 +83,13 @@ class Rating extends React.PureComponent {
       stars.push(klass);
     }
 
+    let optionArray = ["Poor", "Fair", "Average", "Good", "Great"]
+
     return (
       <div className='rating'>
-        <p>{this.state.rating + 1} Stars!</p>
+      <div>
+      <b className="modal-display-stars">{optionArray[this.state.rating]}</b>
+      </div>
         <div id="currentRating" style={hider}>{this.state.rating + 1}</div>
         {stars}
       </div>

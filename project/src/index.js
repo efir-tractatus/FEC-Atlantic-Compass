@@ -10,7 +10,7 @@ initializeStore(1, () => {
   var mountNode = document.getElementById("app");
   ReactDOM.render(
   <Provider store={store}>
-    <App name="Jane" />
+    <App/>
   </Provider>,
   mountNode);
 })

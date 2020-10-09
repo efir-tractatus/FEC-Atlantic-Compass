@@ -2,16 +2,32 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import InteractionTracker from '../Utility/InteractionTracker';
 import Rating from './AddReviewsStars';
+import '../../../dist/stylesheets/RatingsAndReviews.css';
+import CharacteristicsForm from './CharacteristicsForm.jsx'
 
 var AddReviewsModal = (props) => {
-  const [images, setImages] = useState([]);
   let imagesArr = [];
-  let characteristics = {};
+  let characteristics = [];
+  for (let key in props.primaryProductMetadata.characteristics) {
+    characteristics.push(key);
+  }
+  console.log(characteristics);
+  let characteristicsRadio = characteristics.map((value) => {
+    return (
+      <div>
+        <CharacteristicsForm
+          characteristics={value}
+          key={value.concat('keys')}
+        />
+      </div>
+    );
+  });
 
   return (
     <div className='Add-Review-Modal'>
-      <p className='modal-header'>Submit your Review!</p>
-      <p className='modal-sub-header'> {props.productName}</p>
+      <p className='modal-header'>
+        Submit your Review, for a {props.productName}!
+      </p>
       <form id='submit-answer-form'>
         <label htmlFor='Reviews-Summary'>YOUR SUMMARY:</label>
         <br></br>
@@ -21,6 +37,7 @@ var AddReviewsModal = (props) => {
           name='Reviews-Summary'
           maxLength='60'
           placeholder='Your review summary...'
+          className='Reviews-Summary'
           required
         ></textarea>
         <br></br>
@@ -33,6 +50,7 @@ var AddReviewsModal = (props) => {
           maxLength='1000'
           minLength='50'
           placeholder='Your review body...'
+          className='Reviews-Body'
           required
         ></textarea>
         <br></br>
@@ -46,7 +64,7 @@ var AddReviewsModal = (props) => {
         <br></br>
         <div>
           How Would You Rate It? (Please Make Sure To Click!)
-          <Rating/>
+          <Rating />
         </div>
         <br></br>
         <label htmlFor='Reviews-nickname'>WHAT IS YOUR NICKNAME*:</label>
@@ -63,7 +81,6 @@ var AddReviewsModal = (props) => {
         <p className='modal-privacy-warning'>
           For privacy reasons, do not use your full name.
         </p>
-        <br></br>
         <label htmlFor='Reviews-email'>YOUR E-MAIL*:</label>
         <br></br>
         <input
@@ -79,7 +96,6 @@ var AddReviewsModal = (props) => {
           For authentication purposes only, you will not recieve any emails from
           us
         </p>
-        <br></br>
         <label htmlFor='Review-Photos'>UPLOAD PHOTOS</label>
         <br></br>
         <input
@@ -98,6 +114,7 @@ var AddReviewsModal = (props) => {
         >
           Submit Photo
         </button>
+          {/* {characteristicsRadio} */}
         <div
           className='photo-upload-preview-container'
           id='photo-upload-preview-container'
@@ -110,6 +127,7 @@ var AddReviewsModal = (props) => {
           CLEAR PHOTOS
         </button>
         <br></br>
+        <br></br>
         <InteractionTracker
           widget='RatingsAndReviews'
           element='Submit-answer'
@@ -121,11 +139,7 @@ var AddReviewsModal = (props) => {
               onClick={(e) => {
                 e.preventDefault();
                 if (checkVaild()) {
-                  handleSubmit(
-                    props.productID,
-                    imagesArr,
-                    characteristics,
-                  );
+                  handleSubmit(props.productID, imagesArr, characteristics);
                   postInteraction();
                   onClose();
                 }
@@ -141,7 +155,7 @@ var AddReviewsModal = (props) => {
 let handleSubmit = (productId, images, characteristics) => {
   let sentJSON = {};
   sentJSON.product_id = productId;
-  sentJSON.rating = document.getElementById("currentRating").innerHTML;
+  sentJSON.rating = document.getElementById('currentRating').innerHTML;
   sentJSON.summary = document.getElementById('Reviews-Summary').value;
   sentJSON.body = document.getElementById('Reviews-Body').value;
   let checkRecommend = getElementById('recommends');
@@ -154,7 +168,7 @@ let handleSubmit = (productId, images, characteristics) => {
   sentJSON.recommend = recommend;
   sentJSON.name = document.getElementById('Reviews-nickname').value;
   sentJSON.email = document.getElementById('Reviews-email').value;
-  console.log(sentJSON)
+  console.log(sentJSON);
   sentJSON.characteristics = {};
   for (let i = 0; i < characteristics.length; i++) {
     sentJSON.characteristics[characteristics[i]] = document.getElementById();
@@ -192,6 +206,8 @@ let validateEmail = (email) => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 };
+
+
 
 AddReviewsModal.prototypes = {};
 export default AddReviewsModal;
