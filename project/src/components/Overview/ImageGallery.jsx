@@ -97,7 +97,7 @@ const ImageGallery = (props) => {
           className="image-gallery-main-image"
           onClick={() => {
             if (!expanded) {
-              $('.image-gallery-thumbnail-column').css('visibility', 'hidden')
+              $('.image-gallery-thumbnail-column').css('visibility', 'hidden');
               $('.image-gallery-main-box').animate(
                 {
                   width: '160%',
@@ -107,14 +107,14 @@ const ImageGallery = (props) => {
               setExpand(true);
             }
             if (expanded && !zoomed) {
-              $('.right-arrow-expand-box').css('visibility', 'hidden')
+              $('.right-arrow-expand-box').css('visibility', 'hidden');
               $('.image-gallery-main-image').css({
                 transform: 'scale(2.5)',
                 cursor: 'zoom-out',
               });
               setZoom(true);
             } else if (expanded && zoomed) {
-              $('.right-arrow-expand-box').css('visibility', 'visible')
+              $('.right-arrow-expand-box').css('visibility', 'visible');
               $('.image-gallery-main-image').css({
                 transform: 'scale(1)',
                 'object-fit': 'contain',
@@ -163,7 +163,19 @@ const ImageGallery = (props) => {
           className="image-gallery-expand"
           onClick={() => {
             if (!expanded) {
-              $('.image-gallery-thumbnail-column').css('visibility', 'hidden')
+              $('.image-gallery-thumbnail-column').css('visibility', 'hidden');
+              $('.left-arrow-box').css({
+                position: 'relative',
+                left: '-8%',
+              });
+              $('.image-gallery-main-image').css({
+                'object-fit': 'contain',
+                width: '90%',
+                height: '100%',
+                cursor: 'zoom-in',
+                display: 'block',
+                margin: '0%',
+              });
               $('.image-gallery-main-box').animate(
                 {
                   width: '160%',
@@ -172,7 +184,19 @@ const ImageGallery = (props) => {
               );
               setExpand(true);
             } else {
-              $('.image-gallery-thumbnail-column').css('visibility', 'visible')
+              $('.image-gallery-thumbnail-column').css('visibility', 'visible');
+              $('.left-arrow-box').css({
+                position: 'inherit',
+                left: '3%',
+              });
+              $('.image-gallery-main-image').css({
+                'object-fit': 'contain',
+                width: '90%',
+                height: '100%',
+                cursor: 'zoom-in',
+                display: 'block',
+                margin: 'auto',
+              });
               $('.image-gallery-main-box').animate(
                 {
                   display: 'flex',

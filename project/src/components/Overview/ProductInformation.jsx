@@ -5,13 +5,14 @@ const ProductInformation = (props) => {
   // console.log('Product Information', props);
 
   if (props.currentStyle.sale_price === '0') {
-    var price = <p>{props.currentStyle.original_price}</p>;
+    var price = <p className="price">${props.currentStyle.original_price}</p>;
   } else {
     var price = (
       <div>
         <p className="sale-price">
-          {props.currentStyle.sale_price}{' '}
-          <strike>{props.currentStyle.original_price}</strike>
+          ${props.currentStyle.sale_price}
+          <span>   </span>
+          <span className='price'><strike>${props.currentStyle.original_price}</strike></span>
         </p>
       </div>
     );
@@ -19,7 +20,8 @@ const ProductInformation = (props) => {
 
   return (
     <div className="product-information-box">
-      <h3>Star Rating Placeholder</h3><p>
+      <h3>Star Rating Placeholder</h3>
+      <p>
         <a href="#question-and-answers">
           Read all {props.reviews.length} Reviews
         </a>
@@ -27,8 +29,6 @@ const ProductInformation = (props) => {
       <p className="product-category">{props.primaryProduct.category}</p>
       <p className="product-name">{props.primaryProduct.name}</p>
       {price}
-      <p className="product-description">{props.primaryProduct.description}</p>
-      <p>Share On Social Media Placeholder</p>
     </div>
   );
 };

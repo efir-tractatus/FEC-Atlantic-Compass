@@ -23,8 +23,7 @@ const StyleSelector = (props) => {
 
   return (
     <div>
-      <h2>StyleSelector Section</h2>
-      <h3>{props.currentStyle.name}</h3>
+      <p className='style'>STYLE > <span className='style-name'>{props.currentStyle.name}</span></p>
       <img
         className="style-arow-up"
         src={'./attributes/keyboard-up-arrow.png'}

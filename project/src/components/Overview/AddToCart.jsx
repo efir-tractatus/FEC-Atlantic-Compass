@@ -36,7 +36,6 @@ const AddToCart = (props) => {
 
   return (
     <div>
-      <h2>AddToCart Section</h2>
       <select defaultValue=''
         className="size-selector"
         disabled={renderSkus.length === 1 ? true : false}
@@ -49,8 +48,8 @@ const AddToCart = (props) => {
       <select className="quantity-selector" disabled={quantity === '' ? true : false}>
         {quantity === '' ? <option key={'none'}>-</option> : renderQuantity}
         </select>
+        <p></p>
       <button className='add-to-bag'>ADD TO BAG</button>
-      <div>Star/Heart Placeholder</div>
     </div>
   );
 };
