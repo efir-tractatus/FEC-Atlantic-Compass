@@ -28,7 +28,7 @@ const ImageGallery = (props) => {
           setMainImage(image.url);
         }}
       >
-        <img className="image-gallery-thumbnail" src={image.thumbnail_url} />
+        <img className="image-gallery-thumbnail" src={image.thumbnail_url} alt='thumbnail'/>
         <hr
           className="thumbnail-selection"
           style={
@@ -52,7 +52,7 @@ const ImageGallery = (props) => {
             }
           }}
         >
-          <img src="./attributes/keyboard-up-arrow.png" />
+          <img src="./attributes/keyboard-up-arrow.png" alt='up arrow'/>
         </div>
         <div className="image-gallery-grid">{renderImages}</div>
         <div
@@ -63,7 +63,7 @@ const ImageGallery = (props) => {
             }
           }}
         >
-          <img src="./attributes/keyboard-down-arrow.png" />
+          <img src="./attributes/keyboard-down-arrow.png" alt='down arrow'/>
         </div>
       </div>
       <div
@@ -90,6 +90,7 @@ const ImageGallery = (props) => {
               ? { visibility: 'hidden' }
               : { visibility: 'visible' }
           }
+          alt='left arrow'
         />
       </div>
       <div className="image-gallery-main-image-box">
@@ -168,6 +169,7 @@ const ImageGallery = (props) => {
           src={
             belongs === undefined ? props.currentStyle.photos[0].url : mainImage
           }
+          alt='product image'
         />
       </div>
       <div className="right-arrow-expand-box">
@@ -223,7 +225,7 @@ const ImageGallery = (props) => {
             }
           }}
         >
-          <img className="expand-icon" src="./attributes/resize.png" />
+          <img className="expand-icon" src="./attributes/resize.png" alt='resize'/>
         </div>
         <div
           className="right-arrow-box"
@@ -252,6 +254,7 @@ const ImageGallery = (props) => {
                 ? { visibility: 'hidden' }
                 : { visibility: 'visible' }
             }
+            alt='right arrow'
           />
         </div>
       </div>

@@ -29,6 +29,7 @@ const ProductInformation = (props) => {
   }
 
   rating = Math.floor((rating / count) * 100) / 100;
+  console.log(rating)
 
   return (
     <div className="product-information-box">

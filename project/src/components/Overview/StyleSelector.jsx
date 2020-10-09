@@ -23,7 +23,9 @@ const StyleSelector = (props) => {
 
   return (
     <div>
-      <p className='style'>STYLE > <span className='style-name'>{props.currentStyle.name}</span></p>
+      <p className="style">
+        STYLE > <span className="style-name">{props.currentStyle.name}</span>
+      </p>
       <img
         className="style-arow-up"
         src={'./attributes/keyboard-up-arrow.png'}
@@ -32,7 +34,12 @@ const StyleSelector = (props) => {
             setGroup(group - 1);
           }
         }}
-        style={group > 0 ? { visibility: 'visible', transform: 'translateX(515%)' } : { visibility: 'hidden', transform: 'translateX(515%)'}}
+        style={
+          group > 0
+            ? { visibility: 'visible', transform: 'translateX(515%)' }
+            : { visibility: 'hidden', transform: 'translateX(515%)' }
+        }
+        alt="up arrow"
       />
       <div className="style-grid">{displayStyles}</div>
       <img
@@ -44,7 +51,11 @@ const StyleSelector = (props) => {
           }
         }}
         style={
-          group * 4 + 8 < styles.length ? { visibility: 'visible', transform: 'translateX(515%)' } : { visibility: 'hidden', transform: 'translateX(515%)'}}
+          group * 4 + 8 < styles.length
+            ? { visibility: 'visible', transform: 'translateX(515%)' }
+            : { visibility: 'hidden', transform: 'translateX(515%)' }
+        }
+        alt="down arrow"
       />
     </div>
   );
