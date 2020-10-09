@@ -42,7 +42,7 @@ class ReviewsList extends React.Component {
 
   changeSort(event) {
     let newValue = event.target.value;
-    console.log(newValue);
+
     return axios
       .get(
         `http://18.224.37.110/reviews?product_id=${this.props.primaryProduct.id}&sort=${newValue}`
@@ -65,7 +65,6 @@ class ReviewsList extends React.Component {
             className='sort-changer'
             defaultValue='relevance'
             onChange={(e) => {
-              console.log(e);
               return this.changeSort(e);
             }}
           >
@@ -112,4 +111,3 @@ class ReviewsList extends React.Component {
 ReviewsList.prototypes = {};
 
 export default ReviewsList;
-

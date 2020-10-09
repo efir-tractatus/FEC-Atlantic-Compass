@@ -27,9 +27,9 @@ const IndividualReviews = (props) => {
         <b className='data-summary'>{data.summary}</b>
         <p className='placeHolder'>{data.body}</p>
       </div>
-      {checkIfResponses(data.response)}
+      {/* {checkIfResponses(data.response)} */}
       <div className='review-buttons'>
-        <p className='placeHolder'>Helpful?</p>
+        <p className='some-text-helpful'>Helpful?</p>
         <div
           className='yes-button'
           type='button'

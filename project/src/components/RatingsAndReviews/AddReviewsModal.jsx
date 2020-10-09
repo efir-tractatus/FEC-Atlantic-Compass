@@ -11,7 +11,7 @@ var AddReviewsModal = (props) => {
 
   return (
     <div className='Add-Review-Modal'>
-      <p className='modal-header'>Submit your Review, for a: {props.productName}!</p>
+      <p className='modal-header'>Submit your Review, for a {props.productName}!</p>
       <form id='submit-answer-form'>
         <label htmlFor='Reviews-Summary'>YOUR SUMMARY:</label>
         <br></br>
