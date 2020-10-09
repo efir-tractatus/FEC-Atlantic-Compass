@@ -22,7 +22,7 @@ let StarRating = (props) => {
     }
   }
 
-  return <div>{returner}</div>;
+  return <div className="starContainer">{returner}</div>;
 };
 
 let Stars = (props) => {
@@ -30,15 +30,15 @@ let Stars = (props) => {
   if (prop === 4) {
     return (
       <svg
-        width='1.71875vw'
-        height='1.5625vw'
+        width='.88vw'
+        height='.8vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
       >
         <polygon
-          fill='#808080'
-          stroke='#808080'
+          fill='#414141'
+          stroke='#414141'
           stroke-width='15'
           points='150,25  179,111 269,111 197,165
                     223,251  150,200 77,251  103,165
@@ -51,8 +51,8 @@ let Stars = (props) => {
   if (prop === 1) {
     return (
       <svg
-        width='1.71875vw'
-        height='1.5625vw'
+        width='.88vw'
+        height='.8vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -65,15 +65,15 @@ let Stars = (props) => {
         </clipPath>
         <polygon
           fill='none'
-          stroke='#808080'
+          stroke='#414141'
           stroke-width='15'
           stroke-opacity='0.37647060'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#empty)'
         />
         <polygon
-          fill='#808080'
-          stroke='#808080'
+          fill='#414141'
+          stroke='#414141'
           stroke-width='15'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#filled)'
@@ -84,8 +84,8 @@ let Stars = (props) => {
   if (prop === 2) {
     return (
       <svg
-        width='1.71875vw'
-        height='1.5625vw'
+        width='.88vw'
+        height='.8vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -98,15 +98,15 @@ let Stars = (props) => {
         </clipPath>
         <polygon
           fill='none'
-          stroke='#808080'
+          stroke='#414141'
           stroke-width='15'
           stroke-opacity='0.37647060'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#empty)'
         />
         <polygon
-          fill='#808080'
-          stroke='#808080'
+          fill='#414141'
+          stroke='#414141'
           stroke-width='15'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#filled)'
@@ -117,8 +117,8 @@ let Stars = (props) => {
   if (prop === 3) {
     return (
       <svg
-        width='1.71875vw'
-        height='1.5625vw'
+        width='.88vw'
+        height='.8vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
@@ -131,15 +131,15 @@ let Stars = (props) => {
         </clipPath>
         <polygon
           fill='none'
-          stroke='#808080'
+          stroke='#414141'
           stroke-width='15'
           stroke-opacity='0.37647060'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#empty)'
         />
         <polygon
-          fill='#808080'
-          stroke='#808080'
+          fill='#414141'
+          stroke='#414141'
           stroke-width='15'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
           clip-path='url(#filled)'
@@ -150,15 +150,15 @@ let Stars = (props) => {
   if (prop === 0) {
     return (
       <svg
-        width='1.71875vw'
-        height='1.5625vw'
+        width='.88vw'
+        height='.8vw'
         viewBox='0 0 300 275'
         xmlns='http://www.w3.org/2000/svg'
         version='1.1'
       >
         <polygon
           fill='none'
-          stroke='#808080'
+          stroke='#414141'
           stroke-width='15'
           stroke-opacity='0.37647060'
           points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'

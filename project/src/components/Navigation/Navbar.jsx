@@ -24,11 +24,14 @@ var changeProduct = (e, props) => {
       return axios
         .get(`/catwalk/${id}`)
         .then((response) => {
+          console.log(response)
           var newData = response.data;
           props.updatePrimaryProduct(newData.primaryProduct);
           props.updateQuestions(newData.primaryProductQuestions.results);
           props.updateStyles(newData.primaryProductStyles.results);
           props.updateCurrentStyle(newData.primaryProductStyles.results[0]);
+          props.updateReviewsList(newData.primaryProductReviews.results);
+          props.updateReviewsData(newData.primaryProductReviewsNumbers);
         })
         .catch((err) => {
           console.log('error changing the product', err);

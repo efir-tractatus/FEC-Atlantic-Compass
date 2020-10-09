@@ -61,7 +61,7 @@
 .review-existance {
   display: grid;
   grid-template-rows: 0.5fr 1fr 0.5fr;
-  margin-top: 1vw;
+  margin-top: 2vw;
   border-bottom: 2px solid rgb(82, 82, 82);
 }
 
@@ -72,7 +72,7 @@
 
 .review-buttons {
   display: grid;
-  grid-template-columns: 6.5vh 3vh 4vh 5vh;
+  grid-template-columns: 6.5vh 3vh 4vh 5vh 2vh;
   grid-row-start: 3;
 }
 
@@ -177,4 +177,29 @@
   margin: 0px;
   width: 791px;
   height: 175px;
+}
+
+
+select {
+  border: 1px solid #fff;
+  background-color: transparent;
+  text-decoration: underline;
+  font-family: $MainFont;
+  font-size: $FontM;
+}
+
+.starContainer {
+  margin-bottom: 0.5vw
+}
+
+.recommend-check-mark {
+  margin-bottom: .75vw;
+}
+
+.review-list-sort {
+  font-size: $FontM;
+}
+
+.text-helpful {
+  padding-top: .05vw
 }

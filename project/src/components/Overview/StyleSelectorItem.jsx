@@ -18,6 +18,7 @@ const StyleSelectorItem = ({ style, handleStyleChange, currentStyleID }) => {
             ? { visibility: 'visible' }
             : { visibility: 'hidden' }
         }
+        alt='style'
       />
       <img className="style-grid-image" src={style.photos[0].thumbnail_url} />
     </div>
