@@ -1,5 +1,10 @@
 @import "Head";
 
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .QandA-widget {
   display: block;
   position: relative;
