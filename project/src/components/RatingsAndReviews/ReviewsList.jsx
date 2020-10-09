@@ -67,9 +67,12 @@ class ReviewsList extends React.Component {
               return this.changeSort(e);
             }}
           >
-            <option id="relevance" value='relevance' label="relevance">relevance</option>
-            <option id="helpfulness" value='helpfulness' label="helpfulness">helpfulness</option>
-            <option id="newest" value='newest' label="newest">newest</option>
+            <option id="relevance" value='relevance'>relevance</option>
+            <label for="relevance">sort by relevance</label>
+            <option id="helpfulness" value='helpfulness'>helpfulness</option>
+            <label for="helpfulness">sort by helpfulness</label>
+            <option id="newest" value='newest'>newest</option>
+            <label for="newest">sort by newest</label>
           </select>
         </div>
         {this.buildIndividualReviews(this.state.count)}
