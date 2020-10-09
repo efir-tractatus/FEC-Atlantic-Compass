@@ -98,6 +98,18 @@ const ImageGallery = (props) => {
           onClick={() => {
             if (!expanded) {
               $('.image-gallery-thumbnail-column').css('visibility', 'hidden');
+              $('.left-arrow-box').css({
+                position: 'relative',
+                left: '-8%',
+              });
+              $('.image-gallery-main-image').css({
+                'object-fit': 'contain',
+                width: '90%',
+                height: '100%',
+                cursor: 'zoom-in',
+                display: 'block',
+                margin: '0%',
+              });
               $('.image-gallery-main-box').animate(
                 {
                   width: '160%',
