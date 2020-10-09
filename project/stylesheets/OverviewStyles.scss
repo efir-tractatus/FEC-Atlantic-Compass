@@ -1,4 +1,4 @@
-@import "Head";
+@import 'Head';
 
 // Style Selector Begins
 
@@ -149,7 +149,7 @@
 
 .right-arrow-box {
   position: relative;
-  top: 45%
+  top: 45%;
 }
 
 .left-arrow {
@@ -178,6 +178,17 @@
 
 // Product Begins
 
+.product-information-star-review-box {
+  display: flex;
+}
+
+.product-information-review {
+  margin-left: 2%;
+  font: $MainFont;
+  font-size: $FontS;
+  color: $ColorDarkGray;
+}
+
 .product-category {
   font: $MainFont;
   font-size: $FontM;
@@ -197,14 +208,23 @@
   font: $MainFont;
   font-size: $FontM;
   font-weight: normal;
-  color: $ColorExtraDarkGray
+  color: $ColorExtraDarkGray;
 }
 
 .sale-price {
   font: $MainFont;
   font-weight: bold;
   font-size: $FontM;
-  color: red
+  color: red;
+}
+
+.product-description {
+  font: $MainFont;
+  font-weight: normal;
+  font-size: $FontS;
+  color: $ColorExtraDarkGray;
+  height: 37px;
+  overflow: auto;
 }
 
 // Product Ends

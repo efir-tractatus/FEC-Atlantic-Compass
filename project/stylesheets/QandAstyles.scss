@@ -49,12 +49,6 @@ a:hover {
   background-position-y: center;
 }
 
-.QandA-question-list-container {
-  display: block;
-  max-height: 85vh;
-  overflow-y: auto;
-}
-
 .question-list {
   margin: auto;
   margin-top: .3vw;
@@ -63,6 +57,13 @@ a:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+
+.question-list-scroll-container {
+  max-height: 78vh;
+  overflow-y: auto;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
 }
 
 .answer-list {
@@ -94,6 +95,8 @@ a:hover {
 
 .no-answer-default {
   margin-left: 1vw;
+  margin-top: 0;
+  margin-bottom: 1.2vw;
 }
 
 .answer-load-more-link {
