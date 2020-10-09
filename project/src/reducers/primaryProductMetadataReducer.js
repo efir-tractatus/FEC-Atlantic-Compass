@@ -1,6 +1,6 @@
 var primaryProductMetadataReducer = (state=null, action) => {
   switch (action.type) {
-    case 'CHANGE_PRIMARY_PRODUCT_METADATA':
+    case 'CHANGE_REVIEWS':
       return action.payload;
     default:
       return state;
