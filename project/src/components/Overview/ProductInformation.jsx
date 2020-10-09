@@ -3,7 +3,7 @@ import StarRating from '../StarRatingLogic.jsx';
 import '../../../dist/stylesheets/OverviewStyles.css';
 
 const ProductInformation = (props) => {
-  console.log('Product Information', props);
+  // console.log('Product Information', props);
 
   if (props.currentStyle.sale_price === '0') {
     var price = <p className="price">${props.currentStyle.original_price}</p>;
@@ -31,8 +31,8 @@ const ProductInformation = (props) => {
   rating = Math.floor((rating / count) * 100) / 100;
 
   return (
-    <div className="product-information-box" style={props.reviews.length === 0 ? {visibility: 'hidden'} : {visibility: 'visible'}}>
-      <div className="product-information-star-review-box">
+    <div className="product-information-box" >
+      <div className="product-information-star-review-box" style={props.reviews.length === 0 ? {visibility: 'hidden'} : {visibility: 'visible'}}>
         <StarRating number={rating} />
         <span className='product-information-review'>
           <a href="#start-of-ratings">
