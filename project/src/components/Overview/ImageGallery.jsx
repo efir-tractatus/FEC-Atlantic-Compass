@@ -26,19 +26,24 @@ const ImageGallery = (props) => {
         key={index}
         onClick={() => {
           setMainImage(image.url);
+          if (index === 0) {
+            setFirstImg(true)
+            setLastImg(false)
+          } else if (index === imageCollection.length - 1) {
+            setLastImg(true)
+            setFirstImg(false)
+          } else {
+            setFirstImg(false)
+            setLastImg(false)
+          }
         }}
       >
         <img
           className="image-gallery-thumbnail"
           src={image.thumbnail_url}
           alt="thumbnail"
+          style={mainImage === image.url ? {border: '2px solid black', transform: 'translateX(5%)'} : {border: '0px'}}
         />
-        <hr
-          className="thumbnail-selection"
-          style={
-            mainImage === image.url ? { display: 'block' } : { display: 'none' }
-          }
-        ></hr>
       </div>
     );
   });
