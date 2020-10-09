@@ -1,8 +1,9 @@
 import React from 'react';
+import StarRating from '../StarRatingLogic.jsx'
 import '../../../dist/stylesheets/OverviewStyles.css';
 
 const ProductInformation = (props) => {
-  // console.log('Product Information', props);
+  console.log('Product Information', props);
 
   if (props.currentStyle.sale_price === '0') {
     var price = <p className="price">${props.currentStyle.original_price}</p>;
@@ -18,10 +19,18 @@ const ProductInformation = (props) => {
     );
   }
 
+  var rating = 0
+  var count = 0
+  for (var i in props.productMetaData.ratings) {
+    rating += i * props.productMetaData.ratings[i]
+    count += props.productMetaData.ratings[i]
+  }
+
+  rating = Math.floor((rating / count) * 100)/100
+
   return (
     <div className="product-information-box">
-      <h3>Star Rating Placeholder</h3>
-      <h4><a href='#topLevelRatingsAndReviews'>Read all {props.reviews.length} Reviews</a></h4>
+      <StarRating number={rating}/><span><a href='#topLevelRatingsAndReviews'>Read all {props.reviews.length} Reviews</a></span>
       <p className='product-category'>{props.primaryProduct.category}</p>
       <p className='product-name'>{props.primaryProduct.name}</p>
       {price}
