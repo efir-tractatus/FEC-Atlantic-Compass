@@ -61,12 +61,14 @@ class ReviewsList extends React.Component {
         <div className='review-list-sort'>
           {this.props.reviews.length} reviews, sorted by
           <select
+          id="set-the-sort"
             className='sort-changer'
             defaultValue='relevance'
             onChange={(e) => {
               return this.changeSort(e);
             }}
           >
+          <label for="set-the-sort">set the sorting patter</label>
             <option id="relevance" value='relevance'>relevance</option>
             <label for="relevance">sort by relevance</label>
             <option id="helpfulness" value='helpfulness'>helpfulness</option>

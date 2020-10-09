@@ -179,7 +179,6 @@
   height: 175px;
 }
 
-
 select {
   border: 1px solid #fff;
   background-color: transparent;
@@ -189,11 +188,11 @@ select {
 }
 
 .starContainer {
-  margin-bottom: 0.5vw
+  margin-bottom: 0.5vw;
 }
 
 .recommend-check-mark {
-  margin-bottom: .75vw;
+  margin-bottom: 0.75vw;
 }
 
 .review-list-sort {
@@ -201,9 +200,13 @@ select {
 }
 
 .text-helpful {
-  padding-top: .05vw
+  padding-top: 0.05vw;
 }
 
 .sort-changer {
-  cursor: pointer
+  cursor: pointer;
+}
+
+.some-text-helpful {
+  align-items: center;
 }

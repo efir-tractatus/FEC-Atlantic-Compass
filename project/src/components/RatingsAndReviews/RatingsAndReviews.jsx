@@ -6,7 +6,7 @@ import '../../../dist/stylesheets/RatingsAndReviews.css';
 var RatingsAndReviews = () => {
   return (
     <div>
-      <p className='reviews-header'>RATINGS AND REVIEWS</p>
+      <p className='reviews-header' id="start-of-ratings">RATINGS AND REVIEWS</p>
       <div className='topLevelRatingsAndReviews'>
         <ReviewsBreakDownContainer />
         <ReviewsContainer />
