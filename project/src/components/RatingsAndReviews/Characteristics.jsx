@@ -5,6 +5,7 @@ const Characteristics = (props) => {
   let { Size, Width, Comfort, Quality, Length, Fit } = props.characteristics;
   var returner = [];
 
+  console.log(props)
   if (Size) {
     returner.push(
       <div>

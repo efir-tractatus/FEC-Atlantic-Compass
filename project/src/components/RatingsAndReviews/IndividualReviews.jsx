@@ -11,20 +11,24 @@ const IndividualReviews = (props) => {
     checkIfAlreadyPressedHelpful,
     setCheckIfAlreadyPressedHelpful,
   ] = useState(false);
+
   return (
     <div className='review-existance'>
-    <div className="top-of-review">
-      <div className='stars'>
-        <StarRating number={data.rating}/>
-      </div>
-      {userNameDiv(data)}
+      <div className='top-of-review'>
+        <div className='stars'>
+          <StarRating number={data.rating} />
+          {shouldAddCheck(data)}
+        </div>
+        <div className='checkMark'>
+          {userNameDiv(data)}
+        </div>
       </div>
       <div className='reviewData'>
         <b className='data-summary'>{data.summary}</b>
         <p className='placeHolder'>{data.body}</p>
       </div>
       {checkIfResponses(data.response)}
-      <div className="review-buttons">
+      <div className='review-buttons'>
         <p className='placeHolder'>Helpful?</p>
         <div
           className='yes-button'
@@ -41,7 +45,8 @@ const IndividualReviews = (props) => {
           }}
         >
           Yes
-        </div> <div className="seperator">({howHelpful})       </div>
+        </div>{' '}
+        <div className='seperator'>({howHelpful}) </div>
         <div
           className='report-button'
           type='button'
@@ -70,9 +75,8 @@ const checkIfResponses = (data) => {
   }
 };
 
-
 const userNameDiv = (data) => {
-  let formattedDate = moment(data.date).format('MMMM D, YYYY')
+  let formattedDate = moment(data.date).format('MMMM D, YYYY');
   let checkMark = false;
   if (data.reccomend === 1) {
     checkMark = true;
@@ -82,8 +86,8 @@ const userNameDiv = (data) => {
 
   if (data.reviewer_name) {
     return (
-      <div className="review-user">
-        <p className="userNameText">
+      <div className='review-user'>
+        <p className='userNameText'>
           {data.reviewer_name}, {formattedDate}
         </p>
       </div>
@@ -92,8 +96,8 @@ const userNameDiv = (data) => {
 
   if (!data.reviewer_name) {
     return (
-      <div className="review-user">
-        <p className="userNameText">cognito, {formattedDate}</p>
+      <div className='review-user'>
+        <p className='userNameText'>cognito, {formattedDate}</p>
       </div>
     );
   }
@@ -119,6 +123,24 @@ const handleReviewHelpful = (reviewID, trueOrFalse) => {
       .catch((err) => {
         console.log('error marking answer helpful', err);
       });
+  }
+};
+
+let shouldAddCheck = (data) => {
+  let checkMark = (
+    <div className="recommend-check-mark">
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='.8vw'
+      height='.8vw'
+      viewBox='0 0 24 24'
+    >
+      <path d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z' />
+    </svg> I recommend this product
+    </div>
+  );
+  if (data.recommend === 1) {
+    return checkMark;
   }
 };
 
