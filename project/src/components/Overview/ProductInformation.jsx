@@ -29,16 +29,17 @@ const ProductInformation = (props) => {
   }
 
   rating = Math.floor((rating / count) * 100) / 100;
-  console.log(rating)
 
   return (
-    <div className="product-information-box">
-      <StarRating number={rating} />
-      <span>
-        <a href="#topLevelRatingsAndReviews">
-          Read all {props.reviews.length} Reviews
-        </a>
-      </span>
+    <div className="product-information-box" style={props.reviews.length === 0 ? {visibility: 'hidden'} : {visibility: 'visible'}}>
+      <div className="product-information-star-review-box">
+        <StarRating number={rating} />
+        <span className='product-information-review'>
+          <a href="#start-of-ratings">
+            Read all {props.reviews.length} Reviews
+          </a>
+        </span>
+      </div>
       <p className="product-category">{props.primaryProduct.category}</p>
       <p className="product-name">{props.primaryProduct.name}</p>
       {price}
