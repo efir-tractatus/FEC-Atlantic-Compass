@@ -5,7 +5,7 @@ class Rating extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      rating: this.props.rating || null,
+      rating: 2,
       temp_rating: null,
     };
   }
@@ -83,9 +83,13 @@ class Rating extends React.PureComponent {
       stars.push(klass);
     }
 
+    let optionArray = ["Poor", "Fair", "Average", "Good", "Great"]
+
     return (
       <div className='rating'>
-        <b className="modal-display-stars">{this.state.rating + 1} Stars!</b>
+      <div>
+      <b className="modal-display-stars">{optionArray[this.state.rating]}</b>
+      </div>
         <div id="currentRating" style={hider}>{this.state.rating + 1}</div>
         {stars}
       </div>

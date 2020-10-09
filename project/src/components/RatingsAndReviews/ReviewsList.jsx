@@ -2,7 +2,7 @@ import React from 'react';
 import IndividualReviews from './IndividualReviews.jsx';
 import ReviewsBreakDown from './ReviewsBreakDown.jsx';
 import axios from 'axios';
-import AddReviewsModal from './AddReviewsModal.jsx';
+import AddReviewModalContainer from '../../containers/RatingsAndReviews/AddReviewModalContainer.js';
 import ModalTemplate from '../QuestionsAndAnswers/ModalTemplate/ModalTemplate';
 import '../../../dist/stylesheets/RatingsAndReviews.css';
 
@@ -101,7 +101,7 @@ class ReviewsList extends React.Component {
               this.setState({ isOpen: false });
             }}
           >
-            <AddReviewsModal
+            <AddReviewModalContainer
               productName={this.props.primaryProduct.name}
               productID={this.props.primaryProduct.id}
             />
