@@ -23,7 +23,7 @@ app.get('/catwalk/:id', (req, res) => {
     axios.get(`http://18.224.37.110/products/${id}`),
     axios.get(`http://18.224.37.110/products/${id}/styles`),
     axios.get(`http://18.224.37.110/products/${id}/related`),
-    axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=10`),
+    axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=50`),
     axios.get(`http://18.224.37.110/reviews?product_id=${id}&count=50`),
     axios.get(`http://18.224.37.110/reviews/meta?product_id=${id}`)
   ];
@@ -44,6 +44,118 @@ app.get('/catwalk/:id', (req, res) => {
     .catch((err) => {
       console.log(err)
       res.status(404).send('could not find product info')
+    })
+});
+
+app.post('/catwalk/interactions', (req, res) => {
+  console.log(req.body)
+  return axios.post(`http://18.224.37.110/interactions`, req.body)
+    .then((response) => {
+      res.send('interaction posted');
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not get the questions', err)
+    })
+});
+
+//Q&A ROUTES//
+
+app.get('/catwalk/qa/questions/:id', (req, res) => {
+  console.log(req.params)
+  var id = req.params.id
+  axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=50`)
+    .then((response) => {
+      console.log('question get good')
+      res.send(response.data);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not get the questions', err)
+    })
+});
+
+app.post('/catwalk/qa/questions', (req, res) => {
+  console.log(req.body)
+  axios.post(`http://18.224.37.110/qa/questions`, req.body)
+    .then((response) => {
+      console.log('question posted')
+      res.send('question posted');
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not post the question', err)
+    })
+});
+
+app.put('/catwalk/qa/questions/helpful/:id', (req, res) => {
+  console.log(req.params)
+  var questionId = req.params.id;
+  return axios.put(`http://18.224.37.110/qa/questions/${questionId}/helpful`)
+    .then((response) => {
+      console.log('question marked helpful')
+      res.send('question marked helpful');
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not mark question helpful', err)
+    })
+});
+
+app.put('/catwalk/qa/questions/report/:id', (req, res) => {
+  console.log(req.params)
+  var questionId = req.params.id;
+  return axios.put(`http://18.224.37.110/qa/questions/${questionId}/report`)
+    .then((response) => {
+      console.log('question reported')
+      res.send('question reported');
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not report question', err)
+    })
+});
+
+app.post('/catwalk/qa/answers/:id', (req, res) => {
+  console.log(req.params)
+  var questionId = req.params.id
+  console.log(req.body)
+  return axios.post(`http://18.224.37.110/qa/questions/${questionId}/answers`, req.body)
+    .then((response) => {
+      console.log('answer posted')
+      res.send('answer posted');
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not post the answer', err)
+    })
+});
+
+app.put('/catwalk/qa/answers/helpful/:id', (req, res) => {
+  console.log(req.params)
+  var answerId = req.params.id;
+  return axios.put(`http://18.224.37.110/qa/answers/${answerId}/helpful`)
+    .then((response) => {
+      console.log('answer marked helpful')
+      res.send('answer marked helpful');
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not mark answer helpful', err)
+    })
+});
+
+app.put('/catwalk/qa/answers/report/:id', (req, res) => {
+  console.log(req.params)
+  var answerId = req.params.id;
+  return axios.put(`http://18.224.37.110/qa/answers/${answerId}/report`)
+    .then((response) => {
+      console.log('answer reported', response)
+      res.send('answer reported');
+    })
+    .catch((err) => {
+      console.log(err)
+      res.status(404).send('could not report answer', err)
     })
 });
 

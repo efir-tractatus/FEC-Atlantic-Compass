@@ -53,7 +53,7 @@ var QuestionList = (props) => {
 
   if (availableQuestions.length <= 0) {
     return (
-    <div>
+    <div className="question-list">
       <InteractionTracker widget="QandA" element="Add-a-question"
            render={({ postInteraction }) => (
             <button className="QandA-button-add-question" onClick={() => {postInteraction(); setIsOpen(true) }}>ADD A QUESTION +</button>
@@ -66,7 +66,9 @@ var QuestionList = (props) => {
   if (numToDisplay < availableQuestions.length) {
     return (
       <div className="question-list">
+        <div className="question-list-scroll-container">
           {buildQuestionList(questionsToDisplay, props)}
+        </div>
         <div className="button-flex-container">
         <InteractionTracker widget="QandA" element="Load-more-questions"
            render={({ postInteraction }) => (
@@ -91,8 +93,10 @@ var QuestionList = (props) => {
     );
   } else {
     return (
-      <div>
-        {buildQuestionList(questionsToDisplay, props)}
+      <div className="question-list">
+        <div className="question-list-scroll-container">
+          {buildQuestionList(questionsToDisplay, props)}
+        </div>
         <InteractionTracker widget="QandA" element="Add-a-question"
            render={({ postInteraction }) => (
         <button className="QandA-button-add-question" onClick={() => { postInteraction(); setIsOpen(true) }}>ADD A QUESTION +</button>

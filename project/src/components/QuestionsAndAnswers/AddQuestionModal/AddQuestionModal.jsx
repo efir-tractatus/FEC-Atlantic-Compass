@@ -52,7 +52,7 @@ var handleSubmit = (id, populateQuestions) => {
   var email = document.getElementById('question-email').value;
 
 
-  axios.post(`http://18.224.37.110/qa/questions`, {
+  axios.post(`/catwalk/qa/questions`, {
     'body': body,
     'name': nickname,
     'email': email,
@@ -65,7 +65,7 @@ var handleSubmit = (id, populateQuestions) => {
       console.log('error posting question', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=20`)
+      return axios.get(`/catwalk/qa/questions/${id}`)
     })
     .then((response) => {
       console.log(response.data.results);

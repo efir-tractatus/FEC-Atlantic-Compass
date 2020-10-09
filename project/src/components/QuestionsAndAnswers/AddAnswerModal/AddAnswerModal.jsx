@@ -112,7 +112,7 @@ var handleSubmit = (id, productId, photoURLS, populateQuestions) => {
   var photos = photoURLS
   var questionId = id;
 
-  axios.post(`http://18.224.37.110/qa/questions/${questionId}/answers`, {
+  axios.post(`/catwalk/qa/answers/${questionId}`, {
     'body': body,
     'name': nickname,
     'email': email,
@@ -125,10 +125,11 @@ var handleSubmit = (id, productId, photoURLS, populateQuestions) => {
       console.log('error posting answer', err);
     })
     .then(() => {
-      return axios.get(`http://18.224.37.110/qa/questions/?product_id=${productId}&count=20`)
+      return axios.get(`/catwalk/qa/questions/${productId}`)
     })
     .then((response) => {
       console.log('success getting updated quesitons');
+      console.log(response.data.results);
       populateQuestions(response.data.results);
     })
     .catch((err) => {
