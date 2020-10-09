@@ -42,7 +42,6 @@ class ReviewsList extends React.Component {
 
   changeSort(event) {
     let newValue = event.target.value;
-
     return axios
       .get(
         `http://18.224.37.110/reviews?product_id=${this.props.primaryProduct.id}&sort=${newValue}`
@@ -68,9 +67,12 @@ class ReviewsList extends React.Component {
               return this.changeSort(e);
             }}
           >
-            <option value='relevance'>relevance</option>
-            <option value='helpfulness'>helpfulness</option>
-            <option value='newest'>newest</option>
+            <option id="relevance" value='relevance'>relevance</option>
+            <label for="relevance">sort by relevance</label>
+            <option id="helpfulness" value='helpfulness'>helpfulness</option>
+            <label for="helpfulness">sort by helpfulness</label>
+            <option id="newest" value='newest'>newest</option>
+            <label for="newest">sort by newest</label>
           </select>
         </div>
         {this.buildIndividualReviews(this.state.count)}
