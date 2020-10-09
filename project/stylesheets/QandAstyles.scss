@@ -4,7 +4,7 @@
   display: block;
   position: relative;
   box-sizing: border-box;
-  width: 80vw;
+  width: 72vw;
   margin: auto;
   padding-left: 30px;
   padding-right: 30px;
@@ -142,14 +142,18 @@ a:hover {
   font-size: $FontL;
   font-weight: 600;
   color: $ColorExtraDarkGray;
-  margin-top: auto;
+  margin-top: 0;
   margin-bottom: auto;
   margin-left: .5vw;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .answer-body {
   font-size:$FontM;
   font-weight: 500;
+  margin-top: .25vw;
+  margin-bottom: auto;
 }
 
 .answer-label,
@@ -213,6 +217,8 @@ a:hover {
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
+  margin-top: 0;
+  margin-bottom: auto;
   margin-right: 1vw;
   font-size: $FontS;
   color: $ColorDarkGray;
@@ -225,6 +231,8 @@ a:hover {
 
 .question-utility-text,
 .answer-utility-text {
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: 0px;
   margin-right: .8vw;
 }
@@ -236,6 +244,8 @@ a:hover {
 
 .question-utility-break,
 .answer-utility-break {
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: .5vw;
   margin-right: 1vw;
   font-size: 1.1vw;
@@ -243,12 +253,16 @@ a:hover {
 
 .question-utility-count,
 .answer-utility-count {
+  margin-top: 5px;
+  margin-bottom: 5px;
   margin-left: .25vw;
   margin-right: .3vw;
 }
 
 .question-utility-link,
 .answer-utility-link {
+  margin-top: 5px;
+  margin-bottom: 5px;
   text-decoration: underline;
 }
 
@@ -354,7 +368,8 @@ a:hover {
   font-weight: 500;
   margin: .5vw 0;
   margin-bottom: 1.2vw;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .QandA-modal-body input,
