@@ -45,8 +45,10 @@
 
 .navbar-searchbar-symbol {
   margin-left: .5vw;
-  height: 2vw;
-  width: 2vw;
+  height: 1.7vw;
+  width: 1.7vw;
+  max-height: 32px;
+  max-width: 32px;
   background-color: none;
   background: none;
 }
