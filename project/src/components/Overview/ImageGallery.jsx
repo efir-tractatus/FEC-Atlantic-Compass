@@ -106,6 +106,9 @@ const ImageGallery = (props) => {
             setFirstImg(false);
           }
           setLastImg(false);
+          if (Number(renderImages[0].key) === imageIdx) {
+            setMidPoint(midPoint - 1)
+          }
         }}
       >
         <img
@@ -261,7 +264,6 @@ const ImageGallery = (props) => {
           className="right-arrow-box"
           onClick={() => {
             if (lastImg === false) {
-              console.log(lastImg);
               var imageIdx = photos.findIndex(
                 (element) => element.url === mainImage
               );
@@ -273,7 +275,9 @@ const ImageGallery = (props) => {
                 setFirstImg(false);
               }
             }
-            // console.log(lastImg);
+            if (Number(renderImages[5].key) === imageIdx) {
+              setMidPoint(midPoint + 1);
+            }
           }}
         >
           <img
