@@ -9,7 +9,7 @@ class InteractionTracker extends React.Component {
   }
 
   postInteraction() {
-    axios.post('http://18.224.37.110/interactions', {
+    axios.post('/catwalk/interactions', {
       element: this.props.element,
       widget: this.props.widget,
       time: new Date()
