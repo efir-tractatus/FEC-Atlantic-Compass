@@ -4,7 +4,7 @@ import StyleSelectorItem from './StyleSelectorItem.jsx';
 import '../../../dist/stylesheets/OverviewStyles.css';
 
 const StyleSelector = (props) => {
-  console.log('StyleSelector', props);
+  // console.log('StyleSelector', props);
 
   const [group, setGroup] = useState(0);
 
@@ -23,24 +23,28 @@ const StyleSelector = (props) => {
 
   return (
     <div>
-      <h2>StyleSelector Section</h2>
-      <h3>{props.currentStyle.name}</h3>
+      <p className='style'>STYLE > <span className='style-name'>{props.currentStyle.name}</span></p>
       <img
+        className="style-arow-up"
         src={'./attributes/keyboard-up-arrow.png'}
         onClick={() => {
           if (group > 0) {
             setGroup(group - 1);
           }
         }}
+        style={group > 0 ? { visibility: 'visible', transform: 'translateX(515%)' } : { visibility: 'hidden', transform: 'translateX(515%)'}}
       />
       <div className="style-grid">{displayStyles}</div>
       <img
+        className="style-arow-down"
         src={'./attributes/keyboard-down-arrow.png'}
         onClick={() => {
           if (group * 4 + 8 < styles.length) {
             setGroup(group + 1);
           }
         }}
+        style={
+          group * 4 + 8 < styles.length ? { visibility: 'visible', transform: 'translateX(515%)' } : { visibility: 'hidden', transform: 'translateX(515%)'}}
       />
     </div>
   );
