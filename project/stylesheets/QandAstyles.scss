@@ -311,7 +311,6 @@ a:hover {
   border-radius: 1vw;
   box-shadow: 0 0 1.25vw #f8f8f8;
   max-height: 90vh;
-  max-width: 45vw;
   overflow-y: auto;
 }
 
@@ -333,7 +332,6 @@ a:hover {
   margin-top: .25vw;
 }
 
-
 .QandA-modal-body {
   display: flex;
   flex-wrap: wrap;
@@ -342,6 +340,7 @@ a:hover {
   font-size: $FontM;
   margin: 2vw 1vw;
   margin-top: 1vw;
+  max-width: 45vw;
 }
 
 .modal-header {
