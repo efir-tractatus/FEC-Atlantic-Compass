@@ -8,7 +8,6 @@ import '../../../dist/stylesheets/OverviewStyles.css';
 var Overview = () => {
   return (
     <div>
-      <h1>Overview Component</h1>
       <div className="overview-main-box">
         <div className="overview-left-box">
           <ImageGalleryContainer />
