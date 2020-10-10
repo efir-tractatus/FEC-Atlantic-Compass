@@ -2,7 +2,10 @@ import React from 'react';
 import '../../dist/stylesheets/RatingsAndReviews.css';
 
 let StarRating = (props) => {
-  const { number } = props;
+  var { number } = props;
+  if (number === NaN) {
+    number = 0;
+  }
   const renderedStars = Math.floor(number);
   const starDetermination = number - renderedStars;
   const prop = Math.floor(starDetermination * 4);
