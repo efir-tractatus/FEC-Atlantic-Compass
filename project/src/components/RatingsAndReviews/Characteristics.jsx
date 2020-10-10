@@ -81,7 +81,18 @@ const Characteristics = (props) => {
 const IndividualCharacteristics = (props) => {
   const { value, item } = props;
   let firstDescription, lastDescription, middleDescription;
-  let valuePercentage = Math.floor((value / 5) * 100);
+  let valuePercentage = Math.floor((value / 5) * 100) - 1;
+  if (valuePercentage === 33) {
+    valuePercentage = 34
+  }
+
+  if (valuePercentage === 66) {
+    valuePercentage = 67
+  }
+
+  if (valuePercentage === 99) {
+    valuePercentage = 98
+  }
 
   if (item === 'Size') {
     firstDescription = 'Too Small';
