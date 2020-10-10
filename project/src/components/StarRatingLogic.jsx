@@ -3,7 +3,8 @@ import '../../dist/stylesheets/RatingsAndReviews.css';
 
 let StarRating = (props) => {
   var { number } = props;
-  if (number === NaN) {
+  console.log(number);
+  if (isNaN(number)) {
     number = 0;
   }
   const renderedStars = Math.floor(number);
