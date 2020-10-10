@@ -2,17 +2,27 @@ import React, { useState } from 'react';
 import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const ReviewsRatingBarGraph = (props) => {
-  const [data, setData] = useState(props.ratings);
-  const [barHeight, setBarHeight] = useState(props.modeRatings);
+  console.log(props)
+  const data = props.ratings
+  const barHeight = props.modeRatings ;
 
   let returner = [];
 
   for (let i = 5; i >= 1; i--) {
+
+    let variable
+    if (!data[i]) {
+      variable = 0.01
+    }
+    else {
+      variable = data[i]
+    }
+    console.log(variable)
     returner.push(
       <div>
         <BarGraphComponents
           value={i}
-          data={data[i]}
+          data={variable}
           barHeight={barHeight}
         />
       </div>
@@ -24,7 +34,6 @@ const ReviewsRatingBarGraph = (props) => {
 
 const BarGraphComponents = (props) => {
   let completed = Math.floor((props.data / props.barHeight) * 100);
-
   const containerStyles = {
     height: ".52vw",
     width: '11vw',
