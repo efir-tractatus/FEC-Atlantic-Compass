@@ -26,7 +26,9 @@ const ReviewsBreakDown = (props) => {
     }
   }
   let overAllReviews = Math.round((aggregateTotal / reviewCount) * 10) / 10;
-
+  if (isNaN(recommendedPercentage)) {
+    recommendedPercentage = 0
+  }
   return (
     <div>
       <div className='review-score'>
