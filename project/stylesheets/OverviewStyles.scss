@@ -1,5 +1,13 @@
 @import 'Head';
 
+.overview-component {
+  font: $MainFont;
+  font-size: $FontXL;
+  position: relative;
+  left: 10%;
+  margin-block-end: 0em;
+}
+
 // Style Selector Begins
 
 .style-grid {
