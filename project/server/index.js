@@ -5,6 +5,7 @@ const path = require('path');
 const compression = require('compression');
 const app = express();
 const PORT = 4206;
+const APIURL = 'http://3.137.191.193'
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,21 +23,28 @@ app.get('/catwalk/:id', (req, res) => {
   console.log(req.params)
   var id = req.params.id
   const params = [
+<<<<<<< HEAD
     axios.get(`http://3.137.191.193/products/${id}`),
     axios.get(`http://3.137.191.193/products/${id}/styles`),
     axios.get(`http://3.137.191.193/products/${id}/related`),
     axios.get(`http://3.137.191.193/qa/questions/?product_id=${id}&count=50`),
     axios.get(`http://3.137.191.193/reviews?product_id=${id}&count=50`),
     axios.get(`http://3.137.191.193/reviews/meta?product_id=${id}`)
+=======
+    axios.get(`${APIURL}/products/${id}`),
+    axios.get(`${APIURL}/products/${id}/styles`),
+    axios.get(`${APIURL}/qa/questions/?product_id=${id}&count=50`),
+    axios.get(`${APIURL}/reviews?product_id=${id}&count=50`),
+    axios.get(`${APIURL}/reviews/meta?product_id=${id}`)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
   ];
 
   let results = {};
   return axios.all(params)
-    .then(axios.spread((primaryProduct, primaryProductStyles, primaryRelatedProducts, primaryProductQuestions, primaryProductReviews, primaryProductReviewsNumbers) => {
+    .then(axios.spread((primaryProduct, primaryProductStyles, primaryProductQuestions, primaryProductReviews, primaryProductReviewsNumbers) => {
       results = {
         'primaryProduct': primaryProduct.data,
         'primaryProductStyles': primaryProductStyles.data,
-        'primaryRelatedProducts': primaryRelatedProducts.data,
         'primaryProductQuestions': primaryProductQuestions.data,
         'primaryProductReviews': primaryProductReviews.data,
         'primaryProductReviewsNumbers': primaryProductReviewsNumbers.data
@@ -51,7 +59,11 @@ app.get('/catwalk/:id', (req, res) => {
 
 app.post('/catwalk/interactions', (req, res) => {
   console.log(req.body)
+<<<<<<< HEAD
   return axios.post(`http://3.137.191.193/interactions`, req.body)
+=======
+  return axios.post(`${APIURL}/interactions`, req.body)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       res.send('interaction posted');
     })
@@ -66,7 +78,11 @@ app.post('/catwalk/interactions', (req, res) => {
 app.get('/catwalk/qa/questions/:id', (req, res) => {
   console.log(req.params)
   var id = req.params.id
+<<<<<<< HEAD
   axios.get(`http://3.137.191.193/qa/questions/?product_id=${id}&count=50`)
+=======
+  axios.get(`${APIURL}/qa/questions/?product_id=${id}&count=50`)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       console.log('question get good')
       res.send(response.data);
@@ -79,7 +95,11 @@ app.get('/catwalk/qa/questions/:id', (req, res) => {
 
 app.post('/catwalk/qa/questions', (req, res) => {
   console.log(req.body)
+<<<<<<< HEAD
   axios.post(`http://3.137.191.193/qa/questions`, req.body)
+=======
+  axios.post(`${APIURL}/qa/questions`, req.body)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       console.log('question posted')
       res.send('question posted');
@@ -93,7 +113,11 @@ app.post('/catwalk/qa/questions', (req, res) => {
 app.put('/catwalk/qa/questions/helpful/:id', (req, res) => {
   console.log(req.params)
   var questionId = req.params.id;
+<<<<<<< HEAD
   return axios.put(`http://3.137.191.193/qa/questions/${questionId}/helpful`)
+=======
+  return axios.put(`${APIURL}/qa/questions/${questionId}/helpful`)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       console.log('question marked helpful')
       res.send('question marked helpful');
@@ -107,7 +131,11 @@ app.put('/catwalk/qa/questions/helpful/:id', (req, res) => {
 app.put('/catwalk/qa/questions/report/:id', (req, res) => {
   console.log(req.params)
   var questionId = req.params.id;
+<<<<<<< HEAD
   return axios.put(`http://3.137.191.193/qa/questions/${questionId}/report`)
+=======
+  return axios.put(`${APIURL}/qa/questions/${questionId}/report`)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       console.log('question reported')
       res.send('question reported');
@@ -122,7 +150,11 @@ app.post('/catwalk/qa/answers/:id', (req, res) => {
   console.log(req.params)
   var questionId = req.params.id
   console.log(req.body)
+<<<<<<< HEAD
   return axios.post(`http://3.137.191.193/qa/questions/${questionId}/answers`, req.body)
+=======
+  return axios.post(`${APIURL}/qa/questions/${questionId}/answers`, req.body)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       console.log('answer posted')
       res.send('answer posted');
@@ -136,7 +168,11 @@ app.post('/catwalk/qa/answers/:id', (req, res) => {
 app.put('/catwalk/qa/answers/helpful/:id', (req, res) => {
   console.log(req.params)
   var answerId = req.params.id;
+<<<<<<< HEAD
   return axios.put(`http://3.137.191.193/qa/answers/${answerId}/helpful`)
+=======
+  return axios.put(`${APIURL}/qa/answers/${answerId}/helpful`)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       console.log('answer marked helpful')
       res.send('answer marked helpful');
@@ -150,7 +186,11 @@ app.put('/catwalk/qa/answers/helpful/:id', (req, res) => {
 app.put('/catwalk/qa/answers/report/:id', (req, res) => {
   console.log(req.params)
   var answerId = req.params.id;
+<<<<<<< HEAD
   return axios.put(`http://3.137.191.193/qa/answers/${answerId}/report`)
+=======
+  return axios.put(`${APIURL}/qa/answers/${answerId}/report`)
+>>>>>>> 1bf9a4aaece199efd65759d75d69112ae1341da1
     .then((response) => {
       console.log('answer reported', response)
       res.send('answer reported');
