@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SelectSize from './SelectSize.jsx';
 import '../../../dist/stylesheets/OverviewStyles.css';
+import $ from 'jquery';
 
 const AddToCart = (props) => {
   // console.log('AddToCart', props);
@@ -19,6 +20,16 @@ const AddToCart = (props) => {
 
   skus = Object.entries(skusObject);
 
+  // console.log('Skus', skus);
+
+  const [quantity, setQuantity] = useState('');
+  const [size, setSize] = useState('');
+
+  useEffect(() => {
+    setQuantity('');
+    setSize('');
+  }, [props.currentStyle.style_id]);
+
   var renderSkus = skus.map((sku) => {
     return <SelectSize sku={sku} key={sku[0]} />;
   });
@@ -28,9 +39,7 @@ const AddToCart = (props) => {
       Select Size
     </option>
   );
-
-  const [quantity, setQuantity] = useState('');
-  const [size, setSize] = useState('');  
+  console.log('RenderSkus', renderSkus);
 
   var renderQuantity = [];
   var maxQuantity = quantity > 15 ? 15 : quantity;
@@ -39,19 +48,16 @@ const AddToCart = (props) => {
     renderQuantity.push(<option key={i}>{i}</option>);
   }
 
-  useEffect(() => {
-    setQuantity('');
-    setSize('');
-  }, [props.currentStyle.style_id]);
-  
   return (
     <div>
       <select
-        defaultValue=''
+        value={quantity}
         className="size-selector"
         disabled={renderSkus.length === 1 ? true : false}
         onChange={(e) => {
+          // let sku = JSON.parse(e.target.value);
           setQuantity(e.target.value);
+          // setSize(sku[0]);
         }}
       >
         {renderSkus.length === 1 ? (

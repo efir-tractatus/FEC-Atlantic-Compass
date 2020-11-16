@@ -16,16 +16,18 @@ app.get('/', (req, res) => {
   res.status(200).send('./index.html')
 });
 
+http://3.137.191.193/
+
 app.get('/catwalk/:id', (req, res) => {
   console.log(req.params)
   var id = req.params.id
   const params = [
-    axios.get(`http://18.224.37.110/products/${id}`),
-    axios.get(`http://18.224.37.110/products/${id}/styles`),
-    axios.get(`http://18.224.37.110/products/${id}/related`),
-    axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=50`),
-    axios.get(`http://18.224.37.110/reviews?product_id=${id}&count=50`),
-    axios.get(`http://18.224.37.110/reviews/meta?product_id=${id}`)
+    axios.get(`http://3.137.191.193/products/${id}`),
+    axios.get(`http://3.137.191.193/products/${id}/styles`),
+    axios.get(`http://3.137.191.193/products/${id}/related`),
+    axios.get(`http://3.137.191.193/qa/questions/?product_id=${id}&count=50`),
+    axios.get(`http://3.137.191.193/reviews?product_id=${id}&count=50`),
+    axios.get(`http://3.137.191.193/reviews/meta?product_id=${id}`)
   ];
 
   let results = {};
@@ -49,7 +51,7 @@ app.get('/catwalk/:id', (req, res) => {
 
 app.post('/catwalk/interactions', (req, res) => {
   console.log(req.body)
-  return axios.post(`http://18.224.37.110/interactions`, req.body)
+  return axios.post(`http://3.137.191.193/interactions`, req.body)
     .then((response) => {
       res.send('interaction posted');
     })
@@ -64,7 +66,7 @@ app.post('/catwalk/interactions', (req, res) => {
 app.get('/catwalk/qa/questions/:id', (req, res) => {
   console.log(req.params)
   var id = req.params.id
-  axios.get(`http://18.224.37.110/qa/questions/?product_id=${id}&count=50`)
+  axios.get(`http://3.137.191.193/qa/questions/?product_id=${id}&count=50`)
     .then((response) => {
       console.log('question get good')
       res.send(response.data);
@@ -77,7 +79,7 @@ app.get('/catwalk/qa/questions/:id', (req, res) => {
 
 app.post('/catwalk/qa/questions', (req, res) => {
   console.log(req.body)
-  axios.post(`http://18.224.37.110/qa/questions`, req.body)
+  axios.post(`http://3.137.191.193/qa/questions`, req.body)
     .then((response) => {
       console.log('question posted')
       res.send('question posted');
@@ -91,7 +93,7 @@ app.post('/catwalk/qa/questions', (req, res) => {
 app.put('/catwalk/qa/questions/helpful/:id', (req, res) => {
   console.log(req.params)
   var questionId = req.params.id;
-  return axios.put(`http://18.224.37.110/qa/questions/${questionId}/helpful`)
+  return axios.put(`http://3.137.191.193/qa/questions/${questionId}/helpful`)
     .then((response) => {
       console.log('question marked helpful')
       res.send('question marked helpful');
@@ -105,7 +107,7 @@ app.put('/catwalk/qa/questions/helpful/:id', (req, res) => {
 app.put('/catwalk/qa/questions/report/:id', (req, res) => {
   console.log(req.params)
   var questionId = req.params.id;
-  return axios.put(`http://18.224.37.110/qa/questions/${questionId}/report`)
+  return axios.put(`http://3.137.191.193/qa/questions/${questionId}/report`)
     .then((response) => {
       console.log('question reported')
       res.send('question reported');
@@ -120,7 +122,7 @@ app.post('/catwalk/qa/answers/:id', (req, res) => {
   console.log(req.params)
   var questionId = req.params.id
   console.log(req.body)
-  return axios.post(`http://18.224.37.110/qa/questions/${questionId}/answers`, req.body)
+  return axios.post(`http://3.137.191.193/qa/questions/${questionId}/answers`, req.body)
     .then((response) => {
       console.log('answer posted')
       res.send('answer posted');
@@ -134,7 +136,7 @@ app.post('/catwalk/qa/answers/:id', (req, res) => {
 app.put('/catwalk/qa/answers/helpful/:id', (req, res) => {
   console.log(req.params)
   var answerId = req.params.id;
-  return axios.put(`http://18.224.37.110/qa/answers/${answerId}/helpful`)
+  return axios.put(`http://3.137.191.193/qa/answers/${answerId}/helpful`)
     .then((response) => {
       console.log('answer marked helpful')
       res.send('answer marked helpful');
@@ -148,7 +150,7 @@ app.put('/catwalk/qa/answers/helpful/:id', (req, res) => {
 app.put('/catwalk/qa/answers/report/:id', (req, res) => {
   console.log(req.params)
   var answerId = req.params.id;
-  return axios.put(`http://18.224.37.110/qa/answers/${answerId}/report`)
+  return axios.put(`http://3.137.191.193/qa/answers/${answerId}/report`)
     .then((response) => {
       console.log('answer reported', response)
       res.send('answer reported');
