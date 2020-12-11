@@ -1,4 +1,4 @@
-
+!dist/attributes/
 .cache/
 coverage/
 dist/*
