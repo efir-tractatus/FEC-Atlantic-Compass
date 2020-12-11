@@ -1,4 +1,4 @@
-@import "Head";
+@import 'Head';
 
 .navbar {
   display: flex;
@@ -11,16 +11,22 @@
   padding: 2vw;
   padding-left: 5vw;
   padding-right: 7vw;
-  background-color: $ColorExtraDarkGray;
+  background-color: $ColorDarkGray;
   color: whitesmoke;
   margin: auto;
+}
+
+.navbar-logo {
+  width: 4%;
+  margin-left: -3%;
 }
 
 .navbar-header {
   font-weight: 500;
   font-size: $FontXL;
   font-family: 'Courier New', Courier, monospace;
-  text-decoration: underline;
+  // text-decoration: underline;
+  margin-left: -50%;
 }
 
 .navbar-searchbar-container {
@@ -44,7 +50,7 @@
 }
 
 .navbar-searchbar-symbol {
-  margin-left: .5vw;
+  margin-left: 0.5vw;
   height: 1.7vw;
   width: 1.7vw;
   max-height: 32px;
