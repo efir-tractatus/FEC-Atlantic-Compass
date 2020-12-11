@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const Characteristics = (props) => {
   let { Size, Width, Comfort, Quality, Length, Fit } = props.characteristics;
@@ -9,7 +8,7 @@ const Characteristics = (props) => {
     returner.push(
       <div>
         <b>Size</b>
-        <IndividualCharacteristics key='size' value={Size.value} item='Size' />
+        <IndividualCharacteristics key="size" value={Size.value} item="Size" />
       </div>
     );
   }
@@ -19,9 +18,9 @@ const Characteristics = (props) => {
       <div>
         <b>Width</b>
         <IndividualCharacteristics
-          key='width'
+          key="width"
           value={Width.value}
-          item='Width'
+          item="Width"
         />
       </div>
     );
@@ -32,9 +31,9 @@ const Characteristics = (props) => {
       <div>
         <b>Comfort</b>
         <IndividualCharacteristics
-          key='comfort'
+          key="comfort"
           value={Comfort.value}
-          item='Comfort'
+          item="Comfort"
         />
       </div>
     );
@@ -45,9 +44,9 @@ const Characteristics = (props) => {
       <div>
         <b>Quality</b>
         <IndividualCharacteristics
-          key='quality'
+          key="quality"
           value={Quality.value}
-          item='Quality'
+          item="Quality"
         />
       </div>
     );
@@ -58,9 +57,9 @@ const Characteristics = (props) => {
       <div>
         <b>Length</b>
         <IndividualCharacteristics
-          key='length'
+          key="length"
           value={Length.value}
-          item='Length'
+          item="Length"
         />
       </div>
     );
@@ -70,7 +69,7 @@ const Characteristics = (props) => {
     returner.push(
       <div>
         <b>Fit</b>
-        <IndividualCharacteristics key='fit' value={Fit.value} item='Fit' />
+        <IndividualCharacteristics key="fit" value={Fit.value} item="Fit" />
       </div>
     );
   }
@@ -83,15 +82,15 @@ const IndividualCharacteristics = (props) => {
   let firstDescription, lastDescription, middleDescription;
   let valuePercentage = Math.floor((value / 5) * 100) - 1;
   if (valuePercentage === 33) {
-    valuePercentage = 34
+    valuePercentage = 34;
   }
 
   if (valuePercentage === 66) {
-    valuePercentage = 67
+    valuePercentage = 67;
   }
 
   if (valuePercentage === 99) {
-    valuePercentage = 98
+    valuePercentage = 98;
   }
 
   if (item === 'Size') {
@@ -141,7 +140,6 @@ const IndividualCharacteristics = (props) => {
     gridColumnEnd: 33,
     height: 50,
     backgroundImage: 'url(https://i.ibb.co/kc61Vkh/img.png)',
-
   };
 
   const colCenter = {
@@ -149,14 +147,12 @@ const IndividualCharacteristics = (props) => {
     gridColumnEnd: 66,
     height: 50,
     backgroundImage: 'url(https://i.ibb.co/kc61Vkh/img.png)',
-
   };
   const colRight = {
     gridColumnStart: 67,
     gridColumnEnd: 99,
     height: 50,
     backgroundImage: 'url(https://i.ibb.co/kc61Vkh/img.png)',
-
   };
 
   const textCenter = {
@@ -175,12 +171,11 @@ const IndividualCharacteristics = (props) => {
     borderLeft: '0.5vw solid transparent',
     borderRight: '0.5vw solid transparent',
     borderTop: '0.7vw solid #696969',
-
   };
 
   return (
     <div style={parent}>
-        <div style={triangleDown}></div>
+      <div style={triangleDown}></div>
       <div style={colLeft}>
         <p>{firstDescription}</p>
       </div>

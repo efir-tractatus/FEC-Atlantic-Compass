@@ -1,11 +1,13 @@
-import React from "react";
-import '../../../../dist/stylesheets/QandAstyles.css';
+import React from 'react';
 
 var AnswerPhotoModal = (props) => {
   var { image } = props;
   return (
-    <img className="QandA-photo-modal" src={image} alt="User Submitted Product Photo">
-</img>
+    <img
+      className="QandA-photo-modal"
+      src={image}
+      alt="User Submitted Product Photo"
+    ></img>
   );
 };
 

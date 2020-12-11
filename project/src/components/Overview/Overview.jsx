@@ -3,7 +3,6 @@ import ImageGalleryContainer from '../../containers/Overview/ImageGalleryContain
 import StyleSelectorContainer from '../../containers/Overview/StyleSelectorContainer.js';
 import ProductInformationContainer from '../../containers/Overview/ProductInformationContainer.js';
 import AddToCartContainer from '../../containers/Overview/AddToCartContainer.js';
-import '../../../dist/stylesheets/OverviewStyles.css';
 
 var Overview = () => {
   return (

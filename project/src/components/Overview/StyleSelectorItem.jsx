@@ -1,6 +1,5 @@
 import React from 'react';
-import InteractionTracker from '../Utility/InteractionTracker.jsx'
-import '../../../dist/stylesheets/OverviewStyles.css';
+import InteractionTracker from '../Utility/InteractionTracker.jsx';
 
 const StyleSelectorItem = ({ style, handleStyleChange, currentStyleID }) => {
   return (

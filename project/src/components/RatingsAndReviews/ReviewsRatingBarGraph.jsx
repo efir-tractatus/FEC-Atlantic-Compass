@@ -1,30 +1,23 @@
 import React, { useState } from 'react';
-import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const ReviewsRatingBarGraph = (props) => {
-  console.log(props)
-  const data = props.ratings
-  const barHeight = props.modeRatings ;
+  console.log(props);
+  const data = props.ratings;
+  const barHeight = props.modeRatings;
 
   let returner = [];
 
   for (let i = 5; i >= 1; i--) {
-
-    let variable
+    let variable;
     if (!data[i]) {
-      variable = 0.01
+      variable = 0.01;
+    } else {
+      variable = data[i];
     }
-    else {
-      variable = data[i]
-    }
-    console.log(variable)
+    console.log(variable);
     returner.push(
       <div>
-        <BarGraphComponents
-          value={i}
-          data={variable}
-          barHeight={barHeight}
-        />
+        <BarGraphComponents value={i} data={variable} barHeight={barHeight} />
       </div>
     );
   }
@@ -35,7 +28,7 @@ const ReviewsRatingBarGraph = (props) => {
 const BarGraphComponents = (props) => {
   let completed = Math.floor((props.data / props.barHeight) * 100);
   const containerStyles = {
-    height: ".52vw",
+    height: '.52vw',
     width: '11vw',
     backgroundColor: '#e0e0de',
     borderRadius: 30,
@@ -51,9 +44,8 @@ const BarGraphComponents = (props) => {
   };
 
   return (
-    <div className="barGraph"><p className="rating-num">
-      {props.value} Stars
-      </p>
+    <div className="barGraph">
+      <p className="rating-num">{props.value} Stars</p>
       <div style={containerStyles}>
         <div style={fillerStyles}></div>
       </div>

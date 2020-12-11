@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import SelectSize from './SelectSize.jsx';
-import '../../../dist/stylesheets/OverviewStyles.css';
 import $ from 'jquery';
 
 const AddToCart = (props) => {
@@ -19,8 +18,6 @@ const AddToCart = (props) => {
   }
 
   skus = Object.entries(skusObject);
-
-  // console.log('Skus', skus);
 
   const [quantity, setQuantity] = useState('');
   const [size, setSize] = useState('');
@@ -55,9 +52,7 @@ const AddToCart = (props) => {
         className="size-selector"
         disabled={renderSkus.length === 1 ? true : false}
         onChange={(e) => {
-          // let sku = JSON.parse(e.target.value);
           setQuantity(e.target.value);
-          // setSize(sku[0]);
         }}
       >
         {renderSkus.length === 1 ? (

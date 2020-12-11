@@ -4,7 +4,6 @@ import ReviewsBreakDown from './ReviewsBreakDown.jsx';
 import axios from 'axios';
 import AddReviewModalContainer from '../../containers/RatingsAndReviews/AddReviewModalContainer.js';
 import ModalTemplate from '../QuestionsAndAnswers/ModalTemplate/ModalTemplate';
-import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 class ReviewsList extends React.Component {
   constructor(props) {
@@ -57,38 +56,44 @@ class ReviewsList extends React.Component {
 
   render() {
     return (
-      <div className='review-list'>
-        <div className='review-list-sort'>
+      <div className="review-list">
+        <div className="review-list-sort">
           {this.props.reviews.length} reviews, sorted by
           <select
-          id="set-the-sort"
-            className='sort-changer'
-            defaultValue='relevance'
+            id="set-the-sort"
+            className="sort-changer"
+            defaultValue="relevance"
             onChange={(e) => {
               return this.changeSort(e);
             }}
           >
-          <label for="set-the-sort">set the sorting patter</label>
-            <option id="relevance" value='relevance'>relevance</option>
+            <label for="set-the-sort">set the sorting patter</label>
+            <option id="relevance" value="relevance">
+              relevance
+            </option>
             <label for="relevance">sort by relevance</label>
-            <option id="helpfulness" value='helpfulness'>helpfulness</option>
+            <option id="helpfulness" value="helpfulness">
+              helpfulness
+            </option>
             <label for="helpfulness">sort by helpfulness</label>
-            <option id="newest" value='newest'>newest</option>
+            <option id="newest" value="newest">
+              newest
+            </option>
             <label for="newest">sort by newest</label>
           </select>
         </div>
         {this.buildIndividualReviews(this.state.count)}
-        <div className='review-buttons-adder'>
+        <div className="review-buttons-adder">
           <div
-            className='more-review-button'
-            type='button'
+            className="more-review-button"
+            type="button"
             onClick={this.moreReviewsButton}
           >
             MORE REVIEWS
           </div>
           <div
-            className='add-review-button'
-            type='button'
+            className="add-review-button"
+            type="button"
             onClick={() => {
               this.setState({ isOpen: true });
             }}

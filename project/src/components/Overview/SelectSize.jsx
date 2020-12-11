@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../../dist/stylesheets/OverviewStyles.css';
 
 const SelectSize = ({ sku }) => {
   console.log(sku);

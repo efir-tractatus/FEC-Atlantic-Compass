@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../dist/stylesheets/RatingsAndReviews.css';
 
 let StarRating = (props) => {
   var { number } = props;
@@ -17,7 +16,7 @@ let StarRating = (props) => {
     returner.push(<Stars prop={4} />);
   }
   if (renderedStars !== 5) {
-    returner.push(<Stars prop={prop}/>);
+    returner.push(<Stars prop={prop} />);
   }
 
   if (renderedStars !== 5) {
@@ -34,19 +33,19 @@ let Stars = (props) => {
   if (prop === 4) {
     return (
       <svg
-        width='.88vw'
-        height='.8vw'
-        viewBox='0 0 300 275'
-        xmlns='http://www.w3.org/2000/svg'
-        version='1.1'
+        width=".88vw"
+        height=".8vw"
+        viewBox="0 0 300 275"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
       >
         <polygon
-          fill='#414141'
-          stroke='#414141'
-          stroke-width='15'
-          points='150,25  179,111 269,111 197,165
+          fill="#414141"
+          stroke="#414141"
+          stroke-width="15"
+          points="150,25  179,111 269,111 197,165
                     223,251  150,200 77,251  103,165
-                    31,111 121,111'
+                    31,111 121,111"
         />
       </svg>
     );
@@ -55,32 +54,32 @@ let Stars = (props) => {
   if (prop === 1) {
     return (
       <svg
-        width='.88vw'
-        height='.8vw'
-        viewBox='0 0 300 275'
-        xmlns='http://www.w3.org/2000/svg'
-        version='1.1'
+        width=".88vw"
+        height=".8vw"
+        viewBox="0 0 300 275"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
       >
-        <clipPath id='empty'>
-          <rect x='110' y='0' width='190' height='275' />
+        <clipPath id="empty">
+          <rect x="110" y="0" width="190" height="275" />
         </clipPath>
-        <clipPath id='filled'>
-          <rect x='0' y='0' width='110' height='275' />
+        <clipPath id="filled">
+          <rect x="0" y="0" width="110" height="275" />
         </clipPath>
         <polygon
-          fill='none'
-          stroke='#414141'
-          stroke-width='15'
-          stroke-opacity='0.37647060'
-          points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-          clip-path='url(#empty)'
+          fill="none"
+          stroke="#414141"
+          stroke-width="15"
+          stroke-opacity="0.37647060"
+          points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
+          clip-path="url(#empty)"
         />
         <polygon
-          fill='#414141'
-          stroke='#414141'
-          stroke-width='15'
-          points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-          clip-path='url(#filled)'
+          fill="#414141"
+          stroke="#414141"
+          stroke-width="15"
+          points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
+          clip-path="url(#filled)"
         />
       </svg>
     );
@@ -88,32 +87,32 @@ let Stars = (props) => {
   if (prop === 2) {
     return (
       <svg
-        width='.88vw'
-        height='.8vw'
-        viewBox='0 0 300 275'
-        xmlns='http://www.w3.org/2000/svg'
-        version='1.1'
+        width=".88vw"
+        height=".8vw"
+        viewBox="0 0 300 275"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
       >
-        <clipPath id='empty'>
-          <rect x='150' y='0' width='150' height='275' />
+        <clipPath id="empty">
+          <rect x="150" y="0" width="150" height="275" />
         </clipPath>
-        <clipPath id='filled'>
-          <rect x='0' y='0' width='150' height='275' />
+        <clipPath id="filled">
+          <rect x="0" y="0" width="150" height="275" />
         </clipPath>
         <polygon
-          fill='none'
-          stroke='#414141'
-          stroke-width='15'
-          stroke-opacity='0.37647060'
-          points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-          clip-path='url(#empty)'
+          fill="none"
+          stroke="#414141"
+          stroke-width="15"
+          stroke-opacity="0.37647060"
+          points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
+          clip-path="url(#empty)"
         />
         <polygon
-          fill='#414141'
-          stroke='#414141'
-          stroke-width='15'
-          points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-          clip-path='url(#filled)'
+          fill="#414141"
+          stroke="#414141"
+          stroke-width="15"
+          points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
+          clip-path="url(#filled)"
         />
       </svg>
     );
@@ -121,32 +120,32 @@ let Stars = (props) => {
   if (prop === 3) {
     return (
       <svg
-        width='.88vw'
-        height='.8vw'
-        viewBox='0 0 300 275'
-        xmlns='http://www.w3.org/2000/svg'
-        version='1.1'
+        width=".88vw"
+        height=".8vw"
+        viewBox="0 0 300 275"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
       >
-        <clipPath id='empty'>
-          <rect x='190' y='0' width='110' height='275' />
+        <clipPath id="empty">
+          <rect x="190" y="0" width="110" height="275" />
         </clipPath>
-        <clipPath id='filled'>
-          <rect x='0' y='0' width='190' height='275' />
+        <clipPath id="filled">
+          <rect x="0" y="0" width="190" height="275" />
         </clipPath>
         <polygon
-          fill='none'
-          stroke='#414141'
-          stroke-width='15'
-          stroke-opacity='0.37647060'
-          points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-          clip-path='url(#empty)'
+          fill="none"
+          stroke="#414141"
+          stroke-width="15"
+          stroke-opacity="0.37647060"
+          points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
+          clip-path="url(#empty)"
         />
         <polygon
-          fill='#414141'
-          stroke='#414141'
-          stroke-width='15'
-          points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
-          clip-path='url(#filled)'
+          fill="#414141"
+          stroke="#414141"
+          stroke-width="15"
+          points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
+          clip-path="url(#filled)"
         />
       </svg>
     );
@@ -154,18 +153,18 @@ let Stars = (props) => {
   if (prop === 0) {
     return (
       <svg
-        width='.88vw'
-        height='.8vw'
-        viewBox='0 0 300 275'
-        xmlns='http://www.w3.org/2000/svg'
-        version='1.1'
+        width=".88vw"
+        height=".8vw"
+        viewBox="0 0 300 275"
+        xmlns="http://www.w3.org/2000/svg"
+        version="1.1"
       >
         <polygon
-          fill='none'
-          stroke='#414141'
-          stroke-width='15'
-          stroke-opacity='0.37647060'
-          points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
+          fill="none"
+          stroke="#414141"
+          stroke-width="15"
+          stroke-opacity="0.37647060"
+          points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
         />
       </svg>
     );

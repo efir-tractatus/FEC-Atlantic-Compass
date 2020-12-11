@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 class Rating extends React.PureComponent {
   constructor(props) {
@@ -31,48 +30,48 @@ class Rating extends React.PureComponent {
   }
 
   render() {
-    let hider = {display: 'none'}
+    let hider = { display: 'none' };
     const { rating } = this.state;
     let stars = [];
     for (let i = 0; i < 5; i++) {
       let filledStar = (
         <svg
-          width='33px'
-          height='30px'
-          viewBox='0 0 300 275'
-          xmlns='http://www.w3.org/2000/svg'
-          version='1.1'
+          width="33px"
+          height="30px"
+          viewBox="0 0 300 275"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
           onMouseOver={() => this.handleMouseover(i)}
           onClick={() => this.rate(i)}
           onMouseOut={() => this.handleMouseout()}
         >
           <polygon
-          fill='#808080'
-          stroke='#808080'
-          stroke-width='15'
-          points='150,25  179,111 269,111 197,165
+            fill="#808080"
+            stroke="#808080"
+            stroke-width="15"
+            points="150,25  179,111 269,111 197,165
                     223,251  150,200 77,251  103,165
-                    31,111 121,111'
-        />
+                    31,111 121,111"
+          />
         </svg>
       );
       let emptyStar = (
         <svg
-          width='33px'
-          height='30px'
-          viewBox='0 0 300 275'
-          xmlns='http://www.w3.org/2000/svg'
-          version='1.1'
+          width="33px"
+          height="30px"
+          viewBox="0 0 300 275"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
           onMouseOver={() => this.handleMouseover(i)}
           onClick={() => this.rate(i)}
           onMouseOut={() => this.handleMouseout()}
         >
           <polygon
-            fill='none'
-            stroke='#808080'
-            stroke-width='15'
-            stroke-opacity='0.37647060'
-            points='150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111'
+            fill="none"
+            stroke="#808080"
+            stroke-width="15"
+            stroke-opacity="0.37647060"
+            points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
           />
         </svg>
       );
@@ -83,14 +82,18 @@ class Rating extends React.PureComponent {
       stars.push(klass);
     }
 
-    let optionArray = ["Poor", "Fair", "Average", "Good", "Great"]
+    let optionArray = ['Poor', 'Fair', 'Average', 'Good', 'Great'];
 
     return (
-      <div className='rating'>
-      <div>
-      <b className="modal-display-stars">{optionArray[this.state.rating]}</b>
-      </div>
-        <div id="currentRating" style={hider}>{this.state.rating + 1}</div>
+      <div className="rating">
+        <div>
+          <b className="modal-display-stars">
+            {optionArray[this.state.rating]}
+          </b>
+        </div>
+        <div id="currentRating" style={hider}>
+          {this.state.rating + 1}
+        </div>
         {stars}
       </div>
     );

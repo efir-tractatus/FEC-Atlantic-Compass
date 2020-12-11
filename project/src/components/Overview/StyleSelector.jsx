@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import StyleSelectorItem from './StyleSelectorItem.jsx';
 import InteractionTracker from '../Utility/InteractionTracker.jsx';
-import '../../../dist/stylesheets/OverviewStyles.css';
 
 const StyleSelector = (props) => {
   // console.log('StyleSelector', props);

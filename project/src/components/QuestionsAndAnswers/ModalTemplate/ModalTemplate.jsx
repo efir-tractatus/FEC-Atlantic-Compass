@@ -1,6 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import '../../../../dist/stylesheets/QandAstyles.css';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 var ModalTemplate = ({ open, children, onClose }) => {
   if (open === false) {
@@ -10,7 +9,9 @@ var ModalTemplate = ({ open, children, onClose }) => {
   return ReactDOM.createPortal(
     <div className="modal-overlay" id="modal-root">
       <div className="modal">
-        <a className="modal-close" onClick={onClose}>X</a>
+        <a className="modal-close" onClick={onClose}>
+          X
+        </a>
         {children}
       </div>
     </div>,

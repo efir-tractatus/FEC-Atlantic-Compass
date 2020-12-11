@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import $ from 'jquery';
 import InteractionTracker from '../Utility/InteractionTracker.jsx';
-import '../../../dist/stylesheets/OverviewStyles.css';
 
 const ImageGallery = (props) => {
   // console.log('ImageGallery', props);
@@ -25,7 +24,6 @@ const ImageGallery = (props) => {
   }, [styleId]);
 
   var imageCollection = photos.map((image, index) => {
-    // console.log('./attributes/no-image.png');
     return (
       <InteractionTracker
         widget="Overview"
@@ -66,7 +64,6 @@ const ImageGallery = (props) => {
   });
 
   var renderImages = imageCollection.slice(midPoint - 3, midPoint + 3);
-  // console.log(renderImages);
 
   return (
     <div className="image-gallery-main-box">
@@ -335,8 +332,6 @@ const ImageGallery = (props) => {
                 setFirstImg(false);
               }
             }
-            console.log(imageIdx);
-            console.log(renderImages);
             // if (Number(renderImages[5].key) === imageIdx) {
             //   setMidPoint(midPoint + 1);
             // }

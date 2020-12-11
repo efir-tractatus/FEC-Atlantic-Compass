@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import StarRating from '../StarRatingLogic';
-import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const IndividualReviews = (props) => {
   let data = props.reviewId;
@@ -13,26 +12,28 @@ const IndividualReviews = (props) => {
   ] = useState(false);
 
   return (
-    <div className='review-existance'>
-      <div className='top-of-review'>
-        <div className='stars'>
+    <div className="review-existance">
+      <div className="top-of-review">
+        <div className="stars">
           <StarRating number={data.rating} />
           {shouldAddCheck(data)}
         </div>
-        <div className='checkMark'>
-          {userNameDiv(data)}
-        </div>
+        <div className="checkMark">{userNameDiv(data)}</div>
       </div>
-      <div className='reviewData'>
-        <p className='data-summary'><b>{data.summary}</b></p>
-        <p className='data-body'>{data.body}</p>
+      <div className="reviewData">
+        <p className="data-summary">
+          <b>{data.summary}</b>
+        </p>
+        <p className="data-body">{data.body}</p>
       </div>
       {/* {checkIfResponses(data.response)} */}
-      <div className='review-buttons'>
-        <div className='helpful-button' type='button'>Helpful?</div>
+      <div className="review-buttons">
+        <div className="helpful-button" type="button">
+          Helpful?
+        </div>
         <div
-          className='yes-button'
-          type='button'
+          className="yes-button"
+          type="button"
           onClick={() => {
             if (checkIfAlreadyPressedHelpful) {
               return;
@@ -46,10 +47,10 @@ const IndividualReviews = (props) => {
         >
           Yes
         </div>{' '}
-        <div className='seperator'>({howHelpful}) </div>
+        <div className="seperator">({howHelpful}) </div>
         <div
-          className='report-button'
-          type='button'
+          className="report-button"
+          type="button"
           onClick={() => {
             let reviewID = data.review_id;
             handleReviewHelpful(reviewID, false);
@@ -65,9 +66,9 @@ const IndividualReviews = (props) => {
 const checkIfResponses = (data) => {
   if (data !== null && data.length > 0) {
     return (
-      <div className='placeHolder'>
-        <p className='placeHolder'>Response:</p>
-        <p className='placeHolder'>${data}</p>
+      <div className="placeHolder">
+        <p className="placeHolder">Response:</p>
+        <p className="placeHolder">${data}</p>
       </div>
     );
   } else {
@@ -86,8 +87,8 @@ const userNameDiv = (data) => {
 
   if (data.reviewer_name) {
     return (
-      <div className='review-user'>
-        <p className='userNameText'>
+      <div className="review-user">
+        <p className="userNameText">
           {data.reviewer_name}, {formattedDate}
         </p>
       </div>
@@ -96,8 +97,8 @@ const userNameDiv = (data) => {
 
   if (!data.reviewer_name) {
     return (
-      <div className='review-user'>
-        <p className='userNameText'>cognito, {formattedDate}</p>
+      <div className="review-user">
+        <p className="userNameText">cognito, {formattedDate}</p>
       </div>
     );
   }
@@ -129,14 +130,15 @@ const handleReviewHelpful = (reviewID, trueOrFalse) => {
 let shouldAddCheck = (data) => {
   let checkMark = (
     <div className="recommend-check-mark">
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      width='.8vw'
-      height='.8vw'
-      viewBox='0 0 24 24'
-    >
-      <path d='M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z' />
-    </svg> I recommend this product
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width=".8vw"
+        height=".8vw"
+        viewBox="0 0 24 24"
+      >
+        <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+      </svg>{' '}
+      I recommend this product
     </div>
   );
   if (data.recommend === 1) {

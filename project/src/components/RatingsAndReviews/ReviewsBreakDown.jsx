@@ -2,7 +2,6 @@ import React from 'react';
 import ReviewsRatingBarGraph from './ReviewsRatingBarGraph.jsx';
 import Characteristics from './Characteristics';
 import StarRating from '../StarRatingLogic';
-import '../../../dist/stylesheets/RatingsAndReviews.css';
 
 const ReviewsBreakDown = (props) => {
   let recommends = props.primaryProductMetadata.recommended;
@@ -10,7 +9,7 @@ const ReviewsBreakDown = (props) => {
     (recommends[1] / (recommends[0] + recommends[1])) * 100
   );
   if (!recommends[0]) {
-    recommendedPercentage = 100
+    recommendedPercentage = 100;
   }
   let reviewCount = 0;
   let aggregateTotal = 0;
@@ -27,15 +26,15 @@ const ReviewsBreakDown = (props) => {
   }
   let overAllReviews = Math.round((aggregateTotal / reviewCount) * 10) / 10;
   if (isNaN(recommendedPercentage)) {
-    recommendedPercentage = 0
+    recommendedPercentage = 0;
   }
   return (
     <div>
-      <div className='review-score'>
-        <b className='review-score-text'>{overAllReviews}</b>
+      <div className="review-score">
+        <b className="review-score-text">{overAllReviews}</b>
         <StarRating number={overAllReviews} />
       </div>
-      <div className='recommends-product'>
+      <div className="recommends-product">
         {recommendedPercentage}% of reviews recommend this products
       </div>
       <div>
@@ -44,7 +43,7 @@ const ReviewsBreakDown = (props) => {
           modeRatings={modeRatings}
         />
       </div>
-      <div className='Characteristics-bars'>
+      <div className="Characteristics-bars">
         <Characteristics
           characteristics={props.primaryProductMetadata.characteristics}
         />

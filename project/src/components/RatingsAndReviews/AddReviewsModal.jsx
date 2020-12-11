@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import InteractionTracker from '../Utility/InteractionTracker';
 import Rating from './AddReviewsStars';
-import '../../../dist/stylesheets/RatingsAndReviews.css';
-import CharacteristicsForm from './CharacteristicsForm.jsx'
+import CharacteristicsForm from './CharacteristicsForm.jsx';
 
 var AddReviewsModal = (props) => {
   let imagesArr = [];
@@ -24,41 +23,41 @@ var AddReviewsModal = (props) => {
   });
 
   return (
-    <div className='Add-Review-Modal'>
-      <p className='modal-header'>
+    <div className="Add-Review-Modal">
+      <p className="modal-header">
         Submit your Review, for a {props.productName}!
       </p>
-      <form id='submit-answer-form'>
-        <label htmlFor='Reviews-Summary'>YOUR SUMMARY:</label>
+      <form id="submit-answer-form">
+        <label htmlFor="Reviews-Summary">YOUR SUMMARY:</label>
         <br></br>
         <textarea
-          type='text'
-          id='Reviews-Summary'
-          name='Reviews-Summary'
-          maxLength='60'
-          placeholder='Your review summary...'
-          className='Reviews-Summary'
+          type="text"
+          id="Reviews-Summary"
+          name="Reviews-Summary"
+          maxLength="60"
+          placeholder="Your review summary..."
+          className="Reviews-Summary"
           required
         ></textarea>
         <br></br>
-        <label htmlFor='Reviews-Body'>YOUR BODY:</label>
+        <label htmlFor="Reviews-Body">YOUR BODY:</label>
         <br></br>
         <textarea
-          type='text'
-          id='Reviews-Body'
-          name='Reviews-Body'
-          maxLength='1000'
-          minLength='50'
-          placeholder='Your review body...'
-          className='Reviews-Body'
+          type="text"
+          id="Reviews-Body"
+          name="Reviews-Body"
+          maxLength="1000"
+          minLength="50"
+          placeholder="Your review body..."
+          className="Reviews-Body"
           required
         ></textarea>
         <br></br>
         <div>
           Would you recommend this product?
-          <select id='recommends'>
-            <option value='yes'>YES</option>
-            <option value='no'>NO</option>
+          <select id="recommends">
+            <option value="yes">YES</option>
+            <option value="no">NO</option>
           </select>
         </div>
         <br></br>
@@ -67,42 +66,42 @@ var AddReviewsModal = (props) => {
           <Rating />
         </div>
         <br></br>
-        <label htmlFor='Reviews-nickname'>WHAT IS YOUR NICKNAME*:</label>
+        <label htmlFor="Reviews-nickname">WHAT IS YOUR NICKNAME*:</label>
         <br></br>
         <input
-          type='text'
-          id='Reviews-nickname'
-          name='Reviews-nickname'
-          maxLength='60'
-          placeholder='Example: jack543!'
+          type="text"
+          id="Reviews-nickname"
+          name="Reviews-nickname"
+          maxLength="60"
+          placeholder="Example: jack543!"
           required
         ></input>
         <br></br>
-        <p className='modal-privacy-warning'>
+        <p className="modal-privacy-warning">
           For privacy reasons, do not use your full name.
         </p>
-        <label htmlFor='Reviews-email'>YOUR E-MAIL*:</label>
+        <label htmlFor="Reviews-email">YOUR E-MAIL*:</label>
         <br></br>
         <input
-          type='text'
-          id='Reviews-email'
-          name='Reviews-email'
-          maxLength='60'
-          placeholder='Example: jack@email.com'
+          type="text"
+          id="Reviews-email"
+          name="Reviews-email"
+          maxLength="60"
+          placeholder="Example: jack@email.com"
           required
         ></input>
         <br></br>
-        <p className='modal-email-warning'>
+        <p className="modal-email-warning">
           For authentication purposes only, you will not recieve any emails from
           us
         </p>
-        <label htmlFor='Review-Photos'>UPLOAD PHOTOS</label>
+        <label htmlFor="Review-Photos">UPLOAD PHOTOS</label>
         <br></br>
         <input
-          type='text'
-          id='photo-upload'
-          name='photo-upload'
-          placeholder='Post a link to your image here!'
+          type="text"
+          id="photo-upload"
+          name="photo-upload"
+          placeholder="Post a link to your image here!"
         ></input>
         <br></br>
         <button
@@ -114,10 +113,10 @@ var AddReviewsModal = (props) => {
         >
           Submit Photo
         </button>
-          {/* {characteristicsRadio} */}
+        {/* {characteristicsRadio} */}
         <div
-          className='photo-upload-preview-container'
-          id='photo-upload-preview-container'
+          className="photo-upload-preview-container"
+          id="photo-upload-preview-container"
         ></div>
         <button
           onClick={() => {
@@ -129,13 +128,13 @@ var AddReviewsModal = (props) => {
         <br></br>
         <br></br>
         <InteractionTracker
-          widget='RatingsAndReviews'
-          element='Submit-answer'
+          widget="RatingsAndReviews"
+          element="Submit-answer"
           render={({ postInteraction }) => (
             <input
-              className='Reviews-Answers-Submit'
-              type='submit'
-              value='SUBMIT'
+              className="Reviews-Answers-Submit"
+              type="submit"
+              value="SUBMIT"
               onClick={(e) => {
                 e.preventDefault();
                 if (checkVaild()) {
@@ -206,8 +205,6 @@ let validateEmail = (email) => {
   const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 };
-
-
 
 AddReviewsModal.prototypes = {};
 export default AddReviewsModal;

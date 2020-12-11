@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
-import AnswerListEntryContainer from "../../../containers/QandA/AnswerListEntryContainer.js";
-import InteractionTracker from "../../Utility/InteractionTracker.jsx";
-import '../../../../dist/stylesheets/QandAstyles.css';
+import React, { useState, useEffect } from 'react';
+import AnswerListEntryContainer from '../../../containers/QandA/AnswerListEntryContainer.js';
+import InteractionTracker from '../../Utility/InteractionTracker.jsx';
 
 var AnswerList = (props) => {
   if (props.answers.length) {
@@ -12,15 +11,15 @@ var AnswerList = (props) => {
 
     var displayList = [];
 
-   for(let i = 0; i < numToDisplay; i++) {
-     if (answerList[i]) {
-      displayList.push(answerList[i]);
-     }
-   }
+    for (let i = 0; i < numToDisplay; i++) {
+      if (answerList[i]) {
+        displayList.push(answerList[i]);
+      }
+    }
 
     useEffect(() => {
-    setAnswersToDisplay(displayList);
-    }, [numToDisplay])
+      setAnswersToDisplay(displayList);
+    }, [numToDisplay]);
 
     const [answersToDisplay, setAnswersToDisplay] = useState(displayList);
 
@@ -29,21 +28,27 @@ var AnswerList = (props) => {
         <div className="answer-list">
           {buildAnswerList(answersToDisplay)}
           <div className="answer-load-more Q-grid-container">
-          <InteractionTracker widget="QandA" element="Load-more-answers"
-           render={({ postInteraction }) => (
-          <a className="answer-load-more-link Q-col-2" onClick={() => {
-            setNumtoDisplay(numToDisplay + 2);
-            postInteraction();
-          }}>LOAD MORE ANSWERS...</a>
-            )} />
+            <InteractionTracker
+              widget="QandA"
+              element="Load-more-answers"
+              render={({ postInteraction }) => (
+                <a
+                  className="answer-load-more-link Q-col-2"
+                  onClick={() => {
+                    setNumtoDisplay(numToDisplay + 2);
+                    postInteraction();
+                  }}
+                >
+                  LOAD MORE ANSWERS...
+                </a>
+              )}
+            />
           </div>
         </div>
       );
     } else {
       return (
-        <div className="answer-list">
-          {buildAnswerList(answersToDisplay)}
-        </div>
+        <div className="answer-list">{buildAnswerList(answersToDisplay)}</div>
       );
     }
   } else {
@@ -63,13 +68,13 @@ var sortAnswersByMostHelpful = (answer1, answer2) => {
   } else {
     return 0;
   }
-}
+};
 
 var buildAnswerList = (listOfAnswers) => {
   return listOfAnswers.map((currAnswer) => {
-    return <AnswerListEntryContainer answer={currAnswer} key={currAnswer.id}/>
-  })
-}
+    return <AnswerListEntryContainer answer={currAnswer} key={currAnswer.id} />;
+  });
+};
 
 AnswerList.propTypes = {};
 
