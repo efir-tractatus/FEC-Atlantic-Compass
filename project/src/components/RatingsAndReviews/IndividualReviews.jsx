@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import StarRating from '../StarRatingLogic';
+import StarRating from '../Utility/StarRatingLogic.jsx';
 
 const IndividualReviews = (props) => {
   let data = props.reviewId;

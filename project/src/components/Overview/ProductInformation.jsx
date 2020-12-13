@@ -1,5 +1,5 @@
 import React from 'react';
-import StarRating from '../StarRatingLogic.jsx';
+import StarRating from '../Utility/StarRatingLogic.jsx';
 
 const ProductInformation = (props) => {
   // console.log('Product Information', props);

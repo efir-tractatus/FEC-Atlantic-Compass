@@ -168,17 +168,14 @@ const ImageGallery = (props) => {
               onClick={() => {
                 postInteraction();
                 if (!expanded) {
-                  $('.image-gallery-thumbnail-column').css(
-                    'visibility',
-                    'hidden'
-                  );
+                  $('.image-gallery-thumbnail-column').fadeOut('fast');
                   $('.left-arrow-box').css({
                     position: 'relative',
-                    left: '-8%',
+                    left: '0',
                   });
                   $('.image-gallery-main-image').css({
                     'object-fit': 'contain',
-                    width: '90%',
+                    width: '100%',
                     height: '100%',
                     cursor: 'zoom-in',
                     display: 'block',
@@ -204,7 +201,7 @@ const ImageGallery = (props) => {
                   $('.image-gallery-main-image').css({
                     transform: 'scale(1)',
                     'object-fit': 'contain',
-                    width: '90%',
+                    width: '100%',
                     height: '100%',
                     cursor: 'zoom-in',
                     display: 'block',
@@ -255,17 +252,14 @@ const ImageGallery = (props) => {
               onClick={() => {
                 postInteraction();
                 if (!expanded) {
-                  $('.image-gallery-thumbnail-column').css(
-                    'visibility',
-                    'hidden'
-                  );
+                  $('.image-gallery-thumbnail-column').fadeOut('fast');
                   $('.left-arrow-box').css({
                     position: 'relative',
-                    left: '-8%',
+                    left: '0%',
                   });
                   $('.image-gallery-main-image').css({
                     'object-fit': 'contain',
-                    width: '90%',
+                    width: '100%',
                     height: '100%',
                     cursor: 'zoom-in',
                     display: 'block',
@@ -279,10 +273,7 @@ const ImageGallery = (props) => {
                   );
                   setExpand(true);
                 } else {
-                  $('.image-gallery-thumbnail-column').css(
-                    'visibility',
-                    'visible'
-                  );
+                  $('.image-gallery-thumbnail-column').fadeIn('slow');
                   $('.left-arrow-box').css({
                     position: 'inherit',
                     left: '3%',

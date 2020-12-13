@@ -7,7 +7,7 @@ import AddToCartContainer from '../../containers/Overview/AddToCartContainer.js'
 var Overview = () => {
   return (
     <div>
-      <p className="overview-component">Overview</p>
+      <p className="overview-component"></p>
       <div className="overview-main-box">
         <div className="overview-left-box">
           <ImageGalleryContainer />

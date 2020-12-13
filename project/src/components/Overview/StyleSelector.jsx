@@ -41,8 +41,8 @@ const StyleSelector = (props) => {
             }}
             style={
               group > 0
-                ? { visibility: 'visible', transform: 'translateX(515%)' }
-                : { visibility: 'hidden', transform: 'translateX(515%)' }
+                ? { visibility: 'visible', transform: 'translateX(595%)' }
+                : { visibility: 'hidden', transform: 'translateX(595%)' }
             }
             alt="up arrow"
           />
@@ -64,8 +64,8 @@ const StyleSelector = (props) => {
             }}
             style={
               group * 4 + 8 < styles.length
-                ? { visibility: 'visible', transform: 'translateX(515%)' }
-                : { visibility: 'hidden', transform: 'translateX(515%)' }
+                ? { visibility: 'visible', transform: 'translateX(595%)' }
+                : { visibility: 'hidden', transform: 'translateX(595%)' }
             }
             alt="down arrow"
           />

@@ -8,7 +8,6 @@ import '../dist/stylesheets/Head.css';
 import '../dist/stylesheets/NavbarStyles.css';
 import '../dist/stylesheets/QandAstyles.css';
 import '../dist/stylesheets/RatingsAndReviews.css';
-// import Overview from 'overview-module';
 
 class App extends React.Component {
   constructor(props) {

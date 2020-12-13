@@ -1,7 +1,7 @@
 import React from 'react';
 import ReviewsRatingBarGraph from './ReviewsRatingBarGraph.jsx';
 import Characteristics from './Characteristics';
-import StarRating from '../StarRatingLogic';
+import StarRating from '../Utility/StarRatingLogic.jsx';
 
 const ReviewsBreakDown = (props) => {
   let recommends = props.primaryProductMetadata.recommended;
