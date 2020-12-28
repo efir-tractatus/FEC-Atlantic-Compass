@@ -1,7 +1,7 @@
-!dist/attributes/
 .cache/
 coverage/
 dist/*
+!dist/attributes/
 node_modules/
 *.log
 
