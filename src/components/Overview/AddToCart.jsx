@@ -36,7 +36,6 @@ const AddToCart = (props) => {
       Select Size
     </option>
   );
-  console.log('RenderSkus', renderSkus);
 
   var renderQuantity = [];
   var maxQuantity = quantity > 15 ? 15 : quantity;

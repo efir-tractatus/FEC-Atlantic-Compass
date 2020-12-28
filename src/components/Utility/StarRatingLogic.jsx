@@ -2,7 +2,6 @@ import React from 'react';
 
 let StarRating = (props) => {
   var { number } = props;
-  console.log(number);
   if (isNaN(number)) {
     number = 0;
   }
