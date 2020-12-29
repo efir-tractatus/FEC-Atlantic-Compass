@@ -67,19 +67,19 @@ class ReviewsList extends React.Component {
               return this.changeSort(e);
             }}
           >
-            <label for="set-the-sort">set the sorting patter</label>
+            <label htmlFor="set-the-sort">set the sorting patter</label>
             <option id="relevance" value="relevance">
               relevance
             </option>
-            <label for="relevance">sort by relevance</label>
+            <label htmlFor="relevance">sort by relevance</label>
             <option id="helpfulness" value="helpfulness">
               helpfulness
             </option>
-            <label for="helpfulness">sort by helpfulness</label>
+            <label htmlFor="helpfulness">sort by helpfulness</label>
             <option id="newest" value="newest">
               newest
             </option>
-            <label for="newest">sort by newest</label>
+            <label htmlFor="newest">sort by newest</label>
           </select>
         </div>
         {this.buildIndividualReviews(this.state.count)}

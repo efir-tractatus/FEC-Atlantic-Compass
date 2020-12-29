@@ -41,7 +41,7 @@ let Stars = (props) => {
         <polygon
           fill="#414141"
           stroke="#414141"
-          stroke-width="15"
+          strokeWidth="15"
           points="150,25  179,111 269,111 197,165
                     223,251  150,200 77,251  103,165
                     31,111 121,111"
@@ -68,17 +68,17 @@ let Stars = (props) => {
         <polygon
           fill="none"
           stroke="#414141"
-          stroke-width="15"
-          stroke-opacity="0.37647060"
+          strokeWidth="15"
+          strokeOpacity="0.37647060"
           points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
-          clip-path="url(#empty)"
+          clipPath="url(#empty)"
         />
         <polygon
           fill="#414141"
           stroke="#414141"
-          stroke-width="15"
+          strokeWidth="15"
           points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
-          clip-path="url(#filled)"
+          clipPath="url(#filled)"
         />
       </svg>
     );
@@ -101,17 +101,17 @@ let Stars = (props) => {
         <polygon
           fill="none"
           stroke="#414141"
-          stroke-width="15"
-          stroke-opacity="0.37647060"
+          strokeWidth="15"
+          strokeOpacity="0.37647060"
           points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
-          clip-path="url(#empty)"
+          clipPath="url(#empty)"
         />
         <polygon
           fill="#414141"
           stroke="#414141"
-          stroke-width="15"
+          strokeWidth="15"
           points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
-          clip-path="url(#filled)"
+          clipPath="url(#filled)"
         />
       </svg>
     );
@@ -134,17 +134,17 @@ let Stars = (props) => {
         <polygon
           fill="none"
           stroke="#414141"
-          stroke-width="15"
-          stroke-opacity="0.37647060"
+          strokeWidth="15"
+          strokeOpacity="0.37647060"
           points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
-          clip-path="url(#empty)"
+          clipPath="url(#empty)"
         />
         <polygon
           fill="#414141"
           stroke="#414141"
-          stroke-width="15"
+          strokeWidth="15"
           points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
-          clip-path="url(#filled)"
+          clipPath="url(#filled)"
         />
       </svg>
     );
@@ -161,8 +161,8 @@ let Stars = (props) => {
         <polygon
           fill="none"
           stroke="#414141"
-          stroke-width="15"
-          stroke-opacity="0.37647060"
+          strokeWidth="15"
+          strokeOpacity="0.37647060"
           points="150,25 179,111 269,111 197,165 223,251 150,200 77,251 103,165 31,111 121,111"
         />
       </svg>

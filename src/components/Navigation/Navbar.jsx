@@ -4,7 +4,11 @@ import axios from 'axios';
 var Navbar = (props) => {
   return (
     <div className="navbar">
-      <img className="navbar-logo" src="./attributes/AtComp.png" />
+      <img
+        className="navbar-logo"
+        src="./attributes/AtComp.png"
+        alt="navbar logo"
+      />
       <p className="navbar-header">Atlantic Compass</p>
       <div className="navbar-searchbar-container">
         <input

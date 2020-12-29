@@ -46,9 +46,13 @@ const AddToCart = (props) => {
 
   return (
     <div>
+      <label htmlFor="id-size-selector" hidden>
+        Size
+      </label>
       <select
         value={quantity}
         className="size-selector"
+        id="id-size-selector"
         disabled={renderSkus.length === 1 ? true : false}
         onChange={(e) => {
           setQuantity(e.target.value);
@@ -60,8 +64,12 @@ const AddToCart = (props) => {
           renderSkus
         )}
       </select>
+      <label htmlFor="id-quantity-selector" hidden>
+        Quantity
+      </label>
       <select
         className="quantity-selector"
+        id="id-quantity-selector"
         disabled={quantity === '' ? true : false}
       >
         {quantity === '' ? <option key={'none'}>-</option> : renderQuantity}
