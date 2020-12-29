@@ -15,7 +15,7 @@
 ## General info
 
 Project Catwalk comprises a complete redesign of a retail portal intended to revamp and modernize the site. The old client-facing retail web-portal has become significantly outdated and has been proven to be hurting sales numbers.
-Built over the span of two weeks by a team of 3 engineers using Agile practices and progress tracking in a [Trello](https://trello.com/b/RQDQjDmW/hr-project-catwalk) board.
+Built over the span of two weeks by a team of 3 engineers using Agile practices and progress tracking in a Trello board.
 
 ## Screenshots
 
@@ -23,16 +23,24 @@ Built over the span of two weeks by a team of 3 engineers using Agile practices 
 
 ## Technologies
 
-- React
-- Redux
-- Node.js
-- Express
-- Axios
-- Sass
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/)
+- [Node.js](https://nodejs.dev/)
+- [Express](https://expressjs.com/)
+- [Axios](https://github.com/axios/axios)
+- [jQuery](https://jquery.com/)
+- [Sass](https://sass-lang.com/)
 
 ## Setup
 
-Describe how to install / setup your local environement / add link to demo version.
+From root directory run the following commands in the console
+
+    `npm install` to install all project dependencies
+    `npm run build-css` to compile sass files
+    `npm run build` to bundle project with webpack
+    `npm run start` to launch server
+
+In your browser navigate to http://localhost:4206
 
 ## Features
 
