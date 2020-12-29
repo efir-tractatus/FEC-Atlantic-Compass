@@ -10,11 +10,12 @@
 - [Setup](#setup)
 - [Features](#features)
 - [Status](#status)
-- [Contact](#created-by)
+- [Created by](#created-by)
 
 ## General info
 
-Project Catwalk comprises a complete redesign of the retail portal designed to address this concern and modernize the site. The old client-facing retail web-portal has become significantly outdated and has been proven to be hurting sales numbers.
+Project Catwalk comprises a complete redesign of a retail portal intended to revamp and modernize the site. The old client-facing retail web-portal has become significantly outdated and has been proven to be hurting sales numbers.
+Built over the span of two weeks by a team of 3 engineers using Agile practices and progress tracking in a [Trello](https://trello.com/b/RQDQjDmW/hr-project-catwalk) board.
 
 ## Screenshots
 
@@ -22,9 +23,12 @@ Project Catwalk comprises a complete redesign of the retail portal designed to a
 
 ## Technologies
 
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- React
+- Redux
+- Node.js
+- Express
+- Axios
+- Sass
 
 ## Setup
 
@@ -44,6 +48,6 @@ Project is: _finished_
 
 ## Created by
 
-[Joe DiMartino](https://github.com/Joed11)
-[David Lai](https://github.com/punkvidi)
+[Joe DiMartino](https://github.com/Joed11) /n
+[David Lai](https://github.com/punkvidi) /n
 [Denis Sanches](https://github.com/efir-tractatus)
