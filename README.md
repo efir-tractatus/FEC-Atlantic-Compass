@@ -8,7 +8,7 @@
 - [Screenshots](#screenshots)
 - [Technologies](#technologies)
 - [Setup](#setup)
-- [Features](#features)
+- [Performance](#performance)
 - [Status](#status)
 - [Created by](#created-by)
 
@@ -42,13 +42,13 @@ From root directory run the following commands in the console
 
 In your browser navigate to http://localhost:4206
 
-## Features
+## Performance
 
-List of features ready
+**Lighthouse**
+(./dist/attributes/lighthouse.png)
 
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+**Performance**
+(./dist/attributes/performance-metric.png)
 
 ## Status
 
