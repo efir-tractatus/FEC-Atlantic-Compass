@@ -48,7 +48,7 @@ In your browser navigate to http://localhost:4206
 ![Lighthouse](./dist/attributes/lighthouse.png)
 
 **Performance Metric**  
-![Performance](./dist/attributes/performance-metric.png)
+![Performance](./dist/attributes/performance-metrics.png)
 
 ## Status
 
