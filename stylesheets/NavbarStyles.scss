@@ -1,0 +1,60 @@
+@import 'Head';
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 3vw;
+  max-height: 100px;
+  width: 90vw;
+  padding: 2vw;
+  padding-left: 5vw;
+  padding-right: 7vw;
+  background-color: $ColorDarkGray;
+  color: whitesmoke;
+  margin: auto;
+}
+
+.navbar-logo {
+  width: 4%;
+  margin-left: -3%;
+}
+
+.navbar-header {
+  font-weight: 500;
+  font-size: $FontXL;
+  font-family: 'Courier New', Courier, monospace;
+  // text-decoration: underline;
+  margin-left: -50%;
+}
+
+.navbar-searchbar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-searchbar {
+  font-size: $FontL;
+  width: 15vw;
+  color: whitesmoke;
+  background: none;
+  border: none;
+  box-shadow: none;
+  border-bottom: 2px solid whitesmoke;
+}
+
+.navbar-searchbar:focus {
+  outline: none;
+}
+
+.navbar-searchbar-symbol {
+  margin-left: 0.5vw;
+  height: 1.7vw;
+  width: 1.7vw;
+  max-height: 32px;
+  max-width: 32px;
+  background-color: none;
+  background: none;
+}
