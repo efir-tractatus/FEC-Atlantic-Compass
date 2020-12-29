@@ -44,10 +44,10 @@ In your browser navigate to http://localhost:4206
 
 ## Performance
 
-**Lighthouse**  
+**Lighthouse Report**  
 ![Lighthouse](./dist/attributes/lighthouse.png)
 
-**Performance Metric**  
+**Performance Metrics**  
 ![Performance](./dist/attributes/performance-metrics.png)
 
 ## Status
