@@ -38,7 +38,7 @@ From root directory run the following commands in the console
 **npm install** to install all project dependencies  
 **npm run build-css** to compile sass files  
 **npm run build** to bundle project with webpack  
-**npm run start** to launch server
+**npm start** to launch server
 
 In your browser navigate to http://localhost:4206
 
