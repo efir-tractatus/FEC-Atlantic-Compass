@@ -6,6 +6,7 @@ node_modules/
 *.log
 *.pem
 .env
+package-lock.json
 
 # OS generated files
 .DS_Store
