@@ -40,7 +40,7 @@ From root directory run the following commands in the console
 **npm run build** to bundle project with webpack  
 **npm start** to launch server
 
-In your browser navigate to http://localhost:4206
+In your browser navigate to localhost:4206
 
 ## Performance
 
