@@ -3,9 +3,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const compression = require('compression');
+require('dotenv').config();
 const app = express();
-const PORT = 4206;
-const APIURL = 'http://3.137.191.193';
+const PORT = process.env.PORT;
+const APIURL = process.env.API_URL;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,8 +17,6 @@ app.get('/', (req, res) => {
   res.set('Content-Encoding', 'gzip');
   res.status(200).send('./index.html');
 });
-
-//3.137.191.193/
 
 http: app.get('/catwalk/:id', (req, res) => {
   console.log(req.params);

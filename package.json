@@ -18,12 +18,14 @@
     "build-dev": "webpack --mode development -w",
     "build-css": "node-sass ./stylesheets -o ./dist/stylesheets --output-style compressed",
     "watch-css": "node-sass --watch ./stylesheets -o ./dist/stylesheets --output-style compressed",
-    "build": "webpack --mode production -w",
+    "build": "node-sass ./stylesheets -o ./dist/stylesheets --output-style compressed && webpack --mode production -w",
     "test": "jest --collect-coverage",
-    "start": "nodemon ./server/index.js"
+    "start": "nodemon ./server/index.js",
+    "heroku-postbuild": "node-sass ./stylesheets -o ./dist/stylesheets --output-style compressed && webpack -p"
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "lodash": "^4.17.20",
