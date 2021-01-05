@@ -18,7 +18,7 @@
     "build-dev": "webpack --mode development -w",
     "build-css": "node-sass ./stylesheets -o ./dist/stylesheets --output-style compressed",
     "watch-css": "node-sass --watch ./stylesheets -o ./dist/stylesheets --output-style compressed",
-    "build": "node-sass ./stylesheets -o ./dist/stylesheets --output-style compressed && webpack --mode production -w",
+    "build": "node-sass ./stylesheets -o ./dist/stylesheets --output-style compressed && webpack --mode production",
     "test": "jest --collect-coverage",
     "start": "nodemon ./server/index.js"
   },
