@@ -20,7 +20,7 @@
     "watch-css": "node-sass --watch ./stylesheets -o ./dist/stylesheets --output-style compressed",
     "build": "node-sass ./stylesheets -o ./dist/stylesheets --output-style compressed && webpack --mode production",
     "test": "jest --collect-coverage",
-    "start": "nodemon ./server/index.js"
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "axios": "^0.21.1",
