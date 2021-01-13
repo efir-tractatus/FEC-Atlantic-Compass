@@ -12,7 +12,7 @@ const APIURL = process.env.API_URL;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(compression());
+// app.use(compression());
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/', (req, res) => {
