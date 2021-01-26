@@ -45,7 +45,7 @@ const AddToCart = (props) => {
   }
 
   return (
-    <div>
+    <div className="addtocart-box">
       <label htmlFor="id-size-selector" hidden>
         Size
       </label>

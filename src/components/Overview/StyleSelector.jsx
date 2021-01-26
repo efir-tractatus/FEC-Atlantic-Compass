@@ -22,7 +22,7 @@ const StyleSelector = (props) => {
   var displayStyles = styles.slice(group * 4, group * 4 + 8);
 
   return (
-    <div>
+    <div className="style-box">
       <p className="style">
         STYLE > <span className="style-name">{props.currentStyle.name}</span>
       </p>

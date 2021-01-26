@@ -26,7 +26,7 @@ const StyleSelectorItem = ({ style, handleStyleChange, currentStyleID }) => {
           />
           <img
             className="style-grid-image"
-            src={style.photos[0].thumbnail_url}
+            src={style.photos[0].thumbnail_url || './attributes/noimage.jpg'}
             alt="style image"
           />
         </div>

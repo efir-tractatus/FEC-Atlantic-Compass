@@ -44,7 +44,7 @@ const ImageGallery = (props) => {
       >
         <img
           className="image-gallery-thumbnail"
-          src={image.thumbnail_url}
+          src={image.thumbnail_url || './attributes/noimage.jpg'}
           alt="thumbnail"
           style={
             mainImage === image.url
@@ -210,7 +210,7 @@ const ImageGallery = (props) => {
               });
             }
           }}
-          src={mainImage}
+          src={mainImage || './attributes/noimage.jpg'}
           alt="product image"
         />
       </div>
