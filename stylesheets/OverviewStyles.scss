@@ -206,7 +206,8 @@
   font: $MainFont;
   font-size: $FontM;
   color: $ColorDarkGray;
-  margin-block-end: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .product-name {
@@ -236,6 +237,7 @@
   font-weight: normal;
   font-size: $FontS;
   color: $ColorExtraDarkGray;
+  width: 75%;
   height: 64px;
   overflow: auto;
 }
@@ -271,7 +273,7 @@
   display: inline-block;
   border: 1px solid $ColorExtraDarkGray;
   margin-right: 3%;
-  width: 310px;
+  width: 407px;
   height: 40px;
   background-color: white;
   font: $MainFont;

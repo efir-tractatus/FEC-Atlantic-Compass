@@ -39,6 +39,7 @@ const ProductInformation = (props) => {
             : { visibility: 'visible' }
         }
       >
+        <p className="product-category">{props.primaryProduct.category}</p>
         <StarRating number={rating} />
         <span className="product-information-review">
           <a href="#start-of-ratings">
@@ -46,7 +47,6 @@ const ProductInformation = (props) => {
           </a>
         </span>
       </div>
-      <p className="product-category">{props.primaryProduct.category}</p>
       <p className="product-name">{props.primaryProduct.name}</p>
       {price}
       <p className="product-description">{props.primaryProduct.description}</p>

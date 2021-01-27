@@ -6,6 +6,7 @@ node_modules/
 *.log
 *.pem
 .env
+ecosystem.config.js
 
 # OS generated files
 .DS_Store
