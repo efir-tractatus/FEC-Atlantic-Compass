@@ -41,11 +41,11 @@ const ProductInformation = (props) => {
       >
         <p className="product-category">{props.primaryProduct.category}</p>
         <StarRating number={rating} />
-        <span className="product-information-review">
+        {/* <span className="product-information-review">
           <a href="#start-of-ratings">
             Read all {props.reviews.length} Reviews
           </a>
-        </span>
+        </span> */}
       </div>
       <p className="product-name">{props.primaryProduct.name}</p>
       {price}
