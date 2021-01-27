@@ -2,7 +2,7 @@ const axios = require('axios');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-// const compression = require('compression');
+const compression = require('compression');
 require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT;
@@ -12,7 +12,7 @@ const APIURL = process.env.API_URL;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(compression());
+app.use(compression());
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.get('/', (req, res) => {
