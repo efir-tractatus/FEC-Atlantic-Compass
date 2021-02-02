@@ -52,7 +52,7 @@ In your browser navigate to localhost:4206
 
 ## Status
 
-Project is: _finished_
+Project is: _in_progress_
 
 ## Created by
 
